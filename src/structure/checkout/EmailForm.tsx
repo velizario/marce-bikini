@@ -85,7 +85,7 @@ export type CheckOutFormKeys =
   | "postalCode";
 
 export type EmailFormData = Record<CheckOutFormKeys, string>;
-
+console.log("test");
 const emailLabelData: EmailFormData = {
   email: "email",
   country: "country",
