@@ -3,14 +3,14 @@
 }
 
 a {
-  color: #1878b9 !important;
-  text-decoration: none !important;
+  color: #1878b9;
+  text-decoration: none;
   transition: 0.3s ease color;
   cursor: pointer;
 }
 
 a:hover {
-  color: #115786 !important;
+  color: #063c61;
 }
 
 button.buttonNoHover:hover {
