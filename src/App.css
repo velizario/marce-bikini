@@ -1,0 +1,87 @@
+.App {
+  text-align: center;
+}
+
+a {
+  color: #1878b9 !important;
+  text-decoration: none !important;
+  transition: 0.3s ease color;
+  cursor: pointer;
+}
+
+a:hover {
+  color: #115786 !important;
+}
+
+button.buttonNoHover:hover {
+  background: unset;
+  transition: 0.3s ease color;
+  color: black;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: Montserrat, sans-serif;
+}
+body {
+  font-family: Lora, serif;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.7rem;
+}
+
+h4 {
+  font-size: 1.4rem;
+  font-weight: 500;
+  margin: 0 0 1rem 0;
+  color: #333;
+}
+
+h5 {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

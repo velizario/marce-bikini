@@ -1,0 +1,87 @@
+.avatar {
+  margin-right: 1rem;
+  width: 5rem;
+  height: 7rem;
+}
+
+.image {
+  margin-right: 1rem;
+  width: 5rem;
+  height: 7rem;
+  object-fit: cover;
+}
+
+.table,
+.tableTotals {
+  margin-top: 2rem;
+  box-shadow: none;
+  table-layout: fixed;
+}
+
+td,
+th {
+  border: 0 !important;
+  min-width: 5rem;
+}
+
+tr {
+  border-bottom: 0.5px solid rgb(229, 229, 229);
+}
+
+.tableTotals tr:last-child {
+  border-bottom: 0;
+}
+
+.titleLink {
+  display: block;
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: underline;
+  color: #333;
+  transition: 0.3s ease all;
+}
+
+.tableHeader {
+  font-weight: 700;
+}
+
+.titleLink:hover {
+  color: #b9a04d;
+}
+
+.tableTotals {
+  width: 100%;
+  max-width: 35rem;
+  margin-right: 0;
+  margin-left: auto;
+}
+
+.checkoutButtom {
+  margin-right: 0;
+  margin-left: auto;
+  margin-top: 1rem;
+  width: 100%;
+  max-width: 12rem;
+  text-decoration: none;
+}
+
+.totalsAttribute {
+  color: #777;
+  font-weight: 600;
+}
+
+.totalsValue {
+  text-decoration: underline;
+  color: #777;
+  font-weight: 500;
+}
+
+.totalsSubtotalPrice {
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.totalsTotalPrice {
+  font-size: 1.1rem;
+  font-weight: 600;
+}

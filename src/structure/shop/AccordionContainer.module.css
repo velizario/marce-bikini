@@ -1,0 +1,36 @@
+.noDistance {
+  padding: 0;
+  margin: 0;
+}
+
+.accordion {
+  box-shadow: none;
+  padding: 0;
+}
+
+.accordionDetails {
+  padding: 0;
+}
+
+.accordionSummary {
+  padding: 0;
+  margin: 3rem 0 0;
+  border-bottom: 1px solid #e4e4e4;
+  min-height: 0;
+}
+
+.accordionSummary div {
+  margin: 0;
+}
+
+.listItem {
+  list-style: none;
+  padding: 0.5rem 0;
+  cursor: pointer;
+  color: #777;
+}
+
+.listItem:hover {
+  color: black;
+  transition: 0.3s ease color;
+}

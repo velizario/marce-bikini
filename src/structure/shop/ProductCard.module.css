@@ -1,0 +1,23 @@
+.image {
+  height: 20rem;
+  object-fit: cover;
+  object-position: 50% 0%;
+}
+
+.titleLink {
+  text-decoration: none;
+  color: #333;
+  transition: 0.3s ease all;
+}
+
+.titleLink:hover {
+  color: #b9a04d;
+}
+
+.titleLink h5 {
+  font-size: 1rem;
+}
+
+.description {
+  height: 7rem;
+}

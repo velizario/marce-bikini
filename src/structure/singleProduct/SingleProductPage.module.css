@@ -1,0 +1,142 @@
+.image {
+  width: 100%;
+  object-fit: cover;
+  height: 30rem;
+  cursor: zoom-in;
+}
+
+.imageBox {
+  margin-right: 3%;
+}
+
+.sideImages {
+  margin-right: 3%;
+  width: 20%;
+}
+
+.sideImage {
+  width: 100%;
+  height: 10rem;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.euroIcon {
+  font-size: 1rem;
+  vertical-align: middle;
+  position: relative;
+  bottom: 0.1rem;
+}
+
+.price {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.discountPrice {
+  text-decoration: line-through;
+  font-size: 1rem;
+  position: relative;
+  left: 1rem;
+  color: #777;
+}
+
+.productTitle {
+  font-size: 1.8rem;
+  margin: 0;
+  font-weight: 500;
+}
+
+.productInfo {
+  width: 60%;
+  position: relative;
+}
+
+.productSizes {
+  list-style: none;
+  padding: 0.2rem 1.2rem;
+  border-radius: 0.2rem;
+  margin-right: 0.4rem;
+  cursor: pointer;
+  border: 1px solid rgba(204, 204, 204, 0.3);
+  box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
+  transition: 0.3s ease border;
+}
+
+.productSizes:hover {
+  border: 1px solid rgba(150, 150, 150, 1);
+}
+
+.productSizes.active {
+  background: #327e58;
+  color: white;
+  border: 1px solid rgba(150, 150, 150, 1);
+}
+
+.sizeList {
+  display: flex;
+  padding: 0;
+}
+
+button {
+  width: 15rem;
+}
+
+.actionButtons {
+  position: absolute;
+  bottom: 0;
+}
+
+.buttonBuy {
+  margin-left: 1rem;
+}
+
+/* Product count input  */
+.productCount {
+  max-width: min-content;
+  display: flex;
+  flex-direction: row;
+  border: 0.5px solid #f1e8ca;
+  user-select: none;
+  height: 2rem;
+  align-items: center;
+  border-radius: 0.3rem;
+  box-shadow: 1px 1px 7px -3px rgba(0, 0, 0, 0.15);
+  margin-top: 2rem;
+  overflow: hidden;
+}
+
+.inputValue {
+  background: white;
+  height: 100%;
+  line-height: 2rem;
+  text-align: center;
+  width: 2.5rem;
+  font-size: 0.9rem;
+}
+
+.inputIncrease,
+.inputDecrease {
+  background: #f7f3e8;
+  text-align: center;
+  padding: 0;
+  height: 100%;
+  min-width: 2rem;
+  max-width: 2rem;
+  cursor: pointer;
+  box-shadow: none;
+  margin: 0;
+
+  border-radius: 0.3rem;
+  border-radius: 0;
+}
+
+.inputIncrease:hover,
+.inputDecrease:hover {
+  padding: 0;
+  margin: 0;
+  background: #eeeadd;
+  text-align: center;
+  box-shadow: none;
+  cursor: pointer;
+}

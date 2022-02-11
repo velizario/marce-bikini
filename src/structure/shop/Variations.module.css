@@ -1,0 +1,40 @@
+.variations {
+  width: 15rem;
+  height: 100%;
+  flex-shrink: 0;
+  margin-right: 2rem;
+}
+
+.activeFilters {
+  display: inline-block;
+  padding: 0.3rem 0.7rem;
+  color: #444;
+  font-size: 0.8rem;
+  border-radius: 0.2rem;
+  background: rgb(238, 238, 238);
+  margin: 0.5rem;
+  list-style: none;
+  cursor: pointer;
+  transition: 0.2s ease all;
+}
+
+.activeFilters:hover {
+  /* background: rgb(242, 242, 242); */
+  color: #888;
+}
+
+.closeIcon {
+  font-size: 0.7rem;
+  color: #888;
+  position: relative;
+  bottom: 0.03rem;
+  vertical-align: middle;
+}
+
+.euroIcon {
+  font-size: 0.7rem;
+  color: #555;
+  vertical-align: middle;
+  position: relative;
+  bottom: 0.1rem;
+}
