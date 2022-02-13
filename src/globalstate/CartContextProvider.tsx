@@ -5,13 +5,15 @@ import { Product, productModelImpl } from "../model/productModel";
 import { UserContext } from "./UserContextProvider";
 
 // define Cart type and context
-type CartContext = {
+type CartContextItems = {
+  isSet: boolean;
   cartItems: CartUserModel[];
   productItems: Product[];
   setCartItems: (cartData: CartUserModel[]) => void;
 };
 
-const cartDefaultContext: CartContext = {
+const cartDefaultContext: CartContextItems = {
+  isSet: false,
   cartItems: [],
   productItems: [],
   setCartItems: () => {},
@@ -36,6 +38,7 @@ export const CartContextProvider: React.FC = ({ children }) => {
         ...state,
         cartItems,
         productItems,
+        isSet: true,
       };
     });
   };
@@ -54,13 +57,14 @@ export const CartContextProvider: React.FC = ({ children }) => {
     getCartItems();
   }, [userContext]);
 
-  const initCartState: CartContext = {
+  const initCartState: CartContextItems = {
+    isSet: false,
     cartItems: [],
     productItems: [],
     setCartItems,
   };
 
-  const [cartState, setCartState] = useState<CartContext>(initCartState);
+  const [cartState, setCartState] = useState<CartContextItems>(initCartState);
 
   return (
     <CartContext.Provider value={cartState}>{children}</CartContext.Provider>

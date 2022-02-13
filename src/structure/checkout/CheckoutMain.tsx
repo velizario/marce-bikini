@@ -8,7 +8,10 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import styles from "./CheckoutMain.module.css";
 import EmailForm, { EmailFormData } from "./EmailForm";
-import { SelectChangeEvent } from "@mui/material";
+import { SelectChangeEvent, SxProps, Theme } from "@mui/material";
+import { Link as ButtonLink } from "react-router-dom";
+import ButtonBasic from "../../utilityComponents/ButtonBasic";
+import ContainerLarge from "../../utilityComponents/ContainerLarge";
 
 export const defaultFormData = {
   email: "",
@@ -21,7 +24,12 @@ export const defaultFormData = {
   postalCode: "",
 };
 
-export default function CheckOutMain() {
+type CheckOutMainProps = {
+  sx?: SxProps<Theme>;
+};
+
+// Component
+const CheckOutMain: React.FC<CheckOutMainProps> = ({ sx }) => {
   const getDataFromStorage: () => EmailFormData = () => {
     const storageData = localStorage.getItem("userAddress");
     return storageData ? JSON.parse(storageData) : defaultFormData;
@@ -66,26 +74,26 @@ export default function CheckOutMain() {
   };
 
   return (
-    <Box sx={{ width: "100%", marginTop: "4rem", maxWidth: "40rem" }}>
-      <Stepper activeStep={activeStep} orientation="vertical">
-        <Step key="Customer">
+    <ContainerLarge styles={{ ...sx }}>
+      <Stepper
+        activeStep={activeStep}
+        orientation="vertical"
+        sx={{ width: "100%" }}
+      >
+        <Step key="contact information" expanded>
           <Box
             sx={{
               display: "flex",
               justifyContent: "space-between",
+              alignItems: "center",
             }}
           >
             <StepLabel>
-              <h2>Contact Information</h2>
+              <Typography className={styles.stepLabel}>
+                Contact Information
+              </Typography>
             </StepLabel>
-            <Button
-              color="secondary"
-              className="buttonNoHover"
-              size="small"
-              onClick={() => setActiveStep(0)}
-            >
-              Edit
-            </Button>
+            <ButtonBasic onClick={() => setActiveStep(0)}>Edit</ButtonBasic>
           </Box>
           <StepContent>
             <EmailForm
@@ -93,13 +101,14 @@ export default function CheckOutMain() {
               formData={formData}
               formDataHandler={formDataHandler}
               handleNext={handleNext}
+              activeStep={activeStep}
             ></EmailForm>
           </StepContent>
         </Step>
-        <Step key="Shipping method">
+        <Step key="Delivery method">
           <StepLabel>
             <Typography className={styles.stepLabel}>
-              Shipping Details
+              Delivery Options
             </Typography>
           </StepLabel>
           <StepContent>
@@ -107,6 +116,8 @@ export default function CheckOutMain() {
           </StepContent>
         </Step>
       </Stepper>
-    </Box>
+    </ContainerLarge>
   );
-}
+};
+
+export default CheckOutMain;

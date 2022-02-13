@@ -5,13 +5,14 @@ export const defaultTheme = createTheme({
     fontFamily: ["Montserrat", "sans-serif"].join(","),
 
     body1: {
-      fontFamily: ["Lora", "sans-serif"].join(","),
+      fontFamily: ["Montserrat", "sans-serif"].join(","),
     },
     body2: {
-      fontFamily: ["Lora", "sans-serif"].join(","),
+      fontFamily: ["Montserrat", "sans-serif"].join(","),
     },
     h2: {
       fontSize: "2rem",
+      fontFamily: ["Montserrat", "sans-serif"].join(","),
     },
   },
 

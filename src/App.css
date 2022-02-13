@@ -13,6 +13,16 @@ a:hover {
   color: #063c61;
 }
 
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  list-style: none;
+  padding: 0;
+}
+
 button.buttonNoHover:hover {
   background: unset;
   transition: 0.3s ease color;
@@ -49,6 +59,7 @@ h4 {
 h5 {
   font-size: 1.1rem;
   font-weight: 500;
+  margin: 0 0 1rem 0;
 }
 
 .App-logo {
@@ -84,4 +95,10 @@ h5 {
   to {
     transform: rotate(360deg);
   }
+}
+
+/* More styles */
+/* MUI step connector - disable margin between steps in checkout page */
+.MuiStepConnector-line.MuiStepConnector-lineVertical {
+  min-height: 0 !important;
 }

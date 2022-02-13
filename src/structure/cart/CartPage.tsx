@@ -10,7 +10,13 @@ const CartPage = () => {
   return (
     <ContainerLarge>
       <HeaderFooter>
-        {cartContext.cartItems.length > 0 ? <CartMain /> : <CartEmpty />}
+        {!cartContext.isSet ? (
+          <div>Loading!</div>
+        ) : cartContext.cartItems.length > 0 ? (
+          <CartMain sx={{ margin: "2rem 0" }} />
+        ) : (
+          <CartEmpty />
+        )}
       </HeaderFooter>
     </ContainerLarge>
   );

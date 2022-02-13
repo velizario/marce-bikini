@@ -52,7 +52,7 @@ const TabSingleProduct = () => {
         >
           <Tab label="Description" {...a11yProps(0)} />
           <Tab label="Sizing Guide" {...a11yProps(1)} />
-          <Tab label="Shipping Info" {...a11yProps(2)} />
+          <Tab label="Delivery Info" {...a11yProps(2)} />
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
@@ -62,7 +62,7 @@ const TabSingleProduct = () => {
         Sizing Guide
       </TabPanel>
       <TabPanel value={value} index={2}>
-        Shipping Info
+        Delivery Info
       </TabPanel>
     </Box>
   );

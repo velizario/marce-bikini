@@ -87,8 +87,8 @@ export type CheckOutFormKeys =
 export type EmailFormData = Record<CheckOutFormKeys, string>;
 console.log("test");
 const emailLabelData: EmailFormData = {
-  email: "email",
-  country: "country",
+  email: "Email",
+  country: "Country",
   firstName: "First name",
   lastName: "Last name",
   addressLine1: "Address",
@@ -130,6 +130,7 @@ type EmailFormProps = {
   ) => void;
   formData: EmailFormData;
   subscribeHandler: () => void;
+  activeStep: number;
 };
 
 export const schema = yup.object().shape({
@@ -149,6 +150,7 @@ const EmailForm: React.FC<EmailFormProps> = ({
   formDataHandler,
   formData,
   subscribeHandler,
+  activeStep,
 }) => {
   const userContext = useContext(UserContext);
 
@@ -165,26 +167,55 @@ const EmailForm: React.FC<EmailFormProps> = ({
   });
 
   const submitFormHandler = async (data: EmailFormData) => {
-    console.log(data);
     formDataHandler(data);
     handleNext(data);
   };
-
-  // const getDefaultInfo = () => {
-  //   const storedAddress = localStorage.getItem("userAddress");
-  //   return storedAddress ? JSON.parse(storedAddress) : defaultFormData;
-  // };
-
-  // const watchEmail = useWatch({ control, name: "email" });
-  // useEffect(() => {
-  //   console.log(watchEmail);
-  // }, [watchEmail]);
 
   useEffect(() => {
     userContext.isLoggedIn && setValue("email", userContext.isLoggedIn.email);
   }, [userContext.isLoggedIn]);
 
-  return (
+  const formDataArray = Object.entries(formData) as [
+    CheckOutFormKeys,
+    string
+  ][];
+
+  return activeStep > 0 ? (
+    <Box sx={{ display: "flex" }}>
+      <Box sx={{ paddingRight: "20%" }}>
+        <Typography sx={{ fontWeight: "600", fontSize: "0.8rem" }}>
+          Delivery address:
+          <br />
+        </Typography>
+        <Typography sx={{ fontSize: "0.8rem" }}>
+          {formData.firstName} {formData.lastName}
+          <br />
+          {formData.addressLine1}
+          <br />
+          {formData.addressLine2}
+          <br />
+          {formData.city}, {formData.postalCode}
+          <br />
+          {formData.country}
+        </Typography>
+      </Box>
+      {/* Email address */}
+      {/* <Box>
+        <Typography
+          component="span"
+          sx={{ color: "#545454", fontSize: "0.8rem" }}
+        >
+          Email address: <br />
+        </Typography>
+        <Typography
+          component="span"
+          sx={{ fontWeight: "500", fontSize: "0.8rem" }}
+        >
+          {formData.email}
+        </Typography>
+      </Box> */}
+    </Box>
+  ) : (
     <div className={styles.formContainer}>
       <form
         className={styles.form}
@@ -199,113 +230,111 @@ const EmailForm: React.FC<EmailFormProps> = ({
             justifyContent: "space-between",
           }}
         >
-          {(Object.entries(formData) as [CheckOutFormKeys, string][]).map(
-            ([key, value]) => (
-              <React.Fragment key={key}>
-                {key === "email" ? (
-                  userContext.isLoggedIn ? (
-                    <Box>
-                      <h4>Email Address</h4>
-                      <LoggedInUserInfo userInfo={userContext.isLoggedIn} />
-                    </Box>
-                  ) : (
-                    <React.Fragment>
-                      <Box
-                        sx={{
-                          width: "100%",
-                          display: "flex",
-                          justifyContent: "space-between",
-                          alignItems: "baseline",
-                          marginBottom: "1rem",
-                        }}
-                      >
-                        <h4>Email Address</h4>
-                        <Typography className={styles.supplText}>
-                          Already have an account?{" "}
-                          <Link to="/account" state={{ fromCheckout: true }}>
-                            Sign in now
-                          </Link>
-                        </Typography>
-                      </Box>
-
-                      <InputField
-                        control={control}
-                        error={errors[key]?.message}
-                        name={key}
-                        sx={{ position: "relative" }}
-                        label={emailLabelData[key]}
-                      >
-                        <FormControlLabel
-                          className={styles.supplText}
-                          control={
-                            <Checkbox
-                              defaultChecked
-                              size="small"
-                              color="secondary"
-                            />
-                          }
-                          label="Email me with news and offers"
-                          onChange={subscribeHandler}
-                          sx={{ position: "absolute", bottom: 0, right: 0 }}
-                        />
-                      </InputField>
-                    </React.Fragment>
-                  )
-                ) : key === "country" ? (
-                  <Box
-                    sx={{
-                      width: "100%",
-                      display: "flex",
-                      flexDirection: "column",
-                    }}
-                  >
-                    <h4>Shipping address</h4>
-
-                    <FormControl sx={{ width: "100%" }} size="small">
-                      <InputLabel>Country</InputLabel>
-
-                      <Controller
-                        control={control}
-                        name={key}
-                        render={({ field: { onChange, onBlur, value } }) => (
-                          <Select
-                            labelId="country"
-                            id="country"
-                            label="Country"
-                            value={value}
-                            onChange={onChange}
-                          >
-                            {menuItems.map((item) => (
-                              <MenuItem key={item} value={item}>
-                                {item}
-                              </MenuItem>
-                            ))}
-                          </Select>
-                        )}
-                      />
-                    </FormControl>
-                    <p className={styles.errorMessage}>
-                      {errors.country?.message}
-                    </p>
+          {formDataArray.map(([key, value]) => (
+            <React.Fragment key={key}>
+              {key === "email" ? (
+                userContext.isLoggedIn ? (
+                  <Box>
+                    <h5>Email Address</h5>
+                    <LoggedInUserInfo userInfo={userContext.isLoggedIn} />
                   </Box>
                 ) : (
-                  <InputField
-                    control={control}
-                    error={errors[key]?.message}
-                    name={key}
-                    sx={{ width: emailWidthSettings[key] }}
-                    // getValuesHandler={getValuesHandler}
-                    // formDataHandler={formDataHandler}
-                    // defaultValue={value}
-                    // register={register}
+                  <React.Fragment>
+                    <Box
+                      sx={{
+                        width: "100%",
+                        display: "flex",
+                        justifyContent: "space-between",
+                        alignItems: "baseline",
+                        marginBottom: "1rem",
+                      }}
+                    >
+                      <h5>Email Address</h5>
+                      <Typography className={styles.supplText}>
+                        Already have an account?{" "}
+                        <Link to="/account" state={{ fromCheckout: true }}>
+                          Sign in now
+                        </Link>
+                      </Typography>
+                    </Box>
 
-                    // textFieldType={key}
-                    label={emailLabelData[key]}
-                  />
-                )}
-              </React.Fragment>
-            )
-          )}
+                    <InputField
+                      control={control}
+                      error={errors[key]?.message}
+                      name={key}
+                      sx={{ position: "relative" }}
+                      label={emailLabelData[key]}
+                    >
+                      <FormControlLabel
+                        className={styles.supplText}
+                        control={
+                          <Checkbox
+                            defaultChecked
+                            size="small"
+                            color="secondary"
+                          />
+                        }
+                        label="Email me with news and offers"
+                        onChange={subscribeHandler}
+                        sx={{ position: "absolute", bottom: 0, right: 0 }}
+                      />
+                    </InputField>
+                  </React.Fragment>
+                )
+              ) : key === "country" ? (
+                <Box
+                  sx={{
+                    width: "100%",
+                    display: "flex",
+                    flexDirection: "column",
+                  }}
+                >
+                  <h5>Delivery address</h5>
+
+                  <FormControl sx={{ width: "100%" }} size="small">
+                    <InputLabel>Country</InputLabel>
+
+                    <Controller
+                      control={control}
+                      name={key}
+                      render={({ field: { onChange, onBlur, value } }) => (
+                        <Select
+                          labelId="country"
+                          id="country"
+                          label="Country"
+                          value={value}
+                          onChange={onChange}
+                        >
+                          {menuItems.map((item) => (
+                            <MenuItem key={item} value={item}>
+                              {item}
+                            </MenuItem>
+                          ))}
+                        </Select>
+                      )}
+                    />
+                  </FormControl>
+                  <p className={styles.errorMessage}>
+                    {errors.country?.message}
+                  </p>
+                </Box>
+              ) : (
+                <InputField
+                  control={control}
+                  error={errors[key]?.message}
+                  name={key}
+                  sx={{ width: emailWidthSettings[key] }}
+                  // getValuesHandler={getValuesHandler}
+                  // formDataHandler={formDataHandler}
+                  // defaultValue={value}
+                  // register={register}
+
+                  // textFieldType={key}
+                  label={emailLabelData[key]}
+                />
+              )}
+            </React.Fragment>
+          ))}
         </Box>
         <Button
           color="secondary"
@@ -313,7 +342,7 @@ const EmailForm: React.FC<EmailFormProps> = ({
           type="submit"
           endIcon={<NavigateNextIcon />}
         >
-          To Shipping details
+          To Delivery Options
         </Button>
       </form>
     </div>

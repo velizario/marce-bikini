@@ -10,7 +10,7 @@ const ContainerLarge: React.FC<ContainerProps> = ({ children, styles }) => {
   return (
     <Container
       sx={{
-        margin: "auto",
+        margin: "0 auto",
         width: "100%",
         maxWidth: "1400px",
         display: "flex",

@@ -10,11 +10,23 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import { Button, IconButton, SvgIcon, Typography } from "@mui/material";
+import {
+  Button,
+  IconButton,
+  SvgIcon,
+  SxProps,
+  Theme,
+  Typography,
+} from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
 import { removeFromCart } from "../../model/cartModel";
 
-const CartMain = () => {
+export type CartMainProps = {
+  sx?: SxProps<Theme>;
+};
+
+//Component
+const CartMain: React.FC<CartMainProps> = ({ sx }) => {
   const cartContext = useContext(CartContext);
   const userContext = useContext(UserContext);
   const navigate = useNavigate();
@@ -36,7 +48,7 @@ const CartMain = () => {
   // );
 
   return (
-    <ContainerLarge styles={{ margin: "2rem 0" }}>
+    <ContainerLarge styles={{ padding: 0, ...sx }}>
       <TableContainer className={styles.table} component={Paper}>
         <Table
           sx={{
@@ -182,7 +194,7 @@ const CartMain = () => {
             </TableRow>
             <TableRow>
               <TableCell className={styles.totalsAttribute}>
-                Shipping:
+                Delivery:
               </TableCell>
               <TableCell className={styles.totalsValue} align="right">
                 Discuss
