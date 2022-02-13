@@ -181,8 +181,31 @@ const EmailForm: React.FC<EmailFormProps> = ({
   ][];
 
   return activeStep > 0 ? (
-    <Box sx={{ display: "flex" }}>
-      <Box sx={{ paddingRight: "20%" }}>
+    <Box
+      sx={{
+        background: "#f9fafa",
+        display: "flex",
+        flexWrap: "wrap",
+        justifyContent: "space-between",
+        padding: "1rem 5%",
+        borderRadius: "0.4rem",
+        border: "1px solid rgba(0,0,0,0.1)",
+      }}
+    >
+      {/* Email address  */}
+      <Box sx={{ paddingBottom: "0.5rem" }}>
+        <Typography
+          sx={{
+            fontWeight: "600",
+            fontSize: "0.8rem",
+          }}
+        >
+          Email address: <br />
+        </Typography>
+        <Typography sx={{ fontSize: "0.8rem" }}>{formData.email}</Typography>
+      </Box>
+
+      <Box>
         <Typography sx={{ fontWeight: "600", fontSize: "0.8rem" }}>
           Delivery address:
           <br />
@@ -199,21 +222,6 @@ const EmailForm: React.FC<EmailFormProps> = ({
           {formData.country}
         </Typography>
       </Box>
-      {/* Email address */}
-      {/* <Box>
-        <Typography
-          component="span"
-          sx={{ color: "#545454", fontSize: "0.8rem" }}
-        >
-          Email address: <br />
-        </Typography>
-        <Typography
-          component="span"
-          sx={{ fontWeight: "500", fontSize: "0.8rem" }}
-        >
-          {formData.email}
-        </Typography>
-      </Box> */}
     </Box>
   ) : (
     <div className={styles.formContainer}>

@@ -40,7 +40,6 @@ const CartPage = () => {
         <CartMain
           sx={{
             width: "50%",
-            background: "#f9fafa",
             margin: 0,
           }}
         ></CartMain>

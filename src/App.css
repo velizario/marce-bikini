@@ -102,3 +102,13 @@ h5 {
 .MuiStepConnector-line.MuiStepConnector-lineVertical {
   min-height: 0 !important;
 }
+
+/* Width of radio form in CheckoutMain.tsx */
+.MuiFormControlLabel-label {
+  width: 100%;
+}
+
+/* stepper content remove padding */
+.MuiStepContent-root {
+  padding-right: 0;
+}

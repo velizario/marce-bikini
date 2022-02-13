@@ -8,10 +8,20 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import styles from "./CheckoutMain.module.css";
 import EmailForm, { EmailFormData } from "./EmailForm";
-import { SelectChangeEvent, SxProps, Theme } from "@mui/material";
+import {
+  FormControl,
+  FormControlLabel,
+  FormLabel,
+  Radio,
+  RadioGroup,
+  SelectChangeEvent,
+  SxProps,
+  Theme,
+} from "@mui/material";
 import { Link as ButtonLink } from "react-router-dom";
 import ButtonBasic from "../../utilityComponents/ButtonBasic";
 import ContainerLarge from "../../utilityComponents/ContainerLarge";
+import { useEffect } from "react";
 
 export const defaultFormData = {
   email: "",
@@ -45,6 +55,10 @@ const CheckOutMain: React.FC<CheckOutMainProps> = ({ sx }) => {
   const subscribeHandler = () => {
     setSubscribe((subscribe) => !subscribe);
   };
+
+  useEffect(() => {
+    formData && setActiveStep(1);
+  }, [formData]);
 
   const formDataHandler = (
     data:
@@ -105,14 +119,91 @@ const CheckOutMain: React.FC<CheckOutMainProps> = ({ sx }) => {
             ></EmailForm>
           </StepContent>
         </Step>
-        <Step key="Delivery method">
+        <Step key="Delivery method" expanded>
           <StepLabel>
             <Typography className={styles.stepLabel}>
               Delivery Options
             </Typography>
           </StepLabel>
+
           <StepContent>
-            <div>Next step</div>
+            <FormControl
+              sx={{
+                boxSizing: "border-box",
+                width: "100%",
+                padding: "1rem 5%",
+                borderRadius: "0.4rem",
+                border: "1px solid rgba(0,0,0,0.1)",
+              }}
+            >
+              {/* <FormLabel id="demo-radio-buttons-group-label">Gender</FormLabel> */}
+              <RadioGroup
+                aria-labelledby="delivery-options"
+                defaultValue="dhl-standard"
+                name="delivery-options"
+              >
+                <FormControlLabel
+                  sx={{ paddingBottom: "1rem", width: "100%", margin: 0 }}
+                  value="dhl-standard"
+                  control={
+                    <Radio
+                      sx={{
+                        paddingTop: 0,
+                        paddingLeft: 0,
+                        alignSelf: "flex-start",
+                      }}
+                    />
+                  }
+                  label={
+                    <React.Fragment>
+                      <Box
+                        sx={{
+                          width: "100%",
+                          display: "flex",
+                          justifyContent: "space-between",
+                        }}
+                      >
+                        <Typography>DHL Standard Delivery</Typography>
+                        <Typography>€15</Typography>
+                      </Box>
+                      <Typography sx={{ fontSize: "0.9rem", color: "#545454" }}>
+                        3-5 business days
+                      </Typography>
+                    </React.Fragment>
+                  }
+                />
+                <FormControlLabel
+                  sx={{ paddingBottom: "1rem", width: "100%", margin: 0 }}
+                  value="dhl-express"
+                  control={
+                    <Radio
+                      sx={{
+                        paddingTop: 0,
+                        paddingLeft: 0,
+                        alignSelf: "flex-start",
+                      }}
+                    />
+                  }
+                  label={
+                    <React.Fragment>
+                      <Box
+                        sx={{
+                          width: "100%",
+                          display: "flex",
+                          justifyContent: "space-between",
+                        }}
+                      >
+                        <Typography>DHL Express Delivery</Typography>
+                        <Typography>€25</Typography>
+                      </Box>
+                      <Typography sx={{ fontSize: "0.9rem", color: "#545454" }}>
+                        10-14 business days
+                      </Typography>
+                    </React.Fragment>
+                  }
+                />
+              </RadioGroup>
+            </FormControl>
           </StepContent>
         </Step>
       </Stepper>
