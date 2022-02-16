@@ -34,7 +34,6 @@ tr {
 
 .titleLink {
   display: block;
-  font-size: 1rem;
   font-weight: 500;
   text-decoration: underline;
   color: #333;
@@ -77,11 +76,9 @@ tr {
 }
 
 .totalsSubtotalPrice {
-  font-size: 0.875rem;
   font-weight: 500;
 }
 
 .totalsTotalPrice {
-  font-size: 1.1rem;
   font-weight: 600;
 }

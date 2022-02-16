@@ -103,16 +103,10 @@ const CartMain: React.FC<CartMainProps> = ({ sx }) => {
                       >
                         {product.title}
                       </Link>
-                      <Typography
-                        component="span"
-                        sx={{ fontSize: "0.9rem", color: "#777" }}
-                      >
+                      <Typography component="span" sx={{ color: "#777" }}>
                         Size:{" "}
                       </Typography>
-                      <Typography
-                        component="span"
-                        sx={{ fontSize: "0.875rem", color: "black" }}
-                      >
+                      <Typography component="span" sx={{ color: "black" }}>
                         {cartItem.size}
                       </Typography>
                     </div>
@@ -120,10 +114,7 @@ const CartMain: React.FC<CartMainProps> = ({ sx }) => {
                   <TableCell align="right">€{productPrice}</TableCell>
                   <TableCell align="right">{cartItem.quantity}</TableCell>
                   <TableCell align="right">
-                    <Typography
-                      component="span"
-                      sx={{ fontWeight: "700", fontSize: "0.875rem" }}
-                    >
+                    <Typography component="span" sx={{ fontWeight: "700" }}>
                       €{totalItemPrice}
                     </Typography>
 

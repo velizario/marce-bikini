@@ -2,23 +2,24 @@ import { createTheme } from "@mui/material/styles";
 
 export const defaultTheme = createTheme({
   typography: {
-    fontFamily: ["Montserrat", "sans-serif"].join(","),
+    fontFamily: ["Assistant", "sans-serif"].join(","),
 
     body1: {
-      fontFamily: ["Montserrat", "sans-serif"].join(","),
+      fontFamily: ["Assistant", "sans-serif"].join(","),
     },
     body2: {
-      fontFamily: ["Montserrat", "sans-serif"].join(","),
+      fontFamily: ["Assistant", "sans-serif"].join(","),
     },
     h2: {
       fontSize: "2rem",
-      fontFamily: ["Montserrat", "sans-serif"].join(","),
+      fontFamily: ["Assistant", "sans-serif"].join(","),
     },
   },
 
   palette: {
     primary: {
-      main: "#b9a04d",
+      // main: "#b9a04d",
+      main: "#000",
     },
     secondary: {
       main: "#317F57",

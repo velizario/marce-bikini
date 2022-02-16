@@ -197,20 +197,19 @@ const EmailForm: React.FC<EmailFormProps> = ({
         <Typography
           sx={{
             fontWeight: "600",
-            fontSize: "0.8rem",
           }}
         >
           Email address: <br />
         </Typography>
-        <Typography sx={{ fontSize: "0.8rem" }}>{formData.email}</Typography>
+        <Typography>{formData.email}</Typography>
       </Box>
 
       <Box>
-        <Typography sx={{ fontWeight: "600", fontSize: "0.8rem" }}>
+        <Typography sx={{ fontWeight: "600" }}>
           Delivery address:
           <br />
         </Typography>
-        <Typography sx={{ fontSize: "0.8rem" }}>
+        <Typography>
           {formData.firstName} {formData.lastName}
           <br />
           {formData.addressLine1}

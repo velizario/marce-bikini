@@ -1,0 +1,6 @@
+.headerTop {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  grid-column-gap: 5px;
+  justify-items: center;
+}

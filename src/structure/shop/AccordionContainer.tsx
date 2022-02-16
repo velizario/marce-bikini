@@ -65,9 +65,11 @@ const AccordionContainer: React.FC<AccordionContainerProps> = ({
                         !(e.target as HTMLInputElement).checked
                       );
                     }}
-                    sx={{
-                      "& .MuiSvgIcon-root": { fontSize: 16 },
-                    }}
+                    sx={
+                      {
+                        // "& .MuiSvgIcon-root": { fontSize: 16 },
+                      }
+                    }
                     control={<Checkbox checked={selection.has(entry[0])} />}
                     label={`${entry[0]} (${entry[1]})`}
                   />

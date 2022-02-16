@@ -134,6 +134,7 @@ const CheckOutMain: React.FC<CheckOutMainProps> = ({ sx }) => {
                 padding: "1rem 5%",
                 borderRadius: "0.4rem",
                 border: "1px solid rgba(0,0,0,0.1)",
+                background: "#f9fafa",
               }}
             >
               {/* <FormLabel id="demo-radio-buttons-group-label">Gender</FormLabel> */}
@@ -164,9 +165,11 @@ const CheckOutMain: React.FC<CheckOutMainProps> = ({ sx }) => {
                         }}
                       >
                         <Typography>DHL Standard Delivery</Typography>
-                        <Typography>€15</Typography>
+                        <Typography sx={{ fontWeight: "500" }}>
+                          €15.00
+                        </Typography>
                       </Box>
-                      <Typography sx={{ fontSize: "0.9rem", color: "#545454" }}>
+                      <Typography sx={{ color: "#545454" }}>
                         3-5 business days
                       </Typography>
                     </React.Fragment>
@@ -194,9 +197,11 @@ const CheckOutMain: React.FC<CheckOutMainProps> = ({ sx }) => {
                         }}
                       >
                         <Typography>DHL Express Delivery</Typography>
-                        <Typography>€25</Typography>
+                        <Typography sx={{ fontWeight: "500" }}>
+                          €25.00
+                        </Typography>
                       </Box>
-                      <Typography sx={{ fontSize: "0.9rem", color: "#545454" }}>
+                      <Typography sx={{ color: "#545454" }}>
                         10-14 business days
                       </Typography>
                     </React.Fragment>

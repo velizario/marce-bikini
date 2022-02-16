@@ -13,9 +13,12 @@ const HeaderFooter: React.FC<HeaderFooterProps> = ({ children }) => {
   return (
     <React.Fragment>
       <ContainerLarge>
-        <HeaderTop></HeaderTop>
-        <HeaderMain></HeaderMain>
-        <HeaderBottom></HeaderBottom>
+        <HeaderTop />
+      </ContainerLarge>
+      <HeaderMain />
+
+      <ContainerLarge>
+        <HeaderBottom />
       </ContainerLarge>
       {children}
       <ContainerLarge>

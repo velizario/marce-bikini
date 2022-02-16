@@ -9,8 +9,16 @@ a {
   cursor: pointer;
 }
 
+button:hover {
+  background-color: transparent;
+}
+
 a:hover {
-  color: #063c61;
+  /* color: #063c61; */
+  color: #b9a04d;
+  background-color: transparent !important;
+  /* text-decoration: underline !important; */
+  /* text-underline-offset: 0.2em; */
 }
 
 ul {
@@ -21,6 +29,10 @@ ul {
 li {
   list-style: none;
   padding: 0;
+}
+
+button {
+  letter-spacing: 0.06rem;
 }
 
 button.buttonNoHover:hover {
@@ -38,7 +50,8 @@ h6 {
   font-family: Montserrat, sans-serif;
 }
 body {
-  font-family: Lora, serif;
+  font-family: Assistant, serif;
+  letter-spacing: 0.06rem;
 }
 
 h2 {
