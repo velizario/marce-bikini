@@ -13,7 +13,7 @@ import "swiper/css/navigation";
 import { Pagination, Navigation } from "swiper";
 
 import styles from "./FeaturedProducts.module.css";
-import { Container } from "@mui/material";
+import { Container, Typography } from "@mui/material";
 import ProductCard from "../shop/ProductCard";
 
 const FeaturedProducts = () => {
@@ -39,8 +39,16 @@ const FeaturedProducts = () => {
             maxWidth: "1400px",
             position: "relative",
             display: "block",
+            textAlign: "center",
           }}
         >
+          <Typography variant="h4" component="h4" sx={{ marginBottom: "1rem" }}>
+            Featured Products
+          </Typography>
+          <Typography variant="body1" sx={{ marginBottom: "2rem" }}>
+            Laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+            dolor.
+          </Typography>
           <Swiper
             className={styles.swiper}
             width={1200}
