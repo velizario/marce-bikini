@@ -11,7 +11,7 @@ const HomePage = () => {
       <HeroCarousel />
       <ContainerLarge
         styles={{
-          margin: "2.5rem auto",
+          margin: "7rem auto",
           padding: "2.5rem",
           boxShadow: "0px 8px 34px 0px rgb(0 0 0 / 6%);",
         }}
