@@ -1,12 +1,14 @@
+import React from "react";
 import ContainerLarge from "../../utilityComponents/ContainerLarge";
 import HeaderFooter from "../headerfooter/HeaderFooter";
 import Benefits from "./Benefits";
-import Hero from "./Hero";
-
+import FeaturedProducts from "./FeaturedProducts";
+import HeroCarousel from "./HeroCarousel";
+import SwiperTest from "./SwiperTest";
 const HomePage = () => {
   return (
     <HeaderFooter>
-      <Hero />
+      <HeroCarousel />
       <ContainerLarge
         styles={{
           margin: "2.5rem auto",
@@ -16,6 +18,12 @@ const HomePage = () => {
       >
         <Benefits />
       </ContainerLarge>
+      <FeaturedProducts />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
     </HeaderFooter>
   );
 };

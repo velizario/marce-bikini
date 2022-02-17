@@ -125,3 +125,28 @@ h5 {
 .MuiStepContent-root {
   padding-right: 0;
 }
+
+/* Swiper prev/next arrows design */
+.swiper-button-next,
+.swiper-button-prev {
+  color: #ccc !important;
+  padding: 0 0.5rem;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.1);
+  transition: 0.3s ease all;
+}
+.swiper-button-next:after,
+.swiper-button-prev:after {
+  font-size: 1.2rem !important;
+}
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  color: #eee !important;
+  background: rgba(0, 0, 0, 0.3);
+}
+.swiper-button-next:hover {
+  transform: translateX(10%);
+}
+.swiper-button-prev:hover {
+  transform: translateX(-10%);
+}

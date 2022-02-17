@@ -21,7 +21,6 @@ export class Product implements StrapiProduct {
 //BUG:
 //NOTE:
 
-
 export interface ProductModelTemplate {
   getProducts(
     selections: SelectionElements
@@ -30,6 +29,7 @@ export interface ProductModelTemplate {
   unpublishProduct(product: Product): Promise<Product>;
   updateProduct(product: Product): Promise<Product>;
   getProductById(id: string): Promise<Product>;
+  getFeaturedProducts(): Promise<Product[]>;
 }
 
 class VariationsImpl implements FilterElements {
@@ -117,6 +117,7 @@ export class ProductModel implements ProductModelTemplate {
       getCount(product, selections, filterList);
       return matchingVariations(product, selections);
     });
+    console.log(data);
     return { data, newVariations: filterList };
   }
 
@@ -145,6 +146,17 @@ export class ProductModel implements ProductModelTemplate {
 
   updateProduct(product: Product): Promise<Product> {
     throw new Error("Method not implemented.");
+  }
+
+  async getFeaturedProducts(): Promise<Product[]> {
+    let data = await this.fetchProducts();
+
+    // data = data.filter((product) => {
+    //   getCount(product, selections, filterList);
+    //   return matchingVariations(product, selections);
+    // });
+    console.log(data);
+    return data;
   }
 }
 
