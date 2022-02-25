@@ -19,9 +19,10 @@ import {
   Theme,
 } from "@mui/material";
 import { Link as ButtonLink } from "react-router-dom";
-import ButtonBasic from "../../utilityComponents/ButtonBasic";
+import ButtonBasicClick from "../../utilityComponents/ButtonBasicClick";
 import ContainerLarge from "../../utilityComponents/ContainerLarge";
 import { useEffect } from "react";
+import ButtonBasicLink from "../../utilityComponents/ButtonBasicLink";
 
 export const defaultFormData = {
   email: "",
@@ -104,10 +105,12 @@ const CheckOutMain: React.FC<CheckOutMainProps> = ({ sx }) => {
           >
             <StepLabel>
               <Typography className={styles.stepLabel}>
-                Contact Information
+                Contact information
               </Typography>
             </StepLabel>
-            <ButtonBasic onClick={() => setActiveStep(0)}>Edit</ButtonBasic>
+            <ButtonBasicClick type="body" onClick={() => setActiveStep(0)}>
+              View / Edit
+            </ButtonBasicClick>
           </Box>
           <StepContent>
             <EmailForm
@@ -122,7 +125,7 @@ const CheckOutMain: React.FC<CheckOutMainProps> = ({ sx }) => {
         <Step key="Delivery method" expanded>
           <StepLabel>
             <Typography className={styles.stepLabel}>
-              Delivery Options
+              Delivery options
             </Typography>
           </StepLabel>
 

@@ -24,6 +24,7 @@ import InputField from "./InputField";
 import { UserContext } from "../../globalstate/UserContextProvider";
 import LoggedInUserInfo from "./LoggedInUserInfo";
 import { defaultFormData } from "./CheckoutMain";
+import ButtonBasicLink from "../../utilityComponents/ButtonBasicLink";
 
 const menuItems = [
   "",
@@ -253,15 +254,19 @@ const EmailForm: React.FC<EmailFormProps> = ({
                         display: "flex",
                         justifyContent: "space-between",
                         alignItems: "baseline",
-                        marginBottom: "1rem",
+                        marginTop: "1rem ",
                       }}
                     >
                       <h5>Email Address</h5>
                       <Typography className={styles.supplText}>
                         Already have an account?{" "}
-                        <Link to="/account" state={{ fromCheckout: true }}>
+                        <ButtonBasicLink
+                          type="bodySmall"
+                          to="/account"
+                          state={{ fromCheckout: true }}
+                        >
                           Sign in now
-                        </Link>
+                        </ButtonBasicLink>
                       </Typography>
                     </Box>
 
@@ -347,9 +352,10 @@ const EmailForm: React.FC<EmailFormProps> = ({
           color="secondary"
           variant="contained"
           type="submit"
+          sx={{ marginBottom: "1.5rem" }}
           endIcon={<NavigateNextIcon />}
         >
-          To Delivery Options
+          Next
         </Button>
       </form>
     </div>

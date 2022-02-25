@@ -9,13 +9,7 @@ const HomePage = () => {
   return (
     <HeaderFooter>
       <HeroCarousel />
-      <ContainerLarge
-        styles={{
-          margin: "7rem auto",
-          padding: "2.5rem",
-          boxShadow: "0px 8px 34px 0px rgb(0 0 0 / 6%);",
-        }}
-      >
+      <ContainerLarge>
         <Benefits />
       </ContainerLarge>
       <FeaturedProducts />

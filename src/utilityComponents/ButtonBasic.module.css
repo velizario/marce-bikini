@@ -1,14 +1,31 @@
-.button {
-  /* background: transparent;
-  border: 0;
-  cursor: pointer;
+.body,
+.footer,
+.bodySmall {
   font-weight: 500;
-  color: #1878b9; */
-  text-transform: none;
+  font-size: 0.9rem;
+  cursor: pointer;
+  letter-spacing: 0;
+  color: #005174;
+  text-decoration: none;
 }
-/* 
-.button:hover {
-  color: #b9a04d;
-  transition: 0.3s ease color;
-  color: #063c61;
-} */
+.body:hover,
+.footer:hover,
+.bodySmall:hover {
+  /* color: rgb(173, 166, 42); */
+  color: #c7511f;
+  /* border-bottom: 1px solid #c7511f; */
+  text-decoration: underline;
+}
+
+.footer {
+  color: rgba(16, 16, 16, 0.75);
+  font-size: 1rem;
+}
+
+.footer:hover {
+  color: rgb(16, 16, 16);
+}
+
+.bodySmall {
+  font-size: 0.8rem;
+}

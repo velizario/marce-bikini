@@ -7,3 +7,28 @@
 .swiper {
   height: 82vh;
 }
+
+.swiperPrev,
+.swiperNext {
+  color: #ddd;
+  padding: 0 0.5rem;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.1);
+  transition: 0.3s ease all;
+}
+
+.swiperNext:after,
+.swiperPrev:after {
+  font-size: 1.2rem;
+}
+.swiperNext:hover,
+.swiperPrev:hover {
+  color: #fff;
+  background: rgba(0, 0, 0, 0.3);
+}
+.swiperNext:hover {
+  transform: translateX(10%);
+}
+.swiperPrev:hover {
+  transform: translateX(-10%);
+}

@@ -1,5 +1,6 @@
 import React from "react";
 import ContainerLarge from "../../utilityComponents/ContainerLarge";
+import Announcement from "./Announcement";
 import Footer from "./Footer";
 import HeaderBottom from "./HeaderBottom";
 import HeaderMain from "./HeaderMain";
@@ -12,18 +13,15 @@ type HeaderFooterProps = {
 const HeaderFooter: React.FC<HeaderFooterProps> = ({ children }) => {
   return (
     <React.Fragment>
-      <ContainerLarge>
-        <HeaderTop />
-      </ContainerLarge>
+      <Announcement />
+      {/* <HeaderTop /> */}
       <HeaderMain />
 
       <ContainerLarge>
         <HeaderBottom />
       </ContainerLarge>
       {children}
-      <ContainerLarge>
-        <Footer />
-      </ContainerLarge>
+      <Footer />
     </React.Fragment>
   );
 };

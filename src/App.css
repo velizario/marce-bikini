@@ -1,12 +1,18 @@
 .App {
   text-align: center;
 }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
 a {
   color: #1878b9;
-  text-decoration: none;
-  transition: 0.3s ease color;
+  /* transition: 0.3s ease color; */
   cursor: pointer;
+  font-size: 0.9rem;
+  min-width: unset !important;
 }
 
 button:hover {
@@ -15,7 +21,6 @@ button:hover {
 
 a:hover {
   /* color: #063c61; */
-  color: #b9a04d;
   background-color: transparent !important;
   /* text-decoration: underline !important; */
   /* text-underline-offset: 0.2em; */
@@ -127,21 +132,21 @@ h5 {
 }
 
 /* Swiper prev/next arrows design */
-.swiper-button-next,
+/* .swiper-button-next,
 .swiper-button-prev {
-  color: #ccc !important;
+  color: #ddd !important;
   padding: 0 0.5rem;
   border-radius: 50%;
   background: rgba(0, 0, 0, 0.1);
   transition: 0.3s ease all;
-}
+} 
 .swiper-button-next:after,
 .swiper-button-prev:after {
   font-size: 1.2rem !important;
 }
 .swiper-button-next:hover,
 .swiper-button-prev:hover {
-  color: #eee !important;
+  color: #fff !important;
   background: rgba(0, 0, 0, 0.3);
 }
 .swiper-button-next:hover {
@@ -150,3 +155,4 @@ h5 {
 .swiper-button-prev:hover {
   transform: translateX(-10%);
 }
+*/

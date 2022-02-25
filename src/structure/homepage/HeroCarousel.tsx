@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-
+import { Swiper as SwiperType } from "swiper";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
@@ -12,6 +12,7 @@ import styles from "./HeroCarousel.module.css";
 
 // import required modules
 import { Autoplay, Pagination, Navigation } from "swiper";
+import { Typography } from "@mui/material";
 
 const heroImages = [
   { image: "/images/hero1.png" },
@@ -20,6 +21,8 @@ const heroImages = [
 ];
 
 export default function HeroCarousel() {
+  const [mySwiper, setMySwiper] = useState<SwiperType>();
+
   return (
     <>
       <Swiper
@@ -30,14 +33,16 @@ export default function HeroCarousel() {
         loop={true}
         loopAdditionalSlides={1}
         autoplay={{
-          delay: 5000,
+          delay: 50000,
           disableOnInteraction: false,
         }}
         pagination={{
           clickable: true,
         }}
-        navigation={true}
         modules={[Autoplay, Pagination, Navigation]}
+        onInit={(ev) => {
+          setMySwiper(ev);
+        }}
       >
         {/* <SwiperSlide>123</SwiperSlide>
         <SwiperSlide>123</SwiperSlide> */}
@@ -50,6 +55,21 @@ export default function HeroCarousel() {
             />
           </SwiperSlide>
         ))}
+        <Typography
+          alignSelf="center"
+          className={"swiper-button-prev " + styles.swiperPrev}
+          onClick={() => mySwiper && mySwiper.slidePrev()}
+        >
+          {/* <ArrowBackIosIcon /> */}
+        </Typography>
+
+        <Typography
+          alignSelf="center"
+          className={"swiper-button-next " + styles.swiperNext}
+          onClick={() => mySwiper && mySwiper.slideNext()}
+        >
+          {/* <ArrowForwardIosIcon /> */}
+        </Typography>
       </Swiper>
     </>
   );

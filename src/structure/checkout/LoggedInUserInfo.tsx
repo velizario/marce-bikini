@@ -9,6 +9,7 @@ import { Avatar } from "@mui/material";
 import { UserModel } from "../../globalstate/UserContextProvider";
 import { userLogout } from "../../model/userModel";
 import { UserContext } from "../../globalstate/UserContextProvider";
+import ButtonBasicClick from "../../utilityComponents/ButtonBasicClick";
 
 type LioggedInUserInfoProps = {
   userInfo: UserModel;
@@ -39,9 +40,9 @@ const LoggedInUserInfo: React.FC<LioggedInUserInfoProps> = ({ userInfo }) => {
       <Typography className={styles.supplText}>
         {userInfo.email} ({userInfo.firstName} {userInfo.lastName})
         <br />
-        <MuiLink sx={{}} onClick={logOutHandler}>
+        <ButtonBasicClick type="body" onClick={logOutHandler}>
           Log out
-        </MuiLink>
+        </ButtonBasicClick>
       </Typography>
     </Box>
   );

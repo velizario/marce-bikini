@@ -1,6 +1,8 @@
 .errorMessage {
-  margin-top: 0.2rem;
+  margin-top: 0rem;
   margin-bottom: 0.8rem;
+  padding-left: 0.2rem;
+  font-size: 0.8rem;
   min-height: 17px;
   color: rgb(177, 0, 0);
 }

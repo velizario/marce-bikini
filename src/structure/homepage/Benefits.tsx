@@ -32,7 +32,15 @@ const benefitsList = [
 
 const Benefits = () => {
   return (
-    <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+    <Box
+      sx={{
+        display: "flex",
+        justifyContent: "space-between",
+        margin: "7rem auto",
+        padding: "2.5rem",
+        boxShadow: "0px 8px 34px 0px rgb(0 0 0 / 6%);",
+      }}
+    >
       {benefitsList.map((item) => (
         <BenefitItem key={item.heading} item={item} sx={{ width: "22%" }} />
       ))}
