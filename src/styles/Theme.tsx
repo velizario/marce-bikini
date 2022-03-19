@@ -12,7 +12,22 @@ export const defaultTheme = createTheme({
     },
     h2: {
       fontSize: "2rem",
-      fontFamily: ["Assistant", "sans-serif"].join(","),
+      fontFamily: ["Playfair Display SC", "sans-serif"].join(","),
+    },
+    h1: {
+      fontFamily: ["Playfair Display SC", "sans-serif"].join(","),
+    },
+    h3: {
+      fontFamily: ["Playfair Display SC", "sans-serif"].join(","),
+    },
+    h4: {
+      fontFamily: ["Playfair Display SC", "sans-serif"].join(","),
+    },
+    h5: {
+      fontFamily: ["Playfair Display SC", "sans-serif"].join(","),
+    },
+    h6: {
+      fontFamily: ["Playfair Display SC", "sans-serif"].join(","),
     },
   },
 

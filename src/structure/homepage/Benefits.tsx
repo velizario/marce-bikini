@@ -36,7 +36,7 @@ const Benefits = () => {
       sx={{
         display: "flex",
         justifyContent: "space-between",
-        margin: "7rem auto",
+        marginBlock: "10rem",
         padding: "2.5rem",
         boxShadow: "0px 8px 34px 0px rgb(0 0 0 / 6%);",
       }}

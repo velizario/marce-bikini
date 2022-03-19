@@ -1,3 +1,14 @@
+@font-face {
+  font-family: myFirstFont;
+  /* src: url("/public/Resources/fonts/Miller-DisplayRoman.otf"); */
+  src: url("/public/Resources/fonts/SimonciniGaramondStd-Bold.otf");
+}
+
+@font-face {
+  font-family: mySecondFont;
+  src: url("/public/Resources/fonts/SimonciniGaramondStd-Bold.otf");
+}
+
 .App {
   text-align: center;
 }
@@ -52,10 +63,11 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: Montserrat, sans-serif;
+  /* font-family: Montserrat, sans-serif; */
+  font-family: "Playfair Display SC", serif;
 }
 body {
-  font-family: Assistant, serif;
+  /* font-family: Assistant, serif; */
   letter-spacing: 0.06rem;
 }
 

@@ -1,3 +1,7 @@
+// Requred attributes:
+// "type": body | footer | bodySmall
+// "onClick": () => void;
+
 import { Button, SxProps, Theme, Typography } from "@mui/material";
 import { Link as MuiLink } from "@mui/material";
 import { Link as ButtonLink } from "react-router-dom";
