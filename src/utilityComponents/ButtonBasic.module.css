@@ -1,10 +1,6 @@
 .body,
 .footer,
 .bodySmall {
-  font-weight: 500;
-  font-size: 0.9rem;
-  cursor: pointer;
-  letter-spacing: 0;
   color: #005174;
   text-decoration: none;
 }

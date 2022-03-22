@@ -1,4 +1,4 @@
-import { Box, Button } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
 import ContainerLarge from "../../utilityComponents/ContainerLarge";
 import { useParams } from "react-router-dom";
 import { productModelImpl } from "../../model/productModel";
@@ -12,7 +12,6 @@ import "react-medium-image-zoom/dist/styles.css";
 import { addToCart, removeFromCart } from "../../model/cartModel";
 import { CartContext } from "../../globalstate/CartContextProvider";
 import { UserContext } from "../../globalstate/UserContextProvider";
-
 
 const price = (product: Product) => {
   // This is only test for first price. I need to account for variations
@@ -111,11 +110,23 @@ const SingleProductPage = () => {
           </Box>
 
           <div className={styles.productInfo}>
-            <h3 className={styles.productTitle}>{product.attributes.title}</h3>
-            <p className={styles.price}>{price(product)}</p>
-            <p className={styles.shortDesc}>{product.attributes.shortDesc}</p>
-            <p>Color: {product.attributes.color}</p>
-            <p>Size:</p>
+            <Typography
+              component="h3"
+              variant="h3"
+              className={styles.productTitle}
+            >
+              {product.attributes.title}
+            </Typography>
+            <Typography variant="body1" className={styles.price}>
+              {price(product)}
+            </Typography>
+            <Typography variant="body1" className={styles.shortDesc}>
+              {product.attributes.shortDesc}
+            </Typography>
+            <Typography variant="body1">
+              Color: {product.attributes.color}
+            </Typography>
+            <Typography variant="body1">Size:</Typography>
             <ul className={styles.sizeList}>
               {product.attributes.variations.map((variation) => (
                 <li
@@ -138,7 +149,9 @@ const SingleProductPage = () => {
                 -
               </Button>
 
-              <p className={styles.inputValue}>{quantity}</p>
+              <Typography variant="body1" className={styles.inputValue}>
+                {quantity}
+              </Typography>
 
               <Button
                 className={styles.inputIncrease}

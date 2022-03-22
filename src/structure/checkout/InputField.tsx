@@ -1,4 +1,4 @@
-import { Box, SxProps, TextField, Theme } from "@mui/material";
+import { Box, SxProps, TextField, Theme, Typography } from "@mui/material";
 import React from "react";
 import { Control, Controller } from "react-hook-form";
 import { CheckOutFormKeys, EmailFormData } from "./EmailForm";
@@ -40,7 +40,9 @@ const InputField: React.FC<InputFieldProps> = ({
           ></TextField>
         )}
       />
-      <p className={styles.errorMessage}>{error}</p>
+      <Typography variant="body1" className={styles.errorMessage}>
+        {error}
+      </Typography>
     </Box>
   );
 };

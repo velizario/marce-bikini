@@ -1,4 +1,4 @@
-import { Box, Button } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
 import { useContext } from "react";
 import { UserContext } from "../../globalstate/UserContextProvider";
 import ContainerLarge from "../../utilityComponents/ContainerLarge";
@@ -15,18 +15,32 @@ const AccountDetails = () => {
     <ContainerLarge>
       {context.isLoggedIn && (
         <Box className={styles.container}>
-          <h2>Your Account details</h2>
+          <Typography component="h2" variant="h2">
+            Your Account details
+          </Typography>
           <div className={styles.group}>
-            <p className={styles.title}>First Name:</p>
-            <p className={styles.value}>{context.isLoggedIn.firstName}</p>
+            <Typography variant="body1" className={styles.title}>
+              First Name:
+            </Typography>
+            <Typography variant="body1" className={styles.value}>
+              {context.isLoggedIn.firstName}
+            </Typography>
           </div>
           <div className={styles.group}>
-            <p className={styles.title}>Last Name:</p>
-            <p className={styles.value}>{context.isLoggedIn.lastName}</p>
+            <Typography variant="body1" className={styles.title}>
+              Last Name:
+            </Typography>
+            <Typography variant="body1" className={styles.value}>
+              {context.isLoggedIn.lastName}
+            </Typography>
           </div>
           <div className={styles.group}>
-            <p className={styles.title}>Email:</p>
-            <p className={styles.value}>{context.isLoggedIn.email}</p>
+            <Typography variant="body1" className={styles.title}>
+              Email:
+            </Typography>
+            <Typography variant="body1" className={styles.value}>
+              {context.isLoggedIn.email}
+            </Typography>
           </div>
           <Button
             //   component={ButtonLink}

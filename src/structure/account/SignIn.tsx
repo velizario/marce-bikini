@@ -10,6 +10,7 @@ import Box from "@mui/material/Box";
 import { Link as ButtonLink, useLocation, useNavigate } from "react-router-dom";
 import { createLoginUser } from "../../model/userModel";
 import { UserContext } from "../../globalstate/UserContextProvider";
+import { Typography } from "@mui/material";
 
 export type SignInForm = {
   email: string;
@@ -65,7 +66,9 @@ const SignIn: React.FC = () => {
   return (
     <React.Fragment>
       <div className={styles.formContainer}>
-        <h2 className={styles.heading}>Sign In</h2>
+        <Typography component="h2" variant="h2" className={styles.heading}>
+          Sign In
+        </Typography>
         <form
           className={styles.form}
           action=""
@@ -77,7 +80,9 @@ const SignIn: React.FC = () => {
             {...register("email")}
             label="e-mail address"
           />
-          <p className={styles.errorMessage}>{errors.email?.message}</p>
+          <Typography variant="body1" className={styles.errorMessage}>
+            {errors.email?.message}
+          </Typography>
           <TextField
             variant="outlined"
             className={styles.text}
@@ -85,9 +90,9 @@ const SignIn: React.FC = () => {
             {...register("password")}
             label="Password"
           />
-          <p className={styles.errorMessage}>
+          <Typography variant="body1" className={styles.errorMessage}>
             {errors.password?.message || " "}
-          </p>
+          </Typography>
           <Box className={styles.actionButtons}>
             <Button
               variant="contained"

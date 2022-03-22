@@ -11,6 +11,7 @@ import Box from "@mui/material/Box";
 import { Link as ButtonLink, useNavigate } from "react-router-dom";
 import { createLoginUser } from "../../model/userModel";
 import { UserContext } from "../../globalstate/UserContextProvider";
+import { Typography } from "@mui/material";
 
 export type RegistrationForm = {
   firstName: string;
@@ -70,7 +71,9 @@ const CreateAccount: React.FC = () => {
   return (
     <HeaderFooter>
       <div className={styles.formContainer}>
-        <h2 className={styles.heading}>Create Account</h2>
+        <Typography component="h2" variant="h2" className={styles.heading}>
+          Create Account
+        </Typography>
         <form
           className={styles.form}
           action=""
@@ -82,21 +85,27 @@ const CreateAccount: React.FC = () => {
             {...register("firstName")}
             label="First Name"
           />
-          <p className={styles.errorMessage}>{errors.firstName?.message}</p>
+          <Typography variant="body1" className={styles.errorMessage}>
+            {errors.firstName?.message}
+          </Typography>
           <TextField
             variant="outlined"
             className={styles.text}
             {...register("lastName")}
             label="Last Name"
           />
-          <p className={styles.errorMessage}>{errors.lastName?.message}</p>
+          <Typography variant="body1" className={styles.errorMessage}>
+            {errors.lastName?.message}
+          </Typography>
           <TextField
             variant="outlined"
             className={styles.text}
             {...register("email")}
             label="e-mail address"
           />
-          <p className={styles.errorMessage}>{errors.email?.message}</p>
+          <Typography variant="body1" className={styles.errorMessage}>
+            {errors.email?.message}
+          </Typography>
           <TextField
             variant="outlined"
             className={styles.text}
@@ -104,7 +113,9 @@ const CreateAccount: React.FC = () => {
             {...register("password")}
             label="Password"
           />
-          <p className={styles.errorMessage}>{errors.password?.message}</p>
+          <Typography variant="body1" className={styles.errorMessage}>
+            {errors.password?.message}
+          </Typography>
           <TextField
             variant="outlined"
             className={styles.text}
@@ -112,9 +123,9 @@ const CreateAccount: React.FC = () => {
             {...register("passwordConfirm")}
             label="Confirm password"
           />
-          <p className={styles.errorMessage}>
+          <Typography variant="body1" className={styles.errorMessage}>
             {errors.passwordConfirm && "Passwords should match"}
-          </p>
+          </Typography>
 
           <Box className={styles.actionButtons}>
             <Button

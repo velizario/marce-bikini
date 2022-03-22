@@ -41,7 +41,6 @@ const Subscribe = () => {
               fontSize: "2.8rem",
               fontWeight: "400",
               // fontFamily: "Bodoni Moda",
-              fontFamily: "Playfair Display SC",
               // fontFamily: "Libre Caslon Display",
               // no - fontFamily: "Cormorant Garamond",
               // no - fontFamily: "Nanum Myeongjo",
@@ -56,7 +55,6 @@ const Subscribe = () => {
             sx={{
               marginBottom: "3rem",
               fontSize: "1.2rem",
-              fontFamily: "Playfair Display SC",
             }}
           >
             Stay informed about our latest and greatest trends in our fashion
@@ -83,7 +81,6 @@ const Subscribe = () => {
               className={styles.buttonSubscribe}
               variant="contained"
               color="secondary"
-              sx={{ fontFamily: "Playfair Display SC" }}
               onClick={() => {
                 setSubscribed(true);
                 setTimeout(() => {
@@ -106,7 +103,6 @@ const Subscribe = () => {
                 color: "#666",
                 fontSize: "0.7rem",
                 marginTop: "3rem",
-                fontFamily: "Playfair Display SC",
               }}
             >
               Don't worry, we won't spam :)
@@ -121,7 +117,6 @@ const Subscribe = () => {
                 fontSize: "0.7rem",
                 fontWeight: "600",
                 marginTop: "3rem",
-                fontFamily: "Playfair Display SC",
               }}
             >
               Thank you for subscribing!

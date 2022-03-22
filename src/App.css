@@ -9,6 +9,11 @@
   src: url("/public/Resources/fonts/SimonciniGaramondStd-Bold.otf");
 }
 
+@font-face {
+  font-family: Harmony;
+  src: url("/public/Resources/fonts/HARMONY Personal use.otf");
+}
+
 .App {
   text-align: center;
 }
@@ -19,11 +24,42 @@
 }
 
 a {
-  color: #1878b9;
   /* transition: 0.3s ease color; */
-  cursor: pointer;
-  font-size: 0.9rem;
   min-width: unset !important;
+}
+
+a,
+button {
+  cursor: pointer;
+  letter-spacing: 0.04rem;
+  font-weight: 500 !important;
+  font-size: 0.85rem !important;
+
+  font-family: "Arsenal", sans-serif;
+  font-family: "Gudea", sans-serif;
+
+  /* font-family: "Alegreya Sans SC", sans-serif; */
+
+  /* font-family: "Belleza", sans-serif; */
+  /* font-family: "Dosis", sans-serif; */
+  /* font-family: "Federo", sans-serif; */
+  /* font-family: "Fira Sans Extra Condensed", sans-serif; */
+  /* font-family: "Georama", sans-serif; */
+  /* font-family: "Mandali", sans-serif; */
+  /* font-family: "Martel Sans", sans-serif; */
+  /* font-family: "Oswald", sans-serif; */
+  /* font-family: "Readex Pro", sans-serif; */
+  /* font-family: "Ruda", sans-serif; */
+  /* font-family: "Source Sans 3", sans-serif; */
+  /* font-family: "Tenali Ramakrishna", sans-serif; */
+  /* font-family: "Urbanist", sans-serif;  */
+  /* font-family: "Playfair Display" !important; */
+  /* font-family: "Bodoni Moda" !important; */
+  /* font-family: "Cormorant Garamond" !important; */
+  /* font-family: "Libre Caslon Display" !important; */
+  /* font-family: "Nanum Myeongjo" !important; */
+  /* font-family: "Taviraj" !important; */
+  /* font-family: "Harmony" !important; */
 }
 
 button:hover {
@@ -47,10 +83,6 @@ li {
   padding: 0;
 }
 
-button {
-  letter-spacing: 0.06rem;
-}
-
 button.buttonNoHover:hover {
   background: unset;
   transition: 0.3s ease color;
@@ -63,11 +95,16 @@ h3,
 h4,
 h5,
 h6 {
+  font-family: "Playfair Display", serif;
   /* font-family: Montserrat, sans-serif; */
-  font-family: "Playfair Display SC", serif;
+  /* font-family: "Playfair Display SC", serif; */
+  /* font-family: "Bodoni Moda" !important; */
+  /* font-family: "Cormorant Garamond" !important; */
+  /* font-family: "Libre Caslon Display" !important; */
+  /* font-family: "Nanum Myeongjo" !important; */
 }
 body {
-  /* font-family: Assistant, serif; */
+  font-family: Arsenal, serif;
   letter-spacing: 0.06rem;
 }
 

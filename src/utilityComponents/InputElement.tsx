@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { Box, SxProps, TextField, Theme } from "@mui/material";
+import { Box, SxProps, TextField, Theme, Typography } from "@mui/material";
 import styles from "./InputElement.module.css";
 import { UseFormRegister, UseFormTrigger } from "react-hook-form";
 import {
@@ -62,7 +62,9 @@ const InputElement: React.FC<TextFieldProps> = ({
         }}
       />
       {children}
-      <p className={styles.errorMessage}>{error}</p>
+      <Typography variant="body1" className={styles.errorMessage}>
+        {error}
+      </Typography>
     </Box>
   );
 };

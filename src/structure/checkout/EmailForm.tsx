@@ -243,7 +243,9 @@ const EmailForm: React.FC<EmailFormProps> = ({
               {key === "email" ? (
                 userContext.isLoggedIn ? (
                   <Box>
-                    <h5>Email Address</h5>
+                    <Typography component="h5" variant="h5">
+                      Email Address
+                    </Typography>
                     <LoggedInUserInfo userInfo={userContext.isLoggedIn} />
                   </Box>
                 ) : (
@@ -257,7 +259,9 @@ const EmailForm: React.FC<EmailFormProps> = ({
                         marginTop: "1rem ",
                       }}
                     >
-                      <h5>Email Address</h5>
+                      <Typography component="h5" variant="h5">
+                        Email Address
+                      </Typography>
                       <Typography className={styles.supplText}>
                         Already have an account?{" "}
                         <ButtonBasicLink
@@ -301,7 +305,9 @@ const EmailForm: React.FC<EmailFormProps> = ({
                     flexDirection: "column",
                   }}
                 >
-                  <h5>Delivery address</h5>
+                  <Typography component="h5" variant="h5">
+                    Delivery address
+                  </Typography>
 
                   <FormControl sx={{ width: "100%" }} size="small">
                     <InputLabel>Country</InputLabel>
@@ -326,9 +332,9 @@ const EmailForm: React.FC<EmailFormProps> = ({
                       )}
                     />
                   </FormControl>
-                  <p className={styles.errorMessage}>
+                  <Typography variant="body1" className={styles.errorMessage}>
                     {errors.country?.message}
-                  </p>
+                  </Typography>
                 </Box>
               ) : (
                 <InputField
