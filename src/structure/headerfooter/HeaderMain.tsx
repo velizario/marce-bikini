@@ -13,10 +13,18 @@ import { UserContext } from "../../globalstate/UserContextProvider";
 import ContainerLarge from "../../utilityComponents/ContainerLarge";
 import styles from "./HeaderMain.module.css";
 import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
+import Autocomplete from "@mui/material/Autocomplete";
+import ButtonBasicLink from "../../utilityComponents/ButtonBasicLink";
 
 const HeaderMain = () => {
   const userContext = useContext(UserContext);
   const cartContext = useContext(CartContext);
+
+  const searchItems: { label: string; year: number }[] | [] = [
+    { label: "The Shawshank Redemption", year: 1994 },
+    { label: "The Godfather", year: 1972 },
+    { label: "The Godfather: Part II", year: 1974 },
+  ];
 
   return (
     <ContainerLarge
@@ -45,32 +53,38 @@ const HeaderMain = () => {
             className={styles.image}
           />
         </Link>
-        <Button component={ButtonLink} to="/shop" variant="text">
+        <ButtonBasicLink type="headerLink" to="/shop">
           Shop
-        </Button>
+        </ButtonBasicLink>
 
-        <TextField
+        {/* <TextField
           id="standard-basic"
           placeholder="Search products..."
           variant="standard"
+          
+        /> */}
+
+        <Autocomplete
+          disablePortal
+          freeSolo
+          id="combo-box-demo"
+          options={searchItems}
           sx={{ width: "30%" }}
+          renderInput={(params) => (
+            <TextField
+              {...params}
+              variant="standard"
+              label="Search products..."
+            />
+          )}
         />
-        <Button
-          component={ButtonLink}
-          to="/contactus"
-          variant="text"
-          sx={{ fontSize: "0.8rem" }}
-        >
+
+        <ButtonBasicLink type="headerLink" to="/contactus">
           Contact Us
-        </Button>
-        <Button
-          component={ButtonLink}
-          to="/aboutus"
-          variant="text"
-          sx={{ fontSize: "0.8rem" }}
-        >
+        </ButtonBasicLink>
+        <ButtonBasicLink type="headerLink" to="/aboutus">
           Our mission
-        </Button>
+        </ButtonBasicLink>
 
         <Box
           sx={{

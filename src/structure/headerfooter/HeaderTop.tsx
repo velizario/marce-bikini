@@ -8,6 +8,7 @@ import { CartContext } from "../../globalstate/CartContextProvider";
 import { UserContext } from "../../globalstate/UserContextProvider";
 import styles from "./HeaderTop.module.css";
 import ContainerLarge from "../../utilityComponents/ContainerLarge";
+import ButtonBasicLink from "../../utilityComponents/ButtonBasicLink";
 
 const HeaderTop = () => {
   const userContext = useContext(UserContext);
@@ -27,12 +28,7 @@ const HeaderTop = () => {
     >
       {/* Account link */}
       <Box>
-        <Button
-          className={styles.accountButton}
-          component={ButtonLink}
-          to="/account"
-          variant="text"
-        >
+        <ButtonBasicLink type="headerLink" to="/account">
           {userContext.isLoggedIn ? (
             `Welcome, ${userContext.isLoggedIn.firstName}`
           ) : (
@@ -53,7 +49,7 @@ const HeaderTop = () => {
               </svg>
             </SvgIcon>
           )}
-        </Button>
+        </ButtonBasicLink>
         {/* Cart */}
         <Button component={ButtonLink} to="/cart" variant="text">
           <SvgIcon>

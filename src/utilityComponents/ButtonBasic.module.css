@@ -1,16 +1,23 @@
 .body,
 .footer,
-.bodySmall {
-  color: #005174;
+.bodySmall,
+.headerLink {
   text-decoration: none;
 }
-.body:hover,
-.footer:hover,
-.bodySmall:hover {
-  /* color: rgb(173, 166, 42); */
-  color: #c7511f;
-  /* border-bottom: 1px solid #c7511f; */
-  text-decoration: underline;
+
+.headerLink {
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+}
+
+.body,
+.bodySmall {
+  color: #005174 !important;
+  font-style: italic;
+}
+
+.bodySmall {
+  font-size: 0.8rem;
 }
 
 .footer {
@@ -18,10 +25,20 @@
   font-size: 1rem;
 }
 
-.footer:hover {
-  color: rgb(16, 16, 16);
+.body:hover,
+.footer:hover,
+.bodySmall:hover,
+.headerLink:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.15rem;
+  text-decoration-thickness: 0.05rem;
+  text-decoration-color: #777;
 }
 
-.bodySmall {
-  font-size: 0.8rem;
+.headerLink:hover {
+  text-decoration-color: #777;
+}
+
+.footer:hover {
+  color: rgb(16, 16, 16);
 }

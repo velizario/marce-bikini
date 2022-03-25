@@ -40,7 +40,7 @@ const LoggedInUserInfo: React.FC<LioggedInUserInfoProps> = ({ userInfo }) => {
       <Typography className={styles.supplText}>
         {userInfo.email} ({userInfo.firstName} {userInfo.lastName})
         <br />
-        <ButtonBasicClick type="body" onClick={logOutHandler}>
+        <ButtonBasicClick type="bodySmall" onClick={logOutHandler}>
           Log out
         </ButtonBasicClick>
       </Typography>

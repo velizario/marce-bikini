@@ -108,7 +108,7 @@ const CheckOutMain: React.FC<CheckOutMainProps> = ({ sx }) => {
                 Contact information
               </Typography>
             </StepLabel>
-            <ButtonBasicClick type="body" onClick={() => setActiveStep(0)}>
+            <ButtonBasicClick type="bodySmall" onClick={() => setActiveStep(0)}>
               View / Edit
             </ButtonBasicClick>
           </Box>
