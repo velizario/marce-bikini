@@ -207,3 +207,7 @@ h5 {
   transform: translateX(-10%);
 }
 */
+
+input:-webkit-autofill {
+  -webkit-background-clip: text;
+}

@@ -35,3 +35,17 @@
     opacity: 0;
   }
 }
+
+.errorMessage {
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  font-size: 0.8rem;
+  color: rgb(177, 0, 0);
+  height: "2rem";
+}
+
+.subscribeForm {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}

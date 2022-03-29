@@ -10,6 +10,7 @@
 import { StrapiProduct, StrapiProductAttributes } from "./strapiProductModel";
 import { SelectionElements, FilterElements } from "../structure/shop/ShopPage";
 import { StrapiRootObject } from "../model/strapiProductModel";
+import qs from "qs";
 
 export interface ProductModel extends StrapiProduct {}
 
@@ -30,6 +31,7 @@ export interface ProductModelTemplate {
   updateProduct(product: Product): Promise<Product>;
   getProductById(id: string): Promise<Product>;
   getFeaturedProducts(): Promise<Product[]>;
+  getProductByName(searchStr: string): Promise<Product[]>;
 }
 
 class VariationsImpl implements FilterElements {
@@ -104,6 +106,27 @@ export class ProductModel implements ProductModelTemplate {
     );
     // const data: Product[] = await res.json(); //with await will return the data
     const data: StrapiRootObject = await res.json();
+    return data.data;
+  }
+
+  async getProductByName(searchStr: string): Promise<Product[]> {
+    const query = qs.stringify(
+      {
+        filters: {
+          title: {
+            $containsi: searchStr,
+          },
+        },
+      },
+      {
+        encodeValuesOnly: true,
+      }
+    );
+    console.log(query);
+    const res = await fetch(
+      `${process.env.REACT_APP_DATA_URL}/api/products?populate=*&${query}`
+    );
+    const data = await res.json(); //with await will return the data
     return data.data;
   }
 

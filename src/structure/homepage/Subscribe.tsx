@@ -1,16 +1,54 @@
 import { Button, TextField, Typography } from "@mui/material";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
 import { Box } from "@mui/system";
 import { useState } from "react";
 import ButtonBasicClick from "../../utilityComponents/ButtonBasicClick";
 import ContainerLarge from "../../utilityComponents/ContainerLarge";
 import styles from "./Subscribe.module.css";
 
+type SubscribeForm = {
+  email: string;
+};
+
+let schema = yup.object().shape({
+  email: yup.string().email().required("Please enter valid email"),
+});
+
 const Subscribe = () => {
   const [subscribed, setSubscribed] = useState(false);
+  const [subscriber, setSubscriber] = useState("");
+
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm<SubscribeForm>({
+    resolver: yupResolver(schema),
+  });
+
+  const subscribeUser = (data: SubscribeForm) => {
+    console.log("test");
+    console.log(data);
+    setSubscribed(true);
+    (document.querySelector("#subscriberEmail")! as HTMLInputElement).readOnly =
+      true;
+    setTimeout(() => {
+      setSubscribed(false);
+      (
+        document.querySelector("#subscriberEmail")! as HTMLInputElement
+      ).readOnly = false;
+      reset();
+    }, 5000);
+
+    // Add here the integration with Mailerlite
+  };
+
   return (
     <ContainerLarge
       styles={{
-        // background: "#fff8f8",
         marginBlock: "10rem",
       }}
     >
@@ -40,11 +78,6 @@ const Subscribe = () => {
               marginBottom: "1.5rem",
               fontSize: "2.8rem",
               fontWeight: "400",
-              // fontFamily: "Bodoni Moda",
-              // fontFamily: "Libre Caslon Display",
-              // no - fontFamily: "Cormorant Garamond",
-              // no - fontFamily: "Nanum Myeongjo",
-              // no - fontFamily: "Taviraj",
             }}
           >
             GET NOTIFIED FIRST
@@ -67,61 +100,68 @@ const Subscribe = () => {
               alignItems: "center",
             }}
           >
-            <TextField
-              color="secondary"
-              id="outlined-basic"
-              variant="standard"
-              label="Your email address"
-              className={styles.inputField}
-            />
-            {/* <ButtonBasicClick onClick={() => {}} type="body">
-          Subscribe{" "}
-        </ButtonBasicClick> */}
-            <Button
-              className={styles.buttonSubscribe}
-              variant="contained"
-              color="secondary"
-              onClick={() => {
-                setSubscribed(true);
-                setTimeout(() => {
-                  setSubscribed(false);
-                  // add other changes here
-                }, 5000);
-              }}
-              // onClick={addToCartHandler}
+            <form
+              action=""
+              onSubmit={handleSubmit(subscribeUser)}
+              className={styles.subscribeForm}
             >
-              Subscribe
-            </Button>
+              <TextField
+                color="secondary"
+                id="subscriberEmail"
+                variant="standard"
+                label="Your email address"
+                className={styles.inputField}
+                {...register("email")}
+                // onChange={(e) => setSubscriber(e.target.value)}
+              />
+              <Button
+                className={styles.buttonSubscribe}
+                variant="contained"
+                color="secondary"
+                type="submit"
+              >
+                Subscribe
+              </Button>
+              <Typography variant="body1" className={styles.errorMessage}>
+                {errors.email?.message}
+              </Typography>
+            </form>
           </Box>
-
-          {!subscribed ? (
-            <Typography
-              component="p"
-              variant="body1"
-              className="noSpamMessage"
-              sx={{
-                color: "#666",
-                fontSize: "0.7rem",
-                marginTop: "3rem",
-              }}
-            >
-              Don't worry, we won't spam :)
-            </Typography>
-          ) : (
-            <Typography
-              component="p"
-              variant="body1"
-              className={styles.successMessage}
-              sx={{
-                color: "green",
-                fontSize: "0.7rem",
-                fontWeight: "600",
-                marginTop: "3rem",
-              }}
-            >
-              Thank you for subscribing!
-            </Typography>
-          )}
+          <Box
+            sx={{
+              height: "1.5rem",
+              display: "flex",
+              marginTop: "3rem",
+              alignItems: "center",
+            }}
+          >
+            {!subscribed ? (
+              <Typography
+                component="p"
+                variant="body1"
+                className="noSpamMessage"
+                sx={{
+                  color: "#666",
+                  fontSize: "0.7rem",
+                }}
+              >
+                Don't worry, we won't spam :)
+              </Typography>
+            ) : (
+              <Typography
+                component="p"
+                variant="body1"
+                className={styles.successMessage}
+                sx={{
+                  color: "green",
+                  fontSize: "1rem",
+                  fontWeight: "500",
+                }}
+              >
+                Thank you for subscribing!
+              </Typography>
+            )}
+          </Box>
         </Box>
         <Box
           sx={{

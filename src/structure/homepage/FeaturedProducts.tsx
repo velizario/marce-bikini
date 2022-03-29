@@ -15,9 +15,10 @@ import "swiper/css/navigation";
 import { Pagination, Navigation } from "swiper";
 
 import styles from "./FeaturedProducts.module.css";
-import { Button, Container, Typography } from "@mui/material";
+import { Box, Button, Container, Typography } from "@mui/material";
 import FeaturedCard from "./FeaturedCard";
 import { SwiperSlide } from "swiper/react";
+import React from "react";
 
 // const swiperParams: SwiperOptions = {
 //   slidesPerView: 3,
@@ -88,7 +89,7 @@ const FeaturedProducts = () => {
               loopFillGroupWithBlank={true}
             >
               {featuredProducts.map((product) => (
-                <SwiperSlide className={styles.swiperSlide}>
+                <SwiperSlide key={product.id} className={styles.swiperSlide}>
                   <FeaturedCard product={product} />
                   {/* <img
                   alt="hero"

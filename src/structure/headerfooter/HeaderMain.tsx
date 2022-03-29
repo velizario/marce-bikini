@@ -1,30 +1,56 @@
-import {
-  Box,
-  Button,
-  Container,
-  Link,
-  SvgIcon,
-  TextField,
-} from "@mui/material";
-import { useContext } from "react";
-import { Link as ButtonLink } from "react-router-dom";
+import { Box, Button, Link, SvgIcon, TextField } from "@mui/material";
+import { SyntheticEvent, useContext, useRef, useState } from "react";
+import { Link as ButtonLink, useNavigate } from "react-router-dom";
 import { CartContext } from "../../globalstate/CartContextProvider";
 import { UserContext } from "../../globalstate/UserContextProvider";
 import ContainerLarge from "../../utilityComponents/ContainerLarge";
 import styles from "./HeaderMain.module.css";
-import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
 import Autocomplete from "@mui/material/Autocomplete";
 import ButtonBasicLink from "../../utilityComponents/ButtonBasicLink";
+import { Product, productModelImpl } from "../../model/productModel";
 
 const HeaderMain = () => {
+  const navigate = useNavigate();
   const userContext = useContext(UserContext);
   const cartContext = useContext(CartContext);
+  const [searchValue, setSearchValue] = useState("");
+  const [inputValue, setInputValue] = useState("");
+  const [searchResult, setSearchResult] = useState<Product[]>([]);
 
-  const searchItems: { label: string; year: number }[] | [] = [
-    { label: "The Shawshank Redemption", year: 1994 },
-    { label: "The Godfather", year: 1972 },
-    { label: "The Godfather: Part II", year: 1974 },
-  ];
+  const clearSearchInput = () => {
+    setSearchResult([]);
+  };
+
+  const searchProducts = async (
+    event: React.SyntheticEvent<Element, Event>,
+    value: string,
+    reason: string
+  ) => {
+    setInputValue(value);
+    if (value.length < 3) {
+      clearSearchInput();
+      return;
+    }
+
+    const returnData = await productModelImpl.getProductByName(value);
+    // searchResult = returnData.map((el) => el.attributes);
+    console.log(returnData);
+    setSearchResult(returnData);
+  };
+
+  function navigateToProduct(
+    event: SyntheticEvent,
+    value: string | Product | null
+  ) {
+    console.log("navigated");
+    clearSearchInput();
+    setSearchValue("");
+    setInputValue("");
+    if (value && typeof value === "object") {
+      navigate(`/product/${value.id}`);
+      setSearchValue("");
+    }
+  }
 
   return (
     <ContainerLarge
@@ -65,17 +91,43 @@ const HeaderMain = () => {
         /> */}
 
         <Autocomplete
+          blurOnSelect
           disablePortal
           freeSolo
-          id="combo-box-demo"
-          options={searchItems}
+          id="searchInput"
+          options={searchResult}
+          // {...searchResultProps}
+          getOptionLabel={(option: Product) =>
+            option ? option.attributes.title : ""
+          }
           sx={{ width: "30%" }}
+          value={searchValue}
+          onChange={navigateToProduct}
+          inputValue={inputValue}
+          onInputChange={searchProducts}
           renderInput={(params) => (
             <TextField
               {...params}
               variant="standard"
               label="Search products..."
             />
+          )}
+          renderOption={(props, option) => (
+            <Box
+              component="li"
+              sx={{ height: "4rem", "& > img": { mr: 2, flexShrink: 0 } }}
+              {...props}
+            >
+              <img
+                loading="lazy"
+                className={styles.searchImage}
+                src={`${process.env.REACT_APP_DATA_URL}${option.attributes.images.data[0].attributes.url}`}
+                // srcSet={`https://flagcdn.com/w40/${option.code.toLowerCase()}.png 2x`}
+                alt=""
+              />
+              {option.attributes.title}
+              {/* {option.label} ({option.code}) +{option.phone} */}
+            </Box>
           )}
         />
 
