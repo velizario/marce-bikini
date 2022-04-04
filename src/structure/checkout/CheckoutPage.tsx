@@ -1,7 +1,10 @@
+import { Button } from "@mui/material";
 import { Box } from "@mui/system";
 import { useContext, useEffect } from "react";
 import { useNavigate } from "react-router";
 import { CartContext } from "../../globalstate/CartContextProvider";
+import { postToAPI } from "../../model/helperFunctions";
+import ButtonBasicClick from "../../utilityComponents/ButtonBasicClick";
 
 import ContainerLarge from "../../utilityComponents/ContainerLarge";
 import CartMain from "../cart/CartMain";
@@ -16,6 +19,17 @@ const CartPage = () => {
     if (cartContext.isSet && cartContext.cartItems.length < 1)
       navigate("/cart");
   }, [cartContext]);
+
+  const commencePayment = async () => {
+    const res = await postToAPI(
+      `${process.env.REACT_APP_SERVER_URL}/payment`,
+      "POST",
+      {}
+    );
+    const paymentAddress = (await res.json()).data;
+    console.log(paymentAddress);
+    window.location.replace(paymentAddress);
+  };
 
   return !cartContext.isSet ? (
     <div>Loading!</div>
@@ -44,6 +58,13 @@ const CartPage = () => {
           }}
         ></CartMain>
       </Box>
+      <ButtonBasicClick
+        onClick={commencePayment}
+        type="headerLink"
+        sx={{ marginBlock: "5rem" }}
+      >
+        Pay
+      </ButtonBasicClick>
     </ContainerLarge>
   );
 };

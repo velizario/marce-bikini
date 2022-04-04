@@ -31,6 +31,7 @@ const CartMain: React.FC<CartMainProps> = ({ sx }) => {
   const userContext = useContext(UserContext);
   const navigate = useNavigate();
 
+  // Get total price
   const totalPrice = cartContext.cartItems.reduce((acc, cartItem, index) => {
     const product = cartContext.productItems[index].attributes;
     return (

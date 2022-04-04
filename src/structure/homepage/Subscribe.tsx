@@ -29,9 +29,7 @@ const Subscribe = () => {
     resolver: yupResolver(schema),
   });
 
-  const subscribeUser = (data: SubscribeForm) => {
-    console.log("test");
-    console.log(data);
+  const subscribeUser = async (data: SubscribeForm) => {
     setSubscribed(true);
     (document.querySelector("#subscriberEmail")! as HTMLInputElement).readOnly =
       true;
@@ -43,7 +41,17 @@ const Subscribe = () => {
       reset();
     }, 5000);
 
-    // Add here the integration with Mailerlite
+    // Integration with Mailerlite
+
+    const res = await fetch(`${process.env.REACT_APP_SERVER_URL}/subscribe`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+    console.log(res.json());
+    return res.json();
   };
 
   return (

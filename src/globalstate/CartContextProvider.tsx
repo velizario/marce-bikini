@@ -27,13 +27,14 @@ export const CartContextProvider: React.FC = ({ children }) => {
   const userContext = useContext(UserContext);
 
   const setCartItems = async (cartItems: CartUserModel[]) => {
+    // This fetches all products one by one. Change it by introducing the product list into the cart.?
+
     const productItems = await Promise.all(
       cartItems.map((cartItem) =>
         productModelImpl.getProductById(cartItem.productId.toString())
       )
     );
     setCartState((state) => {
-      console.log("New Cart State:", cartItems, productItems);
       return {
         ...state,
         cartItems,
