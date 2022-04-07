@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import { Controller, FieldError, useForm, useWatch } from "react-hook-form";
 import styles from "./EmailForm.module.css";
+import stylesGeneric from "./CheckoutMain.module.css";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
@@ -195,22 +196,20 @@ const EmailForm: React.FC<EmailFormProps> = ({
     >
       {/* Email address  */}
       <Box sx={{ paddingBottom: "0.5rem" }}>
-        <Typography
-          sx={{
-            fontWeight: "600",
-          }}
-        >
+        <Typography sx={{ textShadow: "0.03rem 0rem" }}>
           Email address: <br />
         </Typography>
-        <Typography>{formData.email}</Typography>
+        <Typography sx={{ fontSize: "0.9rem", color: "#545454" }}>
+          {formData.email}
+        </Typography>
       </Box>
 
       <Box>
-        <Typography sx={{ fontWeight: "600" }}>
+        <Typography sx={{ textShadow: "0.03rem 0rem" }}>
           Delivery address:
           <br />
         </Typography>
-        <Typography>
+        <Typography sx={{ fontSize: "0.9rem", color: "#545454" }}>
           {formData.firstName} {formData.lastName}
           <br />
           {formData.addressLine1}
@@ -243,8 +242,8 @@ const EmailForm: React.FC<EmailFormProps> = ({
               {key === "email" ? (
                 userContext.isLoggedIn ? (
                   <Box>
-                    <Typography component="h5" variant="h5">
-                      Email Address
+                    <Typography className={stylesGeneric.innerLabel}>
+                      Email Address:
                     </Typography>
                     <LoggedInUserInfo userInfo={userContext.isLoggedIn} />
                   </Box>
@@ -259,8 +258,8 @@ const EmailForm: React.FC<EmailFormProps> = ({
                         marginTop: "1rem ",
                       }}
                     >
-                      <Typography component="h5" variant="h5">
-                        Email Address
+                      <Typography className={stylesGeneric.innerLabel}>
+                        Email Address:
                       </Typography>
                       <Typography className={styles.supplText}>
                         Already have an account?{" "}
@@ -305,8 +304,8 @@ const EmailForm: React.FC<EmailFormProps> = ({
                     flexDirection: "column",
                   }}
                 >
-                  <Typography component="h5" variant="h5">
-                    Delivery address
+                  <Typography className={stylesGeneric.innerLabel}>
+                    Delivery address:
                   </Typography>
 
                   <FormControl sx={{ width: "100%" }} size="small">
@@ -354,15 +353,15 @@ const EmailForm: React.FC<EmailFormProps> = ({
             </React.Fragment>
           ))}
         </Box>
-        <Button
-          color="secondary"
-          variant="contained"
-          type="submit"
-          sx={{ marginBottom: "1.5rem" }}
-          endIcon={<NavigateNextIcon />}
-        >
-          Next
-        </Button>
+        <Box className={stylesGeneric.buttonWrapper}>
+          <Button
+            variant="contained"
+            type="submit"
+            className={stylesGeneric.buttonNext}
+          >
+            Save
+          </Button>
+        </Box>
       </form>
     </div>
   );

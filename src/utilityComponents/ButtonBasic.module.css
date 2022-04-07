@@ -2,7 +2,10 @@
 .footer,
 .bodySmall,
 .headerLink {
-  text-decoration: none;
+  text-decoration: underline;
+  font-weight: 500;
+  text-shadow: 0.03rem 0rem;
+  /* text-underline-offset: 0.1rem; */
 }
 
 .headerLink {
@@ -12,7 +15,7 @@
 
 .body,
 .bodySmall {
-  color: #005174 !important;
+  /* color: #005174 !important; */
 }
 
 .bodySmall {
@@ -28,10 +31,6 @@
 .footer:hover,
 .bodySmall:hover,
 .headerLink:hover {
-  text-decoration: underline;
-  text-underline-offset: 0.15rem;
-  text-decoration-thickness: 0.05rem;
-  text-decoration-color: #777;
 }
 
 .headerLink:hover {

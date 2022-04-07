@@ -8,6 +8,11 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import styles from "./CheckoutMain.module.css";
 import EmailForm, { EmailFormData } from "./EmailForm";
+import { Elements } from "@stripe/react-stripe-js";
+import { loadStripe, Stripe } from "@stripe/stripe-js";
+
+import NavigateNextIcon from "@mui/icons-material/NavigateNext";
+
 import {
   FormControl,
   FormControlLabel,
@@ -23,6 +28,8 @@ import ButtonBasicClick from "../../utilityComponents/ButtonBasicClick";
 import ContainerLarge from "../../utilityComponents/ContainerLarge";
 import { useEffect } from "react";
 import ButtonBasicLink from "../../utilityComponents/ButtonBasicLink";
+import Payment from "./Payment";
+import DeliveryOptions from "./DeliveryOptions";
 
 export const defaultFormData = {
   email: "",
@@ -39,6 +46,15 @@ type CheckOutMainProps = {
   sx?: SxProps<Theme>;
 };
 
+// let stripePromise;
+// // Stripe integration
+// // The publishable key is fetched from the server
+// (async () => {
+//   const stripePK = await fetch(`${process.env.REACT_APP_SERVER_URL}/stripePK`);
+//   stripePromise = loadStripe(await stripePK.json());
+// })();
+// // Stripe integration end
+
 // Component
 const CheckOutMain: React.FC<CheckOutMainProps> = ({ sx }) => {
   const getDataFromStorage: () => EmailFormData = () => {
@@ -49,6 +65,8 @@ const CheckOutMain: React.FC<CheckOutMainProps> = ({ sx }) => {
   // const userContext = useContext(UserContext);
   const [activeStep, setActiveStep] = React.useState(0);
   const [formData, setFormData] = React.useState(getDataFromStorage());
+  const [stripePromise, setStripePromise] =
+    React.useState<Promise<Stripe | null> | null>(null);
 
   // NOTE: Use subscribe
   const [subscribe, setSubscribe] = React.useState(true);
@@ -60,6 +78,15 @@ const CheckOutMain: React.FC<CheckOutMainProps> = ({ sx }) => {
   useEffect(() => {
     formData && setActiveStep(1);
   }, [formData]);
+
+  useEffect(() => {
+    (async () => {
+      const data = await fetch(`${process.env.REACT_APP_SERVER_URL}/stripePK`);
+      const stripePK = await data.json();
+      const stripePKPromise = loadStripe(stripePK);
+      setStripePromise(stripePKPromise);
+    })();
+  }, []);
 
   const formDataHandler = (
     data:
@@ -76,7 +103,7 @@ const CheckOutMain: React.FC<CheckOutMainProps> = ({ sx }) => {
     localStorage.setItem("userAddress", JSON.stringify(newData));
   };
 
-  const handleNext = (data: EmailFormData) => {
+  const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
   };
 
@@ -88,134 +115,86 @@ const CheckOutMain: React.FC<CheckOutMainProps> = ({ sx }) => {
     setActiveStep(0);
   };
 
-  return (
-    <ContainerLarge styles={{ ...sx }}>
-      <Stepper
-        activeStep={activeStep}
-        orientation="vertical"
-        sx={{ width: "100%" }}
-      >
-        <Step key="contact information" expanded>
-          <Box
-            sx={{
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-            }}
-          >
-            <StepLabel>
-              <Typography className={styles.stepLabel}>
-                Contact information
-              </Typography>
-            </StepLabel>
-            <ButtonBasicClick type="bodySmall" onClick={() => setActiveStep(0)}>
-              View / Edit
-            </ButtonBasicClick>
-          </Box>
-          <StepContent>
-            <EmailForm
-              subscribeHandler={subscribeHandler}
-              formData={formData}
-              formDataHandler={formDataHandler}
-              handleNext={handleNext}
-              activeStep={activeStep}
-            ></EmailForm>
-          </StepContent>
-        </Step>
-        <Step key="Delivery method" expanded>
-          <StepLabel>
-            <Typography className={styles.stepLabel}>
-              Delivery options
-            </Typography>
-          </StepLabel>
+  const handleCard = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
 
-          <StepContent>
-            <FormControl
+    // if (!stripe || !elements) return;
+
+    // const cardElement = elements.getElement(CardElement);
+
+    // // confirm payment, redirect checkout, etc.
+
+    // // Refer to card element
+  };
+
+  return (
+    <Elements stripe={stripePromise}>
+      <ContainerLarge styles={{ ...sx }}>
+        <Stepper
+          activeStep={activeStep}
+          orientation="vertical"
+          sx={{ width: "100%" }}
+        >
+          <Step key="contact information" expanded>
+            <Box
               sx={{
-                boxSizing: "border-box",
-                width: "100%",
-                padding: "1rem 5%",
-                borderRadius: "0.4rem",
-                border: "1px solid rgba(0,0,0,0.1)",
-                background: "#f9fafa",
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
               }}
             >
-              {/* <FormLabel id="demo-radio-buttons-group-label">Gender</FormLabel> */}
-              <RadioGroup
-                aria-labelledby="delivery-options"
-                defaultValue="dhl-standard"
-                name="delivery-options"
-              >
-                <FormControlLabel
-                  sx={{ paddingBottom: "1rem", width: "100%", margin: 0 }}
-                  value="dhl-standard"
-                  control={
-                    <Radio
-                      sx={{
-                        paddingTop: 0,
-                        paddingLeft: 0,
-                        alignSelf: "flex-start",
-                      }}
-                    />
-                  }
-                  label={
-                    <React.Fragment>
-                      <Box
-                        sx={{
-                          width: "100%",
-                          display: "flex",
-                          justifyContent: "space-between",
-                        }}
-                      >
-                        <Typography>DHL Standard Delivery</Typography>
-                        <Typography sx={{ fontWeight: "500" }}>
-                          €15.00
-                        </Typography>
-                      </Box>
-                      <Typography sx={{ color: "#545454" }}>
-                        3-5 business days
-                      </Typography>
-                    </React.Fragment>
-                  }
-                />
-                <FormControlLabel
-                  sx={{ paddingBottom: "1rem", width: "100%", margin: 0 }}
-                  value="dhl-express"
-                  control={
-                    <Radio
-                      sx={{
-                        paddingTop: 0,
-                        paddingLeft: 0,
-                        alignSelf: "flex-start",
-                      }}
-                    />
-                  }
-                  label={
-                    <React.Fragment>
-                      <Box
-                        sx={{
-                          width: "100%",
-                          display: "flex",
-                          justifyContent: "space-between",
-                        }}
-                      >
-                        <Typography>DHL Express Delivery</Typography>
-                        <Typography sx={{ fontWeight: "500" }}>
-                          €25.00
-                        </Typography>
-                      </Box>
-                      <Typography sx={{ color: "#545454" }}>
-                        10-14 business days
-                      </Typography>
-                    </React.Fragment>
-                  }
-                />
-              </RadioGroup>
-            </FormControl>
-          </StepContent>
-        </Step>
-      </Stepper>
-    </ContainerLarge>
+              <StepLabel>
+                <Typography className={styles.stepLabel}>
+                  Your contact info
+                </Typography>
+              </StepLabel>
+              <ButtonBasicClick type="body" onClick={() => setActiveStep(0)}>
+                Edit
+              </ButtonBasicClick>
+            </Box>
+            <StepContent>
+              <EmailForm
+                subscribeHandler={subscribeHandler}
+                formData={formData}
+                formDataHandler={formDataHandler}
+                handleNext={handleNext}
+                activeStep={activeStep}
+              ></EmailForm>
+            </StepContent>
+          </Step>
+          <Step key="Delivery method" expanded>
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+              }}
+            >
+              <StepLabel>
+                <Typography className={styles.stepLabel}>
+                  Delivery options
+                </Typography>
+              </StepLabel>
+              <ButtonBasicClick type="body" onClick={() => setActiveStep(1)}>
+                Edit
+              </ButtonBasicClick>
+            </Box>
+            <StepContent>
+              <DeliveryOptions
+                handleNext={handleNext}
+                activeStep={activeStep}
+              />
+            </StepContent>
+          </Step>
+          <Step key="Payment" expanded>
+            <StepLabel>
+              <Typography className={styles.stepLabel}>Payment</Typography>
+            </StepLabel>
+            <StepContent>{stripePromise && <Payment />}</StepContent>
+          </Step>
+        </Stepper>
+      </ContainerLarge>
+    </Elements>
   );
 };
 

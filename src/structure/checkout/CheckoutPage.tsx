@@ -26,9 +26,10 @@ const CartPage = () => {
       "POST",
       {}
     );
-    const paymentAddress = (await res.json()).data;
-    console.log(paymentAddress);
-    window.location.replace(paymentAddress);
+    console.log(res);
+    // const paymentAddress = (await res.json()).data;
+    // console.log(paymentAddress);
+    window.location.replace(res.data);
   };
 
   return !cartContext.isSet ? (
