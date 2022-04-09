@@ -196,20 +196,18 @@ const EmailForm: React.FC<EmailFormProps> = ({
     >
       {/* Email address  */}
       <Box sx={{ paddingBottom: "0.5rem" }}>
-        <Typography sx={{ textShadow: "0.03rem 0rem" }}>
+        <Typography sx={{ fontSize: "0.9rem", textShadow: "0.01rem 0rem" }}>
           Email address: <br />
         </Typography>
-        <Typography sx={{ fontSize: "0.9rem", color: "#545454" }}>
-          {formData.email}
-        </Typography>
+        <Typography sx={{ fontSize: "0.8rem" }}>{formData.email}</Typography>
       </Box>
 
       <Box>
-        <Typography sx={{ textShadow: "0.03rem 0rem" }}>
+        <Typography sx={{ fontSize: "0.9rem", textShadow: "0.01rem 0rem" }}>
           Delivery address:
           <br />
         </Typography>
-        <Typography sx={{ fontSize: "0.9rem", color: "#545454" }}>
+        <Typography sx={{ fontSize: "0.8em" }}>
           {formData.firstName} {formData.lastName}
           <br />
           {formData.addressLine1}
@@ -354,13 +352,13 @@ const EmailForm: React.FC<EmailFormProps> = ({
           ))}
         </Box>
         <Box className={stylesGeneric.buttonWrapper}>
-          <Button
+          {/* <Button
             variant="contained"
             type="submit"
             className={stylesGeneric.buttonNext}
           >
             Save
-          </Button>
+          </Button> */}
         </Box>
       </form>
     </div>

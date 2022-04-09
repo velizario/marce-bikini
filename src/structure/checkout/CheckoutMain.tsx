@@ -10,6 +10,10 @@ import styles from "./CheckoutMain.module.css";
 import EmailForm, { EmailFormData } from "./EmailForm";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe, Stripe } from "@stripe/stripe-js";
+import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 
@@ -148,9 +152,20 @@ const CheckOutMain: React.FC<CheckOutMainProps> = ({ sx }) => {
                   Your contact info
                 </Typography>
               </StepLabel>
-              <ButtonBasicClick type="body" onClick={() => setActiveStep(0)}>
+              {/* <ButtonBasicClick type="body" onClick={() => setActiveStep(0)}>
                 Edit
-              </ButtonBasicClick>
+              </ButtonBasicClick> */}
+              <Button
+                variant="contained"
+                // size="small"
+                endIcon={
+                  activeStep !== 0 ? <ArrowDropDownIcon /> : <ArrowDropUpIcon />
+                }
+                onClick={() => setActiveStep(activeStep !== 0 ? 0 : 1)}
+                className={styles.buttonNext}
+              >
+                Edit
+              </Button>
             </Box>
             <StepContent>
               <EmailForm
@@ -175,9 +190,17 @@ const CheckOutMain: React.FC<CheckOutMainProps> = ({ sx }) => {
                   Delivery options
                 </Typography>
               </StepLabel>
-              <ButtonBasicClick type="body" onClick={() => setActiveStep(1)}>
+              <Button
+                variant="contained"
+                // size="small"
+                endIcon={
+                  activeStep !== 1 ? <ArrowDropDownIcon /> : <ArrowDropUpIcon />
+                }
+                onClick={() => setActiveStep(activeStep !== 1 ? 1 : 2)}
+                className={styles.buttonNext}
+              >
                 Edit
-              </ButtonBasicClick>
+              </Button>
             </Box>
             <StepContent>
               <DeliveryOptions

@@ -27,6 +27,10 @@
   color: rgb(34, 34, 34);
 }
 
+.MuiButton-endIcon path {
+  color: darkseagreen;
+}
+
 a {
   /* transition: 0.3s ease color; */
   min-width: unset !important;

@@ -55,10 +55,10 @@ const DeliveryOptions: React.FC<DeliveryOptionsProps> = ({
       <Box
         sx={{
           borderRadius: "0.4rem",
-          padding: "1rem 5%",
+          paddingBlock: "1rem",
 
-          border: "1px solid rgba(0,0,0,0.1)",
-          background: "#f9fafa",
+          // border: "1px solid rgba(0,0,0,0.1)",
+          // background: "#f9fafa",
           marginBottom: "2rem",
         }}
       >
@@ -139,9 +139,9 @@ const DeliveryOptions: React.FC<DeliveryOptionsProps> = ({
         </RadioGroup>
       </Box>
       <Box className={styles.buttonWrapper}>
-        <Button variant="contained" className={styles.buttonNext} type="submit">
+        {/* <Button variant="contained" className={styles.buttonNext} type="submit">
           Save
-        </Button>
+        </Button> */}
       </Box>
     </FormControl>
   );
