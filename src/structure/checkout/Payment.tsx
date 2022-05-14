@@ -1,6 +1,7 @@
 import Button from "@mui/material/Button";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
+import styles from "./Payment.module.css";
 
 const Payment = () => {
   // Hooks for Card element and Stripe
@@ -12,8 +13,8 @@ const Payment = () => {
 
     if (!stripe || !elements) return;
 
-    const cardElement = elements.getElement(CardElement);
-    console.log("card", cardElement);
+    const paymentEl = elements.getElement(CardElement);
+    console.log("card", paymentEl);
     console.log("stripe", stripe);
 
     // // confirm payment, redirect checkout, etc.
@@ -24,14 +25,6 @@ const Payment = () => {
   return (
     <form action="" onSubmit={handleCard}>
       <CardElement />
-      <Button
-        color="secondary"
-        variant="contained"
-        type="submit"
-        sx={{ marginBlock: "1.5rem" }}
-      >
-        Review order
-      </Button>
     </form>
   );
 };

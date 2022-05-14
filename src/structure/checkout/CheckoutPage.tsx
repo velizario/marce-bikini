@@ -43,6 +43,7 @@ const CartPage = () => {
           alignItems: "stretch",
           marginTop: "4rem",
           width: "100%",
+          position: "relative",
         }}
       >
         <CheckOutMain
@@ -55,7 +56,6 @@ const CartPage = () => {
         <CartMain
           sx={{
             width: "50%",
-            margin: 0,
           }}
         ></CartMain>
       </Box>

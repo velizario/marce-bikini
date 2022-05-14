@@ -49,7 +49,7 @@ const FeaturedProducts = () => {
             maxWidth: "1000px !important",
             display: "flex",
             position: "relative",
-            padding: "0 3rem !important",
+            padding: "0 1rem !important",
           }}
         >
           <ContainerLarge
@@ -73,7 +73,7 @@ const FeaturedProducts = () => {
             </Typography>
             <Swiper
               className={styles.swiper}
-              spaceBetween={50}
+              spaceBetween={30}
               slidesPerView={3}
               speed={700}
               initialSlide={0}

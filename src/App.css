@@ -34,13 +34,13 @@
 a {
   /* transition: 0.3s ease color; */
   min-width: unset !important;
+  text-decoration: none;
 }
 
 a,
 button {
   cursor: pointer;
   letter-spacing: 0.04rem;
-
   font-family: "Arsenal", sans-serif;
   /* font-family: "Gudea", sans-serif; */
 
@@ -74,7 +74,6 @@ button:hover {
 
 a:hover {
   /* color: #063c61; */
-  background-color: transparent !important;
   /* text-decoration: underline !important; */
   /* text-underline-offset: 0.2em; */
 }
@@ -219,4 +218,14 @@ h5 {
 
 input:-webkit-autofill {
   -webkit-background-clip: text;
+}
+
+/* Border for the last step of Checkout Page Stepper, to align to other steps in the stepper*/
+.MuiStepContent-last {
+  border-left: 1px solid black;
+}
+
+/* fix swiper pagination distante for featured products */
+.swiper-pagination.swiper-pagination-fraction {
+  bottom: 0;
 }

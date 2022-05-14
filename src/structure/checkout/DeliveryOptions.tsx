@@ -12,20 +12,20 @@ import styles from "./CheckoutMain.module.css";
 import { EmailFormData } from "./EmailForm";
 
 type DeliveryOptionsProps = {
-  handleNext: (data: EmailFormData) => void;
-  activeStep: number;
+  // handleStep: React.Dispatch<React.SetStateAction<boolean>>;
+  step: boolean;
 };
 
 const DeliveryOptions: React.FC<DeliveryOptionsProps> = ({
-  handleNext,
-  activeStep,
+  // handleStep,
+  step,
 }) => {
-  return activeStep !== 1 ? (
+  console.log(step);
+  return step ? (
     <Box
       sx={{
         borderRadius: "0.4rem",
         padding: "1rem 5%",
-
         border: "1px solid rgba(0,0,0,0.1)",
         background: "#f9fafa",
         marginBottom: "2rem",

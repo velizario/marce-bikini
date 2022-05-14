@@ -123,7 +123,7 @@ const emailWidthSettings: EmailFormData = {
 
 type EmailFormProps = {
   // handleNext: (data: EmailFormData) => void;
-  handleNext: (data: EmailFormData) => void;
+  // handleStep: React.Dispatch<React.SetStateAction<boolean>>;
   formDataHandler: (
     data:
       | EmailFormData
@@ -132,7 +132,7 @@ type EmailFormProps = {
   ) => void;
   formData: EmailFormData;
   subscribeHandler: () => void;
-  activeStep: number;
+  step: boolean;
 };
 
 export const schema = yup.object().shape({
@@ -148,11 +148,11 @@ export const schema = yup.object().shape({
 
 // COMPONENT
 const EmailForm: React.FC<EmailFormProps> = ({
-  handleNext,
+  // handleStep,
   formDataHandler,
   formData,
   subscribeHandler,
-  activeStep,
+  step,
 }) => {
   const userContext = useContext(UserContext);
 
@@ -170,7 +170,7 @@ const EmailForm: React.FC<EmailFormProps> = ({
 
   const submitFormHandler = async (data: EmailFormData) => {
     formDataHandler(data);
-    handleNext(data);
+    // handleStep(false);
   };
 
   useEffect(() => {
@@ -182,7 +182,7 @@ const EmailForm: React.FC<EmailFormProps> = ({
     string
   ][];
 
-  return activeStep > 0 ? (
+  return step ? (
     <Box
       sx={{
         background: "#f9fafa",
@@ -265,6 +265,10 @@ const EmailForm: React.FC<EmailFormProps> = ({
                           type="bodySmall"
                           to="/account"
                           state={{ fromCheckout: true }}
+                          sx={{
+                            textDecoration: "underline",
+                            textShadow: "0.02rem 0rem",
+                          }}
                         >
                           Sign in now
                         </ButtonBasicLink>

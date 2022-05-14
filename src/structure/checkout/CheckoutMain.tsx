@@ -67,7 +67,10 @@ const CheckOutMain: React.FC<CheckOutMainProps> = ({ sx }) => {
   };
 
   // const userContext = useContext(UserContext);
-  const [activeStep, setActiveStep] = React.useState(0);
+  const [activeStep, setActiveStep] = React.useState(-1);
+  const [infoStep, setInfoStep] = React.useState(false);
+  const [deliveryStep, setDeliveryStep] = React.useState(false);
+
   const [formData, setFormData] = React.useState(getDataFromStorage());
   const [stripePromise, setStripePromise] =
     React.useState<Promise<Stripe | null> | null>(null);
@@ -79,9 +82,9 @@ const CheckOutMain: React.FC<CheckOutMainProps> = ({ sx }) => {
     setSubscribe((subscribe) => !subscribe);
   };
 
-  useEffect(() => {
-    formData && setActiveStep(1);
-  }, [formData]);
+  // useEffect(() => {
+  //   formData && setActiveStep(1);
+  // }, [formData]);
 
   useEffect(() => {
     (async () => {
@@ -107,17 +110,17 @@ const CheckOutMain: React.FC<CheckOutMainProps> = ({ sx }) => {
     localStorage.setItem("userAddress", JSON.stringify(newData));
   };
 
-  const handleNext = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep + 1);
-  };
+  // const handleNext = () => {
+  //   setActiveStep((prevActiveStep) => -1);
+  // };
 
-  const handleBack = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep - 1);
-  };
+  // const handleBack = () => {
+  //   setActiveStep((prevActiveStep) => prevActiveStep - 1);
+  // };
 
-  const handleReset = () => {
-    setActiveStep(0);
-  };
+  // const handleReset = () => {
+  //   setActiveStep(0);
+  // };
 
   const handleCard = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -137,7 +140,10 @@ const CheckOutMain: React.FC<CheckOutMainProps> = ({ sx }) => {
         <Stepper
           activeStep={activeStep}
           orientation="vertical"
-          sx={{ width: "100%" }}
+          sx={{
+            width: "100%",
+            marginBottom: "2rem",
+          }}
         >
           <Step key="contact information" expanded>
             <Box
@@ -156,12 +162,9 @@ const CheckOutMain: React.FC<CheckOutMainProps> = ({ sx }) => {
                 Edit
               </ButtonBasicClick> */}
               <Button
-                variant="contained"
                 // size="small"
-                endIcon={
-                  activeStep !== 0 ? <ArrowDropDownIcon /> : <ArrowDropUpIcon />
-                }
-                onClick={() => setActiveStep(activeStep !== 0 ? 0 : 1)}
+                endIcon={infoStep ? <ArrowDropDownIcon /> : <ArrowDropUpIcon />}
+                onClick={() => setInfoStep((infoStep) => !infoStep)}
                 className={styles.buttonNext}
               >
                 Edit
@@ -172,8 +175,8 @@ const CheckOutMain: React.FC<CheckOutMainProps> = ({ sx }) => {
                 subscribeHandler={subscribeHandler}
                 formData={formData}
                 formDataHandler={formDataHandler}
-                handleNext={handleNext}
-                activeStep={activeStep}
+                // handleStep={setInfoStep}
+                step={infoStep}
               ></EmailForm>
             </StepContent>
           </Step>
@@ -194,9 +197,9 @@ const CheckOutMain: React.FC<CheckOutMainProps> = ({ sx }) => {
                 variant="contained"
                 // size="small"
                 endIcon={
-                  activeStep !== 1 ? <ArrowDropDownIcon /> : <ArrowDropUpIcon />
+                  deliveryStep ? <ArrowDropDownIcon /> : <ArrowDropUpIcon />
                 }
-                onClick={() => setActiveStep(activeStep !== 1 ? 1 : 2)}
+                onClick={() => setDeliveryStep((deliveryStep) => !deliveryStep)}
                 className={styles.buttonNext}
               >
                 Edit
@@ -204,16 +207,61 @@ const CheckOutMain: React.FC<CheckOutMainProps> = ({ sx }) => {
             </Box>
             <StepContent>
               <DeliveryOptions
-                handleNext={handleNext}
-                activeStep={activeStep}
+                // handleStep={setDeliveryStep}
+                step={deliveryStep}
               />
             </StepContent>
           </Step>
           <Step key="Payment" expanded>
             <StepLabel>
-              <Typography className={styles.stepLabel}>Payment</Typography>
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "row",
+                  justifyContent: "space-between",
+                }}
+              >
+                <Typography className={styles.stepLabel}>Payment</Typography>
+                <ButtonBasicClick
+                  type="action"
+                  onClick={function (): void {
+                    throw new Error("Function not implemented.");
+                  }}
+                >
+                  Place your order
+                </ButtonBasicClick>
+              </Box>
             </StepLabel>
-            <StepContent>{stripePromise && <Payment />}</StepContent>
+            <StepContent>
+              <Box
+                sx={{
+                  display: "flex",
+                  gap: "1rem",
+                  // marginTop: "1rem",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                }}
+              >
+                <Box>
+                  <Typography variant="h6" sx={{ fontSize: "1rem" }}>
+                    Pay securely with Stripe
+                  </Typography>
+                  <Typography variant="caption">
+                    You will be forwarded to Stripe payment page for the final
+                    step.
+                  </Typography>
+                </Box>
+                {/* <ButtonBasicClick
+                  type="action"
+                  onClick={function (): void {
+                    throw new Error("Function not implemented.");
+                  }}
+                >
+                  Place your order
+                </ButtonBasicClick> */}
+              </Box>
+              {/* {stripePromise && <Payment />} */}
+            </StepContent>
           </Step>
         </Stepper>
       </ContainerLarge>

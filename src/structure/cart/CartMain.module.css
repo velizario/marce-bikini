@@ -1,19 +1,17 @@
 .avatar {
   margin-right: 1rem;
   width: 5rem;
-  height: 7rem;
+  /* height: 7rem; */
 }
 
 .image {
   margin-right: 1rem;
   width: 5rem;
-  height: 7rem;
   object-fit: cover;
 }
 
 .table,
 .tableTotals {
-  margin-top: 2rem;
   box-shadow: none;
   table-layout: fixed;
 }

@@ -32,6 +32,7 @@
   text-decoration: underline;
   text-decoration-thickness: 0rem;
   text-underline-offset: 0.1rem;
+  letter-spacing: 0.08rem;
 
   /* box-shadow: 1px 1px 5px -1px lightgray; */
   /* padding: 0.2rem 1.2rem; */
@@ -54,19 +55,20 @@
 
 .buttonNext:hover {
   background: white;
-  text-shadow: 0.03rem 0rem #922f08;
-  color: #922f08;
+  text-shadow: 0.03rem 0rem #b65833;
+  color: #b65833;
   box-shadow: none;
   text-decoration: underline;
   text-decoration-thickness: 0.01rem;
   text-underline-offset: 0.1rem;
+
   /* box-shadow: 1px 1px 5px -1px lightgray; */
   /* background: #f9fafa;
   text-decoration: none; */
 }
 
 .buttonNext:hover svg {
-  fill: #922f08;
+  fill: #b65833;
 }
 
 .innerLabel {

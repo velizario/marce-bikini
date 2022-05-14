@@ -1,42 +1,72 @@
+/* Button style types:
+body
+footer
+bodySmall
+headerLink
+action
+*/
+
 .body,
 .footer,
 .bodySmall,
 .headerLink {
-  text-decoration: underline;
-  font-weight: 500;
-  text-shadow: 0.03rem 0rem;
-  /* text-underline-offset: 0.1rem; */
+  background-color: transparent;
 }
+
+/* Headerlink */
 
 .headerLink {
   text-transform: uppercase;
   letter-spacing: 0.1rem;
+  position: relative;
 }
 
-.body,
-.bodySmall {
-  /* color: #005174 !important; */
+.headerLink:after {
+  background-color: black;
+  bottom: 0;
+  content: "";
+  height: 0.5px;
+  left: 0;
+  /* max-width: 1.25em; */
+  pointer-events: none;
+  position: absolute;
+  transition: max-width 0.5s, width 0.5s;
+  width: 1.25rem;
+  z-index: 5;
+}
+
+.headerLink:hover:after {
+  /* max-width: 5em; */
+  width: 100%;
 }
 
 .bodySmall {
   font-size: 0.8rem;
 }
 
+/* footer */
 .footer {
   color: rgba(16, 16, 16, 0.75);
   font-size: 1rem;
 }
 
-.body:hover,
-.footer:hover,
-.bodySmall:hover,
-.headerLink:hover {
-}
-
-.headerLink:hover {
-  text-decoration-color: #777;
-}
-
 .footer:hover {
-  color: rgb(16, 16, 16);
+  color: black;
+  text-decoration: underline;
+  text-decoration-thickness: 0.01rem;
+  text-underline-offset: 0.1rem;
+}
+
+/* action */
+.action {
+  background: #ffd814;
+  padding: 0.5rem 2rem;
+  border-radius: 0.5rem;
+  white-space: nowrap;
+  text-shadow: 0.03rem 0rem;
+  font-size: 0.9rem;
+}
+
+.action:hover {
+  background: #f7ca00;
 }

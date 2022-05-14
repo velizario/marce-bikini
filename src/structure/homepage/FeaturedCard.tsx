@@ -19,7 +19,12 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   const { title, images, shortDesc, variations } = product.attributes;
 
   return (
-    <Card sx={{ boxShadow: "none" }}>
+    <Card
+      sx={{
+        // boxShadow: "0 0 8px 5px rgb(0 0 0 / 8%)",
+        boxShadow: "none",
+      }}
+    >
       <Link to={`/product/${String(product.id)}`}>
         {/* <CardActionArea component={RouterLink} to="/questions"> */}
         <CardMedia
@@ -30,17 +35,22 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         />
         {/* </CardActionArea> */}
       </Link>
-      <CardContent>
+      <CardContent sx={{ paddingLeft: 0 }}>
         <Link
           className={styles.titleLink}
           to={`/product/${String(product.id)}`}
         >
-          <Typography gutterBottom variant="h6" component="div">
+          <Typography
+            gutterBottom
+            variant="h6"
+            component="div"
+            sx={{ textAlign: "left", fontWeight: 600, lineHeight: "1.4rem" }}
+          >
             {title}
           </Typography>
         </Link>
 
-        <Typography className={styles.description} variant="body2">
+        <Typography variant="body2" sx={{ textAlign: "left" }}>
           {shortDesc}
         </Typography>
       </CardContent>
