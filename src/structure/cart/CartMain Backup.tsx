@@ -62,13 +62,13 @@ const CartMain: React.FC<CartMainProps> = ({ sx }) => {
             <TableRow>
               <TableCell className={styles.tableHeader}>Item</TableCell>
               <TableCell className={styles.tableHeader} align="right">
-                Item Price
+                Price
               </TableCell>
               <TableCell className={styles.tableHeader} align="right">
                 Quantity
               </TableCell>
               <TableCell className={styles.tableHeader} align="right">
-                Price
+                Subtotal
               </TableCell>
             </TableRow>
           </TableHead>
@@ -115,11 +115,11 @@ const CartMain: React.FC<CartMainProps> = ({ sx }) => {
                   <TableCell align="right">€{productPrice}</TableCell>
                   <TableCell align="right">{cartItem.quantity}</TableCell>
                   <TableCell align="right">
-                    <Typography component="span" sx={{ fontWeight: "500" }}>
+                    <Typography component="span" sx={{ fontWeight: "700" }}>
                       €{totalItemPrice}
                     </Typography>
 
-                    {/* <IconButton
+                    <IconButton
                       color="primary"
                       aria-label="upload picture"
                       component="span"
@@ -160,30 +160,65 @@ const CartMain: React.FC<CartMainProps> = ({ sx }) => {
                           <path d="M 4.9902344 3.9902344 A 1.0001 1.0001 0 0 0 4.2929688 5.7070312 L 10.585938 12 L 4.2929688 18.292969 A 1.0001 1.0001 0 1 0 5.7070312 19.707031 L 12 13.414062 L 18.292969 19.707031 A 1.0001 1.0001 0 1 0 19.707031 18.292969 L 13.414062 12 L 19.707031 5.7070312 A 1.0001 1.0001 0 0 0 18.980469 3.9902344 A 1.0001 1.0001 0 0 0 18.292969 4.2929688 L 12 10.585938 L 5.7070312 4.2929688 A 1.0001 1.0001 0 0 0 4.9902344 3.9902344 z" />
                         </svg>
                       </SvgIcon>
-                    </IconButton> */}
+                    </IconButton>
                   </TableCell>
                 </TableRow>
               );
             })}
-
-            <TableRow>
-              <TableCell className={styles.tableHeader}></TableCell>
-              <TableCell className={styles.tableHeader} align="right">
-              <Typography className={styles.totalsTotalPrice}> Subtotal </Typography>
-
-              </TableCell>
-              <TableCell className={styles.tableHeader} align="right">
-                
-              </TableCell>
-              <TableCell  align="right">
-               <Typography className={styles.totalsTotalPrice} > €{totalPrice} </Typography>
-              </TableCell>
-            </TableRow>
-
           </TableBody>
         </Table>
       </TableContainer>
-
+      <TableContainer className={styles.tableTotals} component={Paper}>
+        <Table
+          sx={{
+            width: "100%",
+            bgcolor: "background.paper",
+          }}
+        >
+          <TableBody>
+            <TableRow>
+              <TableCell className={styles.totalsAttribute}>
+                Subtotal:
+              </TableCell>
+              <TableCell className={styles.totalsSubtotalPrice} align="right">
+                €{totalPrice}
+              </TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell className={styles.totalsAttribute}>
+                Delivery:
+              </TableCell>
+              <TableCell className={styles.totalsValue} align="right">
+                Discuss
+              </TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell className={styles.totalsAttribute}>
+                Coupon Code:
+              </TableCell>
+              <TableCell className={styles.totalsValue} align="right">
+                Discuss
+              </TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell className={styles.totalsAttribute}>
+                Gift Certificate:
+              </TableCell>
+              <TableCell className={styles.totalsValue} align="right">
+                Discuss
+              </TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell className={styles.totalsAttribute}>
+                Subtotal:
+              </TableCell>
+              <TableCell className={styles.totalsTotalPrice} align="right">
+                €{totalPrice}
+              </TableCell>
+            </TableRow>
+          </TableBody>
+        </Table>
+      </TableContainer>
 
       <Button
         className={styles.checkoutButtom}
@@ -193,7 +228,7 @@ const CartMain: React.FC<CartMainProps> = ({ sx }) => {
           navigate("/checkout");
         }}
       >
-        Proceed to Checkout
+        Checkout
       </Button>
     </ContainerLarge>
   );

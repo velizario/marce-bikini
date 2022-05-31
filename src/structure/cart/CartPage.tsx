@@ -8,17 +8,17 @@ import { CartContext } from "../../globalstate/CartContextProvider";
 const CartPage = () => {
   const cartContext = React.useContext(CartContext);
   return (
-    <ContainerLarge>
       <HeaderFooter>
         {!cartContext.isSet ? (
           <div>Loading!</div>
         ) : cartContext.cartItems.length > 0 ? (
-          <CartMain sx={{ margin: "2rem 0" }} />
+          <ContainerLarge>
+            <CartMain sx={{ margin: "2rem 0" }} />    
+          </ContainerLarge>
         ) : (
           <CartEmpty />
         )}
       </HeaderFooter>
-    </ContainerLarge>
   );
 };
 

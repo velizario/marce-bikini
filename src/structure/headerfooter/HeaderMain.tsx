@@ -72,13 +72,15 @@ const HeaderMain = () => {
           height: "100%",
         }}
       >
-        <Link href="/" sx={{ height: "100%" }}>
+        {/* <Link href="/" sx={{ height: "100%" }}> */}
+        <Button component={ButtonLink} to="/" variant="text" sx={{ height: "100%", padding: 0 }}>
           <img
             alt="hero"
             src={`${process.env.REACT_APP_BASE_URL}/images/MARCE Logo.jpg`}
             className={styles.image}
           />
-        </Link>
+          </Button>
+        {/* </Link> */}
         <ButtonBasicLink type="headerLink" to="/shop">
           Shop
         </ButtonBasicLink>

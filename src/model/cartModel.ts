@@ -17,8 +17,8 @@ export const addToCart = async (userId: string, cartData: CartUserModel[]) => {
   const data: Promise<ApiResponse<CartUserModel[]>> = await postToAPI(
     `http://localhost:9000/api/v1/carts/${userId}`,
     "PATCH",
-    cartData
-  );
+    cartData,
+  ); 
   return data;
 };
 

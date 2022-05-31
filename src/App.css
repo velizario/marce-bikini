@@ -68,9 +68,11 @@ button {
   /* font-family: "Harmony" !important; */
 }
 
-button:hover {
-  background-color: transparent;
+a:hover {
+  background-color: transparent !important;
 }
+
+
 
 a:hover {
   /* color: #063c61; */
