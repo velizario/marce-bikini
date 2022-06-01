@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import { useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Swiper as SwiperType } from "swiper";
@@ -7,12 +7,10 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import styles from "./HeroCarousel.module.css";
-
-// import "./styles.css";
-
 // import required modules
 import { Autoplay, Pagination, Navigation } from "swiper";
 import { Typography } from "@mui/material";
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
 const heroImages = [
   { image: "/images/hero1.png" },
@@ -44,8 +42,6 @@ export default function HeroCarousel() {
           setMySwiper(ev);
         }}
       >
-        {/* <SwiperSlide>123</SwiperSlide>
-        <SwiperSlide>123</SwiperSlide> */}
         {heroImages.map((image) => (
           <SwiperSlide key={image.image}>
             <img

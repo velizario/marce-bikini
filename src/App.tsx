@@ -30,18 +30,14 @@ function App() {
           <ThemeProvider theme={defaultTheme}>
             <BrowserRouter>
               <Routes>
-                {/* <Route path="/" element={<App />} /> */}
                 <Route index element={<HomePage />} />
                 <Route path="shop" element={<ShopPage />} />
-                {/* <Route path=":teamId" element={<Team />} /> */}
                 <Route path="aboutus" element={<AboutUs />} />
                 <Route path="contactus" element={<ContactUs />} />
                 <Route path="account" element={<AccountPage />} />
                 <Route path="createaccount" element={<CreateAccount />} />
-                <Route path="signin" element={<SignIn />} />
                 <Route path="cart" element={<CartPage />} />
                 <Route path="checkout" element={<CheckoutPage />} />
-                {/* <Route index element={<LeagueStandings />} /> */}
                 <Route
                   path="product/:productId"
                   element={<SingleProductPage />}

@@ -74,11 +74,6 @@ a:hover {
 
 
 
-a:hover {
-  /* color: #063c61; */
-  /* text-decoration: underline !important; */
-  /* text-underline-offset: 0.2em; */
-}
 
 a:visited {
   color: black;
@@ -220,6 +215,8 @@ h5 {
 
 input:-webkit-autofill {
   -webkit-background-clip: text;
+  background-clip: text;
+
 }
 
 /* Border for the last step of Checkout Page Stepper, to align to other steps in the stepper*/
@@ -240,3 +237,12 @@ input:-webkit-autofill {
   margin-bottom: 0px;
   padding: 0;
 }
+
+/* Pagination dot colors on the hero swiper */
+.swiper-pagination-bullet {
+  background-color: rgba(255,255,255) !important;
+}
+
+.swiper-pagination-bullet-active {
+  background: rgba(220,220,220)  !important;
+ }
