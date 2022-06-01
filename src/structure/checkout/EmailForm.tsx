@@ -1,15 +1,14 @@
 import React, { useContext, useEffect } from "react";
-import { Controller, FieldError, useForm, useWatch } from "react-hook-form";
+import { Controller, useForm  } from "react-hook-form";
 import styles from "./EmailForm.module.css";
 import stylesGeneric from "./CheckoutMain.module.css";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import NavigateNextIcon from "@mui/icons-material/NavigateNext";
+
 
 import Box from "@mui/material/Box";
-import { Link } from "react-router-dom";
+
 import {
-  Button,
   Checkbox,
   FormControl,
   FormControlLabel,
@@ -24,7 +23,6 @@ import InputField from "./InputField";
 // import { createLoginUser } from "../../model/userModel";
 import { UserContext } from "../../globalstate/UserContextProvider";
 import LoggedInUserInfo from "./LoggedInUserInfo";
-import { defaultFormData } from "./CheckoutMain";
 import ButtonBasicLink from "../../utilityComponents/ButtonBasicLink";
 
 const menuItems = [

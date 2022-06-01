@@ -3,6 +3,7 @@ import { UserContext } from "../../globalstate/UserContextProvider";
 import HeaderFooter from "../headerfooter/HeaderFooter";
 import AccountDetails from "./AccountDetails";
 import SignIn from "./SignIn";
+import EmailForm from "../checkout/EmailForm";
 
 const AccountPage = () => {
   // Navigate to login page if no user is logged in

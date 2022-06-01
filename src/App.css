@@ -231,3 +231,12 @@ input:-webkit-autofill {
 .swiper-pagination.swiper-pagination-fraction {
   bottom: 0;
 }
+
+
+/* Font size of search input */
+#searchInput {
+  font-size: 0.9rem;
+  margin: 0;
+  margin-bottom: 0px;
+  padding: 0;
+}

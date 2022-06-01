@@ -60,6 +60,7 @@ const HeaderMain = () => {
         maxWidth: "95%",
         gap: "1rem",
         height: "4rem",
+        paddingBottom: "0.5rem",
       }}
     >
       <Box
@@ -68,7 +69,7 @@ const HeaderMain = () => {
           width: "100%",
           padding: "0.5rem 0",
           justifyContent: "space-between",
-          alignItems: "center",
+          alignItems: "end",
           height: "100%",
         }}
       >
@@ -95,6 +96,7 @@ const HeaderMain = () => {
         <Autocomplete
           blurOnSelect
           disablePortal
+          size="small"
           freeSolo
           id="searchInput"
           options={searchResult}
@@ -109,9 +111,13 @@ const HeaderMain = () => {
           onInputChange={searchProducts}
           renderInput={(params) => (
             <TextField
+            className={styles.searchInput}
               {...params}
               variant="standard"
-              label="Search products..."
+              // label="Search products..."
+              placeholder="Search products..."
+              InputProps={{ ...params.InputProps, disableUnderline: true }}
+              sx={{borderBottom: "1px solid lightgray"}}
             />
           )}
           renderOption={(props, option) => (
@@ -142,13 +148,11 @@ const HeaderMain = () => {
 
         <Box
           sx={{
-            // background: "#222",
-            // color: "#eee",
-            // borderBottom: "0.5px solid rgba(0,0,0,0.2)",
+            height: "100%",
+            display: "flex",
             textAlign: "center",
             justifyContent: "flex-end",
-            display: "flex",
-            padding: "0.4rem 0",
+            alignItems: "end",
           }}
         >
           {/* Account link */}
@@ -181,7 +185,7 @@ const HeaderMain = () => {
               )}
             </Button>
             {/* Cart */}
-            <Button component={ButtonLink} to="/cart" variant="text">
+            <Button component={ButtonLink} sx={{padding: "0 8px"}} to="/cart" variant="text">
               <SvgIcon>
                 <svg
                   version="1.1"

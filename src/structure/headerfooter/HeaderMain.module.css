@@ -14,7 +14,7 @@
   color: white;
   position: absolute;
   left: 50%;
-  bottom: 0;
+  bottom: -20%;
 }
 
 .accountButton {
@@ -34,7 +34,10 @@
 
 .searchImage {
   height: 100%;
-
   width: 2.5rem;
   object-fit: cover;
 }
+
+
+
+
