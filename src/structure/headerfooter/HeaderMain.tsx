@@ -1,19 +1,18 @@
 import { Box, Button, Link, SvgIcon, TextField } from "@mui/material";
-import { SyntheticEvent, useContext, useRef, useState } from "react";
+import { SyntheticEvent, useContext, useEffect, useRef, useState } from "react";
 import { Link as ButtonLink, useNavigate } from "react-router-dom";
 import { CartContext } from "../../globalstate/CartContextProvider";
 import { UserContext } from "../../globalstate/UserContextProvider";
 import ContainerLarge from "../../utilityComponents/ContainerLarge";
 import styles from "./HeaderMain.module.css";
 import Autocomplete from "@mui/material/Autocomplete";
-import ButtonBasicLink from "../../utilityComponents/ButtonBasicLink";
 import { Product, productModelImpl } from "../../model/productModel";
+import CustomLink from "../../utilityComponents/CustomLink";
 
 const HeaderMain = () => {
   const navigate = useNavigate();
   const userContext = useContext(UserContext);
   const cartContext = useContext(CartContext);
-  const [searchValue, setSearchValue] = useState("");
   const [inputValue, setInputValue] = useState("");
   const [searchResult, setSearchResult] = useState<Product[]>([]);
 
@@ -24,17 +23,23 @@ const HeaderMain = () => {
   const searchProducts = async (
     event: React.SyntheticEvent<Element, Event>,
     value: string,
-    reason: string
+    reason: string,
   ) => {
+  console.log("searchproducts")
+    // if (reason === "reset") {
+    //   clearSearchInput();
+    //   setInputValue("");
+    //   console.log("values set")
+    // }
+
     setInputValue(value);
-    if (value.length < 3) {
+
+    if (value.length < 3 || reason === "reset") {
       clearSearchInput();
       return;
     }
 
     const returnData = await productModelImpl.getProductByName(value);
-    // searchResult = returnData.map((el) => el.attributes);
-    console.log(returnData);
     setSearchResult(returnData);
   };
 
@@ -42,15 +47,21 @@ const HeaderMain = () => {
     event: SyntheticEvent,
     value: string | Product | null
   ) {
-    console.log("navigated");
-    clearSearchInput();
-    setSearchValue("");
-    setInputValue("");
+
+    setInputValue("")
+
     if (value && typeof value === "object") {
       navigate(`/product/${value.id}`);
-      setSearchValue("");
     }
   }
+
+    useEffect(() => {
+     console.log("rendered")
+     return () => {
+      setSearchResult([]);
+      setInputValue("")
+     }
+  }, []);
 
   return (
     <ContainerLarge
@@ -82,9 +93,9 @@ const HeaderMain = () => {
           />
           </Button>
         {/* </Link> */}
-        <ButtonBasicLink type="headerLink" to="/shop">
+        <CustomLink style="headerLink" to="/shop">
           Shop
-        </ButtonBasicLink>
+        </CustomLink>
 
         {/* <TextField
           id="standard-basic"
@@ -94,18 +105,18 @@ const HeaderMain = () => {
         /> */}
 
         <Autocomplete
-          blurOnSelect
+          clearOnEscape
           disablePortal
           size="small"
           freeSolo
           id="searchInput"
           options={searchResult}
-          // {...searchResultProps}
           getOptionLabel={(option: Product) =>
             option ? option.attributes.title : ""
           }
           sx={{ width: "30%" }}
-          value={searchValue}
+          // value={searchValue}
+          value={""}
           onChange={navigateToProduct}
           inputValue={inputValue}
           onInputChange={searchProducts}
@@ -114,9 +125,8 @@ const HeaderMain = () => {
             className={styles.searchInput}
               {...params}
               variant="standard"
-              // label="Search products..."
               placeholder="Search products..."
-              InputProps={{ ...params.InputProps, disableUnderline: true }}
+              InputProps={{ ...params.InputProps, disableUnderline: true}}
               sx={{borderBottom: "1px solid lightgray"}}
             />
           )}
@@ -130,21 +140,19 @@ const HeaderMain = () => {
                 loading="lazy"
                 className={styles.searchImage}
                 src={`${process.env.REACT_APP_DATA_URL}${option.attributes.images.data[0].attributes.url}`}
-                // srcSet={`https://flagcdn.com/w40/${option.code.toLowerCase()}.png 2x`}
                 alt=""
               />
               {option.attributes.title}
-              {/* {option.label} ({option.code}) +{option.phone} */}
             </Box>
           )}
         />
 
-        <ButtonBasicLink type="headerLink" to="/contactus">
+        <CustomLink style="headerLink" to="/contactus">
           Contact Us
-        </ButtonBasicLink>
-        <ButtonBasicLink type="headerLink" to="/aboutus">
+        </CustomLink>
+        <CustomLink style="headerLink" to="/aboutus">
           Our mission
-        </ButtonBasicLink>
+        </CustomLink>
 
         <Box
           sx={{

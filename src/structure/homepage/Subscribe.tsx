@@ -4,7 +4,6 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { Box } from "@mui/system";
 import { useState } from "react";
-import ButtonBasicClick from "../../utilityComponents/ButtonBasicClick";
 import ContainerLarge from "../../utilityComponents/ContainerLarge";
 import styles from "./Subscribe.module.css";
 
@@ -18,7 +17,6 @@ let schema = yup.object().shape({
 
 const Subscribe = () => {
   const [subscribed, setSubscribed] = useState(false);
-  const [subscriber, setSubscriber] = useState("");
 
   const {
     register,
@@ -85,7 +83,6 @@ const Subscribe = () => {
             sx={{
               marginBottom: "1.5rem",
               fontSize: "2.8rem",
-              fontWeight: "400",
             }}
           >
             GET NOTIFIED FIRST
@@ -102,11 +99,7 @@ const Subscribe = () => {
             lines!
           </Typography>
           <Box
-            sx={{
-              display: "flex",
-              gap: "3%",
-              alignItems: "center",
-            }}
+
           >
             <form
               action=""
@@ -159,13 +152,7 @@ const Subscribe = () => {
               <Typography
                 component="p"
                 variant="body1"
-                className={styles.successMessage}
-                sx={{
-                  color: "green",
-                  fontSize: "1rem",
-                  fontWeight: "500",
-                }}
-              >
+                className={styles.successMessage}>
                 Thank you for subscribing!
               </Typography>
             )}
@@ -173,8 +160,8 @@ const Subscribe = () => {
         </Box>
         <Box
           sx={{
-            alignSelf: "stretch",
-            height: "22rem",
+            // alignSelf: "stretch",
+            height: "100%",
             display: { xs: "none", md: "block" },
             flexBasis: "0",
             flexGrow: "1",

@@ -23,7 +23,7 @@ import InputField from "./InputField";
 // import { createLoginUser } from "../../model/userModel";
 import { UserContext } from "../../globalstate/UserContextProvider";
 import LoggedInUserInfo from "./LoggedInUserInfo";
-import ButtonBasicLink from "../../utilityComponents/ButtonBasicLink";
+import CustomLink from "../../utilityComponents/CustomLink";
 
 const menuItems = [
   "",
@@ -259,17 +259,17 @@ const EmailForm: React.FC<EmailFormProps> = ({
                       </Typography>
                       <Typography className={styles.supplText}>
                         Already have an account?{" "}
-                        <ButtonBasicLink
-                          type="bodySmall"
+                        <CustomLink
+                          style="bodySmall"
                           to="/account"
-                          state={{ fromCheckout: true }}
+                          from = "fromCheckout"
                           sx={{
                             textDecoration: "underline",
                             textShadow: "0.02rem 0rem",
                           }}
                         >
                           Sign in now
-                        </ButtonBasicLink>
+                        </CustomLink>
                       </Typography>
                     </Box>
 

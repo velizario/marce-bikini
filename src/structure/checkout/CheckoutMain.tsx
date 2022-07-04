@@ -12,28 +12,19 @@ import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe, Stripe } from "@stripe/stripe-js";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
-import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
-import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 
-import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 
 import {
-  FormControl,
-  FormControlLabel,
-  FormLabel,
-  Radio,
-  RadioGroup,
+
   SelectChangeEvent,
   SxProps,
   Theme,
 } from "@mui/material";
-import { Link as ButtonLink } from "react-router-dom";
-import ButtonBasicClick from "../../utilityComponents/ButtonBasicClick";
 import ContainerLarge from "../../utilityComponents/ContainerLarge";
 import { useEffect } from "react";
-import ButtonBasicLink from "../../utilityComponents/ButtonBasicLink";
 import Payment from "./Payment";
 import DeliveryOptions from "./DeliveryOptions";
+import CustomLink from "../../utilityComponents/CustomLink";
 
 export const defaultFormData = {
   email: "",
@@ -158,9 +149,7 @@ const CheckOutMain: React.FC<CheckOutMainProps> = ({ sx }) => {
                   Your contact info
                 </Typography>
               </StepLabel>
-              {/* <ButtonBasicClick type="body" onClick={() => setActiveStep(0)}>
-                Edit
-              </ButtonBasicClick> */}
+
               <Button
                 // size="small"
                 endIcon={infoStep ? <ArrowDropDownIcon /> : <ArrowDropUpIcon />}
@@ -222,14 +211,14 @@ const CheckOutMain: React.FC<CheckOutMainProps> = ({ sx }) => {
                 }}
               >
                 <Typography className={styles.stepLabel}>Payment</Typography>
-                <ButtonBasicClick
-                  type="action"
+                <CustomLink
+                  style="action"
                   onClick={function (): void {
                     throw new Error("Function not implemented.");
                   }}
                 >
                   Place your order
-                </ButtonBasicClick>
+                </CustomLink>
               </Box>
             </StepLabel>
             <StepContent>
@@ -251,14 +240,14 @@ const CheckOutMain: React.FC<CheckOutMainProps> = ({ sx }) => {
                     step.
                   </Typography>
                 </Box>
-                {/* <ButtonBasicClick
-                  type="action"
+                {/* <CustomLink
+                  style="action"
                   onClick={function (): void {
                     throw new Error("Function not implemented.");
                   }}
                 >
                   Place your order
-                </ButtonBasicClick> */}
+                </CustomLink> */}
               </Box>
               {/* {stripePromise && <Payment />} */}
             </StepContent>

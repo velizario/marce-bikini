@@ -17,8 +17,12 @@
 
 .successMessage {
   -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
   animation-name: success;
   animation-duration: 5s;
+  color: green;
+  font-size: 1rem;
+  font-weight: 500;
 }
 
 @keyframes success {

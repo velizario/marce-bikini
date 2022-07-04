@@ -4,6 +4,7 @@ import { UserContext } from "../../globalstate/UserContextProvider";
 import ContainerLarge from "../../utilityComponents/ContainerLarge";
 import styles from "./AccountDetails.module.css";
 import { userLogout } from "../../model/userModel";
+import CustomButton from "../../utilityComponents/CustomButton";
 const AccountDetails = () => {
   const context = useContext(UserContext);
 
@@ -42,16 +43,13 @@ const AccountDetails = () => {
               {context.isLoggedIn.email}
             </Typography>
           </div>
-          <Button
-            //   component={ButtonLink}
+          <CustomButton
             sx={{ marginTop: "2rem" }}
-            //   to="/cart"
-            color="secondary"
-            variant="contained"
+              // to="/cart"
             onClick={userLogoutHandler}
           >
             Logout
-          </Button>
+          </CustomButton>
         </Box>
       )}
     </ContainerLarge>

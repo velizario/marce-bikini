@@ -4,9 +4,9 @@ import { useContext, useEffect } from "react";
 import { useNavigate } from "react-router";
 import { CartContext } from "../../globalstate/CartContextProvider";
 import { postToAPI } from "../../model/helperFunctions";
-import ButtonBasicClick from "../../utilityComponents/ButtonBasicClick";
 
 import ContainerLarge from "../../utilityComponents/ContainerLarge";
+import CustomLink from "../../utilityComponents/CustomLink";
 import CartMain from "../cart/CartMain";
 import CheckOutMain from "./CheckoutMain";
 
@@ -59,13 +59,13 @@ const CartPage = () => {
           }}
         ></CartMain>
       </Box>
-      <ButtonBasicClick
+      <CustomLink
         onClick={commencePayment}
-        type="headerLink"
+        style="headerLink"
         sx={{ marginBlock: "5rem" }}
       >
         Pay
-      </ButtonBasicClick>
+      </CustomLink>
     </ContainerLarge>
   );
 };

@@ -4,12 +4,10 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import styles from "./CheckoutMain.module.css";
-import { Link as MuiLink } from "@mui/material";
 import { Avatar } from "@mui/material";
 import { UserModel } from "../../globalstate/UserContextProvider";
 import { userLogout } from "../../model/userModel";
 import { UserContext } from "../../globalstate/UserContextProvider";
-import ButtonBasicClick from "../../utilityComponents/ButtonBasicClick";
 
 type LioggedInUserInfoProps = {
   userInfo: UserModel;

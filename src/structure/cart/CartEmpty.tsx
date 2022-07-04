@@ -2,22 +2,22 @@ import { Button, Typography } from "@mui/material";
 import React from "react";
 import { Link as ButtonLink } from "react-router-dom";
 import { UserContext } from "../../globalstate/UserContextProvider";
+import ContainerLarge from "../../utilityComponents/ContainerLarge";
+import CustomLink from "../../utilityComponents/CustomLink";
 
 const CartEmpty = () => {
   const userContext = React.useContext(UserContext);
   return (
-    <React.Fragment>
+    <ContainerLarge>
       <Typography gutterBottom variant="h4" component="div">
         Your cart is empty
       </Typography>
-      <Button
-        component={ButtonLink}
+      <CustomLink
         to="/shop"
-        variant="contained"
-        color="secondary"
+        style="action"
       >
         Continue shopping
-      </Button>
+      </CustomLink>
       {userContext.isLoggedIn ? null : (
         <React.Fragment>
           <Typography variant="h6"> Have an account?</Typography>
@@ -26,7 +26,7 @@ const CartEmpty = () => {
           </Typography>
         </React.Fragment>
       )}
-    </React.Fragment>
+    </ContainerLarge>
   );
 };
 

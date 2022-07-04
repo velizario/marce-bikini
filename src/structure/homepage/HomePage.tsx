@@ -5,7 +5,6 @@ import Benefits from "./Benefits";
 import FeaturedProducts from "./FeaturedProducts";
 import HeroCarousel from "./HeroCarousel";
 import Subscribe from "./Subscribe";
-import SwiperTest from "./SwiperTest";
 const HomePage = () => {
   return (
     <HeaderFooter>

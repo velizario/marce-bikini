@@ -56,7 +56,6 @@ export default function HeroCarousel() {
           className={"swiper-button-prev " + styles.swiperPrev}
           onClick={() => mySwiper && mySwiper.slidePrev()}
         >
-          {/* <ArrowBackIosIcon /> */}
         </Typography>
 
         <Typography
@@ -64,7 +63,6 @@ export default function HeroCarousel() {
           className={"swiper-button-next " + styles.swiperNext}
           onClick={() => mySwiper && mySwiper.slideNext()}
         >
-          {/* <ArrowForwardIosIcon /> */}
         </Typography>
       </Swiper>
     </>

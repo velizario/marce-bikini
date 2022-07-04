@@ -63,7 +63,7 @@ const SingleProductPage = () => {
       { productId: product.id, size, quantity },
     ];
 
-    // Get Cart data if user is logged in
+    // Update Cart data if user is logged in
     const returnedCart =
       userContext.isLoggedIn &&
       (await addToCart(userContext.isLoggedIn._id, updatedCart));

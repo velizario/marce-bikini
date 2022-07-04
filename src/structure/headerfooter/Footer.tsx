@@ -1,7 +1,6 @@
 import { Box, Typography } from "@mui/material";
-import React from "react";
-import ButtonBasicLink from "../../utilityComponents/ButtonBasicLink";
 import ContainerLarge from "../../utilityComponents/ContainerLarge";
+import CustomLink from "../../utilityComponents/CustomLink";
 
 const Footer = () => {
   return (
@@ -25,27 +24,27 @@ const Footer = () => {
             flexWrap: "wrap",
           }}
         >
-          <ButtonBasicLink type="footer" to="/account">
+          <CustomLink style="footer" to="/account">
             Account
-          </ButtonBasicLink>
-          <ButtonBasicLink type="footer" to="/account">
+          </CustomLink>
+          <CustomLink style="footer" to="/account">
             Terms & Conditions
-          </ButtonBasicLink>
-          <ButtonBasicLink type="footer" to="/account">
+          </CustomLink>
+          <CustomLink style="footer" to="/account">
             Shipping
-          </ButtonBasicLink>
-          <ButtonBasicLink type="footer" to="/account">
+          </CustomLink>
+          <CustomLink style="footer" to="/account">
             Privacy & Security Policy
-          </ButtonBasicLink>
-          <ButtonBasicLink type="footer" to="/account">
+          </CustomLink>
+          <CustomLink style="footer" to="/account">
             About Us
-          </ButtonBasicLink>
-          <ButtonBasicLink type="footer" to="/account">
+          </CustomLink>
+          <CustomLink style="footer" to="/account">
             Terms of Service
-          </ButtonBasicLink>
-          <ButtonBasicLink type="footer" to="/account">
+          </CustomLink>
+          <CustomLink style="footer" to="/account">
             Refund Policy
-          </ButtonBasicLink>
+          </CustomLink>
         </Box>
       </ContainerLarge>
       <Typography

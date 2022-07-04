@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 import { Product, productModelImpl } from "../../model/productModel";
 import ContainerLarge from "../../utilityComponents/ContainerLarge";
-import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
+
 
 // Import Swiper React components
 import { Swiper as SwiperType } from "swiper";
@@ -15,10 +14,9 @@ import "swiper/css/navigation";
 import { Pagination, Navigation } from "swiper";
 
 import styles from "./FeaturedProducts.module.css";
-import { Box, Button, Container, Typography } from "@mui/material";
+import { Container, Typography } from "@mui/material";
 import FeaturedCard from "./FeaturedCard";
 import { SwiperSlide } from "swiper/react";
-import React from "react";
 
 // const swiperParams: SwiperOptions = {
 //   slidesPerView: 3,
@@ -105,7 +103,6 @@ const FeaturedProducts = () => {
             className={"swiper-button-prev " + styles.swiperPrev}
             onClick={() => mySwiper && mySwiper.slidePrev()}
           >
-            {/* <ArrowBackIosIcon /> */}
           </Typography>
 
           <Typography
@@ -113,10 +110,9 @@ const FeaturedProducts = () => {
             className={"swiper-button-next " + styles.swiperNext}
             onClick={() => mySwiper && mySwiper.slideNext()}
           >
-            {/* <ArrowForwardIosIcon /> */}
           </Typography>
         </Container>
-      ) : // <ProductList products={featuredProducts}></ProductList>
+      ) : 
       null}
     </>
   );
