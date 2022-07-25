@@ -9,14 +9,89 @@
     object-fit: cover;
 }
 
-.header {
+.aboutMain {
     position: absolute;
     top: 30%;
     bottom: 30%;
     left: 10%;
     right: 0;
-    width: 50%;
-    max-width: 70%;
+    width: 40%;
+    width:40rem;
     /* text-align: center; */
     height: fit-content;
+    text-shadow: 0px 0px 5px rgb(137, 116, 137);
+}
+
+.aboutMainHeader, .aboutMainContent {
+    color: white
+}
+
+.aboutMainHeader {
+    margin-bottom: 1rem;
+    font-size: 3.5rem;
+}
+
+.aboutMainContent {
+    font-size: 1.2rem;
+    font-weight: 600;
+    
+}
+
+.aboutQuote {
+    font-size: 1.8rem;
+    padding-block: 5rem;
+    font-weight: 700;
+    letter-spacing: 0;
+    text-align: center;
+    
+}
+
+.card {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    height: 18rem;
+    margin-bottom: 8rem;
+    
+}
+
+.cardImage, .cardContent {
+}
+
+.cardImage {
+    border-radius: 0.5rem;
+    max-width: 24rem;
+    object-fit: cover;
+}
+
+.cardContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 20rem;
+}
+
+.cardHeader {
+    margin-bottom: 1rem;
+    
+}
+
+.cardText {
+}
+
+.cardsContainer {
+    width: 80%;
+    max-width: 50rem;
+    min-width: 45rem;
+    margin: 0 auto;
+
+}
+
+.card:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+
+.card:nth-child(even) .cardContent {
+    text-align: right;
 }
