@@ -4,13 +4,15 @@ import styles from "./CreateAccount.module.css";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
+
 import SendIcon from "@mui/icons-material/Send";
 import Box from "@mui/material/Box";
-import { Link as ButtonLink, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { createLoginUser } from "../../model/userModel";
 import { UserContext } from "../../globalstate/UserContextProvider";
 import { Typography } from "@mui/material";
+import CustomLink from "../../utilityComponents/CustomLink";
+import CustomButton from "../../utilityComponents/CustomButton";
 
 export type SignInForm = {
   email: string;
@@ -81,7 +83,7 @@ const SignIn: React.FC = () => {
             label="e-mail address"
           />
           <Typography variant="body1" className={styles.errorMessage}>
-            {errors.email?.message}
+            {errors.email?.message  || " "}
           </Typography>
           <TextField
             variant="outlined"
@@ -94,22 +96,17 @@ const SignIn: React.FC = () => {
             {errors.password?.message || " "}
           </Typography>
           <Box className={styles.actionButtons}>
-            <Button
-              variant="contained"
-              color="secondary"
+            <CustomButton
               type="submit"
               endIcon={<SendIcon />}
             >
               Login
-            </Button>
-            <Button
-              component={ButtonLink}
+            </CustomButton>
+            <CustomLink
               to="/createaccount"
-              variant="text"
-              color="secondary"
             >
               Don't have an account?
-            </Button>
+            </CustomLink>
           </Box>
         </form>
       </div>

@@ -20,6 +20,7 @@ import {
 } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
 import { removeFromCart } from "../../model/cartModel";
+import CustomButton from "../../utilityComponents/CustomButton";
 
 export type CartMainProps = {
   sx?: SxProps<Theme>;
@@ -178,16 +179,12 @@ const CartMain: React.FC<CartMainProps> = ({ sx }) => {
       </TableContainer>
 
 
-      <Button
-        className={styles.checkoutButtom}
-        variant="contained"
-        color="secondary"
-        onClick={() => {
-          navigate("/checkout");
-        }}
-      >
+      <CustomButton
+        style="checkoutButtom"
+        to = "/checkout"
+        >
         Proceed to Checkout
-      </Button>
+      </CustomButton >
     </ContainerLarge>
   );
   // } else {

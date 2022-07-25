@@ -102,8 +102,8 @@ const ShopPage = () => {
             variations={variations}
             onSelectionUpdate={selectionUpdateHandler}
             selections={selections}
-          ></Variations>
-          <Productlist products={products}></Productlist>
+          />
+          <Productlist products={products}/>
         </Box>
       </ContainerLarge>
     </HeaderFooter>

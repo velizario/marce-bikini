@@ -58,16 +58,7 @@ tr:last-child {
   margin-left: auto;
 }
 
-.checkoutButtom {
-  margin-right: 0;
-  margin-left: auto;
-  margin-top: 2rem;
-  width: 100%;
-  max-width: 12rem;
-  font-size: 1rem;
-  text-decoration: none;
-  text-transform: none;
-}
+
 
 .totalsAttribute {
   color: #777;

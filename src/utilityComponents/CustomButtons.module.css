@@ -70,3 +70,84 @@ action
 .action:hover {
   background: #f7ca00;
 }
+
+.checkoutButtom {
+  margin-right: 0;
+  margin-left: auto;
+  margin-top: 2rem;
+  width: 100%;
+  max-width: 12rem;
+  font-size: 1rem;
+  text-decoration: none;
+  text-transform: none;
+}
+
+/* Button NExt */
+.buttonNext {
+  text-shadow: none;
+  background: white;
+  color: #007185;
+  color: black;
+  height: 1.6rem;
+  padding: 0;
+  font-size: 0.9rem;
+  width: unset;
+  min-width: 0;
+  text-shadow: 0.03rem 0rem black;
+  text-transform: none;
+  box-shadow: none;
+  transition: none;
+  border-radius: 0.3rem;
+  text-decoration: underline;
+  text-decoration-thickness: 0rem;
+  text-underline-offset: 0.1rem;
+  letter-spacing: 0.08rem;
+
+  /* box-shadow: 1px 1px 5px -1px lightgray; */
+  /* padding: 0.2rem 1.2rem; */
+  /* font-size: 0.8rem; */
+  /* text-decoration: none; */
+  /* border: 1px solid #b0b0b0; */
+  /* background: #f9fafa; */
+  /* transition: 0.1s ease all; */
+}
+
+.buttonNext span {
+  margin-left: 0;
+}
+
+.buttonNext svg {
+  /* fill: #007185; */
+  transition: none;
+  fill: #343434;
+}
+
+.buttonNext:hover {
+  background: white;
+  text-shadow: 0.03rem 0rem #b65833;
+  color: #b65833;
+  box-shadow: none;
+  text-decoration: underline;
+  text-decoration-thickness: 0.01rem;
+  text-underline-offset: 0.1rem;
+
+  /* box-shadow: 1px 1px 5px -1px lightgray; */
+  /* background: #f9fafa;
+  text-decoration: none; */
+}
+
+.buttonNext:hover svg {
+  fill: #b65833;
+}
+
+.accountButton {
+  display: flex;
+  border-right: 1px solid #b9a04d;
+  padding-right: 0.4rem;
+  font-size: 0.85rem;
+}
+
+.cartButton {
+  display: flex;
+  position: relative;
+}

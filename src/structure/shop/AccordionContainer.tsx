@@ -58,7 +58,6 @@ const AccordionContainer: React.FC<AccordionContainerProps> = ({
                 <li className={styles.listItem} key={entry[0]}>
                   <FormControlLabel
                     onChange={(e) => {
-                      console.log(name, entry[0]);
                       onSelectionUpdate(
                         name,
                         entry[0],

@@ -25,6 +25,7 @@ import { useEffect } from "react";
 import Payment from "./Payment";
 import DeliveryOptions from "./DeliveryOptions";
 import CustomLink from "../../utilityComponents/CustomLink";
+import CustomButton from "../../utilityComponents/CustomButton";
 
 export const defaultFormData = {
   email: "",
@@ -150,14 +151,14 @@ const CheckOutMain: React.FC<CheckOutMainProps> = ({ sx }) => {
                 </Typography>
               </StepLabel>
 
-              <Button
+              <CustomButton
                 // size="small"
                 endIcon={infoStep ? <ArrowDropDownIcon /> : <ArrowDropUpIcon />}
                 onClick={() => setInfoStep((infoStep) => !infoStep)}
-                className={styles.buttonNext}
+                style="buttonNext"
               >
                 Edit
-              </Button>
+              </CustomButton>
             </Box>
             <StepContent>
               <EmailForm
@@ -182,17 +183,17 @@ const CheckOutMain: React.FC<CheckOutMainProps> = ({ sx }) => {
                   Delivery options
                 </Typography>
               </StepLabel>
-              <Button
+              <CustomButton
                 variant="contained"
                 // size="small"
                 endIcon={
                   deliveryStep ? <ArrowDropDownIcon /> : <ArrowDropUpIcon />
                 }
                 onClick={() => setDeliveryStep((deliveryStep) => !deliveryStep)}
-                className={styles.buttonNext}
+                style="buttonNext"
               >
                 Edit
-              </Button>
+              </CustomButton>
             </Box>
             <StepContent>
               <DeliveryOptions

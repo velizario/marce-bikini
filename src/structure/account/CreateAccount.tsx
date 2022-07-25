@@ -12,6 +12,8 @@ import { Link as ButtonLink, useNavigate } from "react-router-dom";
 import { createLoginUser } from "../../model/userModel";
 import { UserContext } from "../../globalstate/UserContextProvider";
 import { Typography } from "@mui/material";
+import CustomButton from "../../utilityComponents/CustomButton";
+import CustomLink from "../../utilityComponents/CustomLink";
 
 export type RegistrationForm = {
   firstName: string;
@@ -128,24 +130,19 @@ const CreateAccount: React.FC = () => {
           </Typography>
 
           <Box className={styles.actionButtons}>
-            <Button
-              variant="contained"
-              color="secondary"
+            <CustomButton
               type="submit"
               endIcon={<SendIcon />}
             >
               Create My Account
-            </Button>
+            </CustomButton>
 
-            <Button
-              component={ButtonLink}
+            <CustomLink
               to="/account"
-              variant="text"
-              color="secondary"
               type="submit"
             >
               Already registered?
-            </Button>
+            </CustomLink>
           </Box>
         </form>
       </div>

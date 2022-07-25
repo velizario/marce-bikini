@@ -1,4 +1,15 @@
 @font-face {
+  font-family: GroteskRegular;
+  src: url("/public/Resources/fonts/Neuzeit Grotesk/NeuzeitGro-Reg.ttf");
+}
+
+@font-face {
+  font-family: GroteskLight;
+  src: url("/public/Resources/fonts/Neuzeit Grotesk/NeuzeitGro-Lig.woff2");
+}
+
+
+@font-face {
   font-family: myFirstFont;
   /* src: url("/public/Resources/fonts/Miller-DisplayRoman.otf"); */
   src: url("/public/Resources/fonts/SimonciniGaramondStd-Bold.otf");
@@ -41,7 +52,8 @@ a,
 button {
   cursor: pointer;
   letter-spacing: 0.04rem;
-  font-family: "Arsenal", sans-serif;
+  /* font-family: "Arsenal", sans-serif; */
+
   /* font-family: "Gudea", sans-serif; */
 
   /* font-family: "Alegreya Sans SC", sans-serif; */
@@ -72,12 +84,11 @@ a:hover {
   background-color: transparent !important;
 }
 
-
-
-
 a:visited {
-  color: black;
+  color: "#4f2c1d"
+
 }
+
 
 ul {
   padding: 0;
@@ -101,7 +112,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Playfair Display", serif;
+  /* font-family: "Playfair Display", serif; */
   /* font-family: Montserrat, sans-serif; */
   /* font-family: "Playfair Display SC", serif; */
   /* font-family: "Bodoni Moda" !important; */
@@ -110,9 +121,13 @@ h6 {
   /* font-family: "Nanum Myeongjo" !important; */
 }
 body {
-  font-family: Arsenal, serif;
+  /* font-family: Arsenal, serif; */
 
   letter-spacing: 0.06rem;
+}
+
+h1 {
+  font-size: 2.5rem;
 }
 
 h2 {

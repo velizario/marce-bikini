@@ -8,6 +8,7 @@ import { Avatar } from "@mui/material";
 import { UserModel } from "../../globalstate/UserContextProvider";
 import { userLogout } from "../../model/userModel";
 import { UserContext } from "../../globalstate/UserContextProvider";
+import CustomButton from "../../utilityComponents/CustomButton";
 
 type LioggedInUserInfoProps = {
   userInfo: UserModel;
@@ -38,13 +39,13 @@ const LoggedInUserInfo: React.FC<LioggedInUserInfoProps> = ({ userInfo }) => {
       <Typography className={styles.supplText}>
         {userInfo.email} ({userInfo.firstName} {userInfo.lastName})
         <br />
-        <Button
+        <CustomButton
           onClick={logOutHandler}
-          className={styles.buttonNext}
+          style="buttonNext"
           sx={{ fontSize: "0.8rem !important" }}
         >
           Log out
-        </Button>
+        </CustomButton>
       </Typography>
     </Box>
   );

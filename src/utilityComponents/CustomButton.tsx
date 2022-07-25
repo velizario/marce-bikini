@@ -12,6 +12,8 @@ type CustomButtonProps = {
   onClick? : () => void;
   style?: string;
   color?: "primary" | "secondary";
+  endIcon? : JSX.Element;
+  type? : "button" | "submit" | "reset";
 };
 
 const CustomButton: React.FC<CustomButtonProps> = ({
@@ -21,7 +23,9 @@ const CustomButton: React.FC<CustomButtonProps> = ({
   to,
   onClick,
   style,
-  color
+  color,
+  endIcon,
+  type
 }) => {
 
   const navigate = useNavigate();
@@ -32,6 +36,8 @@ const CustomButton: React.FC<CustomButtonProps> = ({
       onClick = {to ? () => {navigate(to)} : onClick}
       className={styles[style || ""]}
       color={color || "secondary"}
+      endIcon={endIcon}
+      type={type || "button"}
       sx={{...sx}}
     >
       {children}

@@ -11,6 +11,7 @@ type CustomLink = {
   sx?: SxProps<Theme>;
   style? : string;
   onClick? : () => void;
+  type? : string;
 
 };
 
@@ -20,6 +21,7 @@ const CustomLink: React.FC<CustomLink> = ({
   sx,
   style,
   from,
+  type,
   onClick
 }) => {
   const navigate = useNavigate();
@@ -34,6 +36,7 @@ const CustomLink: React.FC<CustomLink> = ({
     onClick = {to ? () => {navigate(to, {state})} : onClick}
     className={styles[style || ""]}
     sx={{...sx}}
+    type={type}
     >
       {children}
     </Typography>

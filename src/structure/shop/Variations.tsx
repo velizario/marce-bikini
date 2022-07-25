@@ -24,7 +24,7 @@ const Variations: React.FC<VariationsProp> = ({
   console.log(selections);
   return (
     <div className={styles.variations}>
-      {/* <div>Active Filters:</div> */}
+      {/* Display active selections */}
       {Object.entries(selections).map((selection) => {
         if (selection[0] === "discountPrice") {
           if (
@@ -67,6 +67,7 @@ const Variations: React.FC<VariationsProp> = ({
             );
           });
       })}
+      {/* Display Filters */}
       {Object.entries(variations).map((variation) => (
         <AccordionContainer
           onSelectionUpdate={onSelectionUpdate}

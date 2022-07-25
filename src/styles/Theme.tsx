@@ -2,13 +2,19 @@ import { createTheme } from "@mui/material/styles";
 
 export const defaultTheme = createTheme({
   typography: {
-    fontFamily: ["Arsenal", "sans-serif"].join(","),
-
+    fontFamily: ["GroteskRegular", "sans-serif"].join(","),
+    // Arsenal as alternative
     body1: {
-      fontFamily: ["Arsenal", "sans-serif"].join(","),
+      fontFamily: ["GroteskRegular", "sans-serif"].join(","),
+      color: "#4f2c1d",
+    // Arsenal as alternative
     },
+
+
     body2: {
-      fontFamily: ["Arsenal", "sans-serif"].join(","),
+      fontFamily: ["GroteskRegular", "sans-serif"].join(","),
+      color: "#4f2c1d",
+    // Arsenal as alternative
     },
     h1: {
       fontFamily: ["Playfair Display", "sans-serif"].join(","),
