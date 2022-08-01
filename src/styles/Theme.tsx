@@ -1,6 +1,47 @@
 import { createTheme } from "@mui/material/styles";
+import { NONAME } from "dns";
 
 export const defaultTheme = createTheme({
+  components: {
+    MuiOutlinedInput: {
+      styleOverrides: {
+        input: {
+          "&::placeholder": {
+            fontFamily: ["GroteskRegular", "sans-serif"].join(","),
+            color: "black",
+            opacity: "0.5",
+            letterSpacing: "0",
+          },
+          "&::focus-visible": {
+            border: "none",
+            boxShadow: "none",
+            outline: "none"
+          }
+        },
+
+
+        // root: {
+        //   "& .MuiOutlinedInput-notchedOutline": {
+        //     border: `1px solid lightgray`,
+        //   },
+        //   "&.Mui-focused": {
+        //     "& .MuiOutlinedInput-notchedOutline": {
+        //       border: `1px solid lightgray`,
+        //     },
+        //   },
+        //   '&:hover': {
+        //     "& .MuiOutlinedInput-notchedOutline": {
+        //       border: `1px solid lightgray`,
+        //     },
+        //     // border: `1px solid lightgray`,
+
+        //   },
+        // },
+
+      }
+    },
+  },
+
   typography: {
     fontFamily: ["GroteskRegular", "sans-serif"].join(","),
     // Arsenal as alternative
@@ -35,6 +76,7 @@ export const defaultTheme = createTheme({
     h6: {
       fontFamily: ["Playfair Display", "sans-serif"].join(","),
     },
+
   },
 
   palette: {

@@ -12,7 +12,9 @@ const AboutUs = () => {
   return (
     <HeaderFooter>
       <article className={styles.article}>
-        <img className={styles.aboutUsImg} src={`${process.env.REACT_APP_BASE_URL}${aboutUsImg}`} alt="background" ></img>
+        <Box className={styles.imgBox} >
+          <img className={styles.aboutUsImg} src={`${process.env.REACT_APP_BASE_URL}${aboutUsImg}`} alt="background" ></img>
+        </Box>
         <Box className={styles.aboutMain}>
         <Typography variant="h1" className={styles.aboutMainHeader}>Hello, We're Bulldog Skincare for Men</Typography>
         <Typography variant="body2" className={styles.aboutMainContent}>Whether you have regular, dry, sensitive, oily or mature skin, Bulldog is here to help you look and feel your best.</Typography>
