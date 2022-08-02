@@ -1,6 +1,6 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
-import { TextareaAutosize, TextField, Typography } from "@mui/material";
+import { Box, InputLabel, TextareaAutosize, TextField, Typography } from "@mui/material";
 import * as yup from "yup";
 import ContainerLarge from "../../utilityComponents/ContainerLarge";
 import HeaderFooter from "../headerfooter/HeaderFooter";
@@ -44,27 +44,39 @@ const submitFormHandler = async (data: ContactForm) => {
           className={styles.contactForm}
           action=""
           onSubmit={handleSubmit(submitFormHandler)}>
-
-          <TextField 
-            className={styles.name}
-            variant="outlined"
-            {...register("name")}
-            placeholder="Your name..."
-          />
-
-          <TextField 
-            className={styles.email}
-            variant="outlined"
-            {...register("email")}
-            placeholder="Your email..."
-          />
-
-          <TextareaAutosize 
-            className={styles.messageArea}
-            {...register("message")}
-            placeholder="Your message..."
-          />
-          
+          <Box gap={2} sx={{display: "flex", justifyContent: "space-between"}}>
+            <Box className={styles.nameEmail}>
+              <InputLabel htmlFor="name" className={styles.inputLabel}>
+                Your name:
+              </InputLabel>
+              <TextField 
+                id="name"
+                variant="outlined"
+                {...register("name")}
+                placeholder="Your name..."
+                />
+            </Box>    
+            <Box className={styles.nameEmail}>
+              <InputLabel htmlFor="email" className={styles.inputLabel}>Your email:</InputLabel>
+              <TextField 
+                id="email"
+                className={styles.email}
+                variant="outlined"
+                {...register("email")}
+                placeholder="Your email..."
+              />
+            </Box>
+          </Box>
+          <Box>
+            <InputLabel htmlFor="message" className={styles.inputLabel}>Your message:</InputLabel>
+            <TextareaAutosize 
+              id="message"
+              className={styles.messageArea}
+              {...register("message")}
+              placeholder="Your message..."
+              
+            />
+          </Box>
       
           <CustomButton sx={{height: "3rem", width: "60%", minWidth: "2rem"}} to="/">Send messsage</CustomButton>
         

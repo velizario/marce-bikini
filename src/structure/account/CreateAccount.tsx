@@ -11,7 +11,7 @@ import Box from "@mui/material/Box";
 import { Link as ButtonLink, useNavigate } from "react-router-dom";
 import { createLoginUser } from "../../model/userModel";
 import { UserContext } from "../../globalstate/UserContextProvider";
-import { Typography } from "@mui/material";
+import { InputLabel, Typography } from "@mui/material";
 import CustomButton from "../../utilityComponents/CustomButton";
 import CustomLink from "../../utilityComponents/CustomLink";
 
@@ -81,49 +81,64 @@ const CreateAccount: React.FC = () => {
           action=""
           onSubmit={handleSubmit(submitFormHandler)}
         >
+
+          <InputLabel htmlFor="firstName" className={styles.inputLabel}>First Name:</InputLabel>
           <TextField
+            id="firstName"
             variant="outlined"
             className={styles.text}
             {...register("firstName")}
-            label="First Name"
+            placeholder="First Name"
           />
           <Typography variant="body1" className={styles.errorMessage}>
             {errors.firstName?.message}
           </Typography>
+
+          <InputLabel htmlFor="lastName" className={styles.inputLabel}>Last Name:</InputLabel>
           <TextField
+            id="lastName"
             variant="outlined"
             className={styles.text}
             {...register("lastName")}
-            label="Last Name"
+            placeholder="Last Name"
           />
           <Typography variant="body1" className={styles.errorMessage}>
             {errors.lastName?.message}
           </Typography>
+
+          <InputLabel htmlFor="email" className={styles.inputLabel}>E-mail address:</InputLabel>
           <TextField
+            id="email"
             variant="outlined"
             className={styles.text}
             {...register("email")}
-            label="e-mail address"
+            placeholder="e-mail address"
           />
           <Typography variant="body1" className={styles.errorMessage}>
             {errors.email?.message}
           </Typography>
+
+          <InputLabel htmlFor="password" className={styles.inputLabel}>Password:</InputLabel>
           <TextField
+            id="password"
             variant="outlined"
             className={styles.text}
             type="password"
             {...register("password")}
-            label="Password"
+            placeholder="Password"
           />
           <Typography variant="body1" className={styles.errorMessage}>
             {errors.password?.message}
           </Typography>
+
+          <InputLabel htmlFor="passwordConfirm" className={styles.inputLabel}>Confirm password:</InputLabel>
           <TextField
+            id="passwordConfirm"
             variant="outlined"
             className={styles.text}
             type="password"
             {...register("passwordConfirm")}
-            label="Confirm password"
+            placeholder="Confirm password"
           />
           <Typography variant="body1" className={styles.errorMessage}>
             {errors.passwordConfirm && "Passwords should match"}

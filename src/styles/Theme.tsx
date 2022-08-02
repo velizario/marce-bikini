@@ -3,13 +3,19 @@ import { NONAME } from "dns";
 
 export const defaultTheme = createTheme({
   components: {
+
+    // MuiCssBaseline: {
+    //   styleOverrides: {
+    //     fontFamily: ["GroteskRegular", "sans-serif"].join(","),
+    //   },
+    // },
+
     MuiOutlinedInput: {
       styleOverrides: {
         input: {
           "&::placeholder": {
-            fontFamily: ["GroteskRegular", "sans-serif"].join(","),
             color: "black",
-            opacity: "0.5",
+            opacity: "0.3",
             letterSpacing: "0",
           },
           "&::focus-visible": {
@@ -46,14 +52,14 @@ export const defaultTheme = createTheme({
     fontFamily: ["GroteskRegular", "sans-serif"].join(","),
     // Arsenal as alternative
     body1: {
-      fontFamily: ["GroteskRegular", "sans-serif"].join(","),
+      // fontFamily: ["GroteskRegular", "sans-serif"].join(","),
       color: "#4f2c1d",
     // Arsenal as alternative
     },
 
 
     body2: {
-      fontFamily: ["GroteskRegular", "sans-serif"].join(","),
+      // fontFamily: ["GroteskRegular", "sans-serif"].join(","),
       color: "#4f2c1d",
     // Arsenal as alternative
     },

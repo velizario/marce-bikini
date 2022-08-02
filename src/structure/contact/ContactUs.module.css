@@ -5,7 +5,7 @@
 
 .contactForm {
     display: flex;
-    width: 30rem;
+    width: 40rem;
     flex-direction: column;
     gap: 2rem;
     margin: 3rem;
@@ -20,6 +20,8 @@
     border: 1px solid lightgray;
     border-radius: 5px;
     transition: border 0.1s ease;
+    font-size: 1rem;
+    letter-spacing: inherit;
 }
 
 .messageArea:focus {
@@ -28,15 +30,20 @@
 }
 
 .messageArea::placeholder {
-    font-family: "GroteskRegular", "sans-serif" ;
     color: black;
-    opacity: 0.5;
+    opacity: 0.3;
     letter-spacing: 0;
-
 }
 
-.name:focus, .email:focus {
-    border: 1px solid black !important;
-    outline: none !important;
-    box-shadow: none !important;
+.nameEmail {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    
 }
+
+.inputLabel {
+    margin-bottom: 0.7rem;
+    font-size: 1.1rem;
+}
+

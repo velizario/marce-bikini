@@ -38,6 +38,12 @@
   color: rgb(34, 34, 34);
 }
 
+button, textarea, select, input {
+  font-size: inherit;
+  font-family: inherit;
+
+}
+
 .MuiButton-endIcon path {
   color: darkseagreen;
 }
@@ -47,6 +53,7 @@ a {
   min-width: unset !important;
   text-decoration: none;
 }
+
 
 a,
 button {
@@ -262,6 +269,8 @@ input:-webkit-autofill {
   background: rgba(220,220,220)  !important;
  }
 
+
+  /* Input borders fix */
  .MuiOutlinedInput-input {
   border: 1px solid lightgray;
   outline: none;
@@ -269,7 +278,7 @@ input:-webkit-autofill {
   transition: border 0.1s ease ;
  }
 
- /* Input borders fix */
+
 .MuiOutlinedInput-input:focus  {
   border: 1px solid black;
  }

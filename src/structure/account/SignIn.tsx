@@ -10,7 +10,7 @@ import Box from "@mui/material/Box";
 import { useLocation, useNavigate } from "react-router-dom";
 import { createLoginUser } from "../../model/userModel";
 import { UserContext } from "../../globalstate/UserContextProvider";
-import { Typography } from "@mui/material";
+import { InputLabel, Typography } from "@mui/material";
 import CustomLink from "../../utilityComponents/CustomLink";
 import CustomButton from "../../utilityComponents/CustomButton";
 
@@ -76,21 +76,25 @@ const SignIn: React.FC = () => {
           action=""
           onSubmit={handleSubmit(submitFormHandler)}
         >
+          <InputLabel htmlFor="email" className={styles.inputLabel}>E-mail address:</InputLabel>
           <TextField
+            id="email"
             variant="outlined"
             className={styles.text}
             {...register("email")}
-            label="e-mail address"
+            placeholder="e-mail address"
           />
           <Typography variant="body1" className={styles.errorMessage}>
             {errors.email?.message  || " "}
           </Typography>
+          <InputLabel htmlFor="password" className={styles.inputLabel}>Password:</InputLabel>
           <TextField
+            id="password"
             variant="outlined"
             className={styles.text}
             type="password"
             {...register("password")}
-            label="Password"
+            placeholder="Password"
           />
           <Typography variant="body1" className={styles.errorMessage}>
             {errors.password?.message || " "}
