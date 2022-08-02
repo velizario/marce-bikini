@@ -113,20 +113,7 @@ button.buttonNoHover:hover {
   color: black;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  /* font-family: "Playfair Display", serif; */
-  /* font-family: Montserrat, sans-serif; */
-  /* font-family: "Playfair Display SC", serif; */
-  /* font-family: "Bodoni Moda" !important; */
-  /* font-family: "Cormorant Garamond" !important; */
-  /* font-family: "Libre Caslon Display" !important; */
-  /* font-family: "Nanum Myeongjo" !important; */
-}
+
 body {
   /* font-family: Arsenal, serif; */
 
