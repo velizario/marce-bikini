@@ -34,14 +34,21 @@
   padding: 0;
 }
 
-* {
+*, body {
   color: rgb(34, 34, 34);
 }
 
+
+
+
 button, textarea, select, input {
-  font-size: inherit;
+  /* font-family: "GroteskRegular", "sans-serif"; */
   font-family: inherit;
 
+}
+
+body {
+   /* font-family: "GroteskRegular", "sans-serif"; */
 }
 
 .MuiButton-endIcon path {
@@ -54,6 +61,9 @@ a {
   text-decoration: none;
 }
 
+*::placeholder {
+  letter-spacing: 0;
+}
 
 a,
 button {
@@ -120,17 +130,14 @@ body {
   letter-spacing: 0.06rem;
 }
 
-h1 {
-  font-size: 3rem;
+h1,h2,h3,h4,h5,h6 {
+  font-family: "Playfair Display", "sans-serif" !important;
 }
 
-h2 {
-  font-size: 2rem;
+body {
+  color: #4f2c1d;
 }
 
-h3 {
-  font-size: 1.7rem;
-}
 
 h4 {
   font-size: 1.4rem;

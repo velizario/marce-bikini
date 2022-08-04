@@ -233,7 +233,7 @@ const CheckOutMain: React.FC<CheckOutMainProps> = ({ sx }) => {
                 }}
               >
                 <Box>
-                  <Typography variant="h6" sx={{ fontSize: "1rem" }}>
+                  <Typography variant="body1" sx={{ fontSize: "1rem" }}>
                     Pay securely with Stripe
                   </Typography>
                   <Typography variant="caption">

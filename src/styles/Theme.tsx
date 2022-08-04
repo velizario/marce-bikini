@@ -1,90 +1,6 @@
 import { createTheme } from "@mui/material/styles";
-import { NONAME } from "dns";
 
 export const defaultTheme = createTheme({
-  components: {
-
-    // MuiCssBaseline: {
-    //   styleOverrides: {
-    //     fontFamily: ["GroteskRegular", "sans-serif"].join(","),
-    //   },
-    // },
-
-    MuiOutlinedInput: {
-      styleOverrides: {
-        input: {
-          "&::placeholder": {
-            color: "black",
-            opacity: "0.3",
-            letterSpacing: "0",
-          },
-          "&::focus-visible": {
-            border: "none",
-            boxShadow: "none",
-            outline: "none"
-          }
-        },
-
-
-        // root: {
-        //   "& .MuiOutlinedInput-notchedOutline": {
-        //     border: `1px solid lightgray`,
-        //   },
-        //   "&.Mui-focused": {
-        //     "& .MuiOutlinedInput-notchedOutline": {
-        //       border: `1px solid lightgray`,
-        //     },
-        //   },
-        //   '&:hover': {
-        //     "& .MuiOutlinedInput-notchedOutline": {
-        //       border: `1px solid lightgray`,
-        //     },
-        //     // border: `1px solid lightgray`,
-
-        //   },
-        // },
-
-      }
-    },
-  },
-
-  typography: {
-    fontFamily: ["GroteskRegular", "sans-serif"].join(","),
-    // Arsenal as alternative
-    body1: {
-      // fontFamily: ["GroteskRegular", "sans-serif"].join(","),
-      color: "#4f2c1d",
-    // Arsenal as alternative
-    },
-
-
-    body2: {
-      // fontFamily: ["GroteskRegular", "sans-serif"].join(","),
-      color: "#4f2c1d",
-    // Arsenal as alternative
-    },
-    h1: {
-      fontFamily: ["Playfair Display", "sans-serif"].join(","),
-    },
-    h2: {
-      fontSize: "2rem",
-      fontFamily: ["Playfair Display", "sans-serif"].join(","),
-    },
-    h3: {
-      fontFamily: ["Playfair Display", "sans-serif"].join(","),
-    },
-    h4: {
-      fontFamily: ["Playfair Display", "sans-serif"].join(","),
-    },
-    h5: {
-      fontFamily: ["Playfair Display", "sans-serif"].join(","),
-    },
-    h6: {
-      fontFamily: ["Playfair Display", "sans-serif"].join(","),
-    },
-
-  },
-
   palette: {
     primary: {
       // main: "#b9a04d",
@@ -94,14 +10,96 @@ export const defaultTheme = createTheme({
       main: "#317F57",
     },
   },
+
+  // components: {
+
+  //   MuiCssBaseline: {
+  //     styleOverrides: {
+  //       fontFamily: ["GroteskRegular", "sans-serif"].join(","),
+  //     },
+  //   },
+
+  //   MuiOutlinedInput: {
+  //     styleOverrides: {
+  //       input: {
+  //         "&::placeholder": {
+  //           opacity: "0.3",
+  //           letterSpacing: "0",
+  //         }
+  //       },
+  //       root: {
+  //         "& .MuiOutlinedInput-notchedOutline": {
+  //           border: `1px solid lightgray`,
+  //         },
+  //         "&.Mui-focused": {
+  //           "& .MuiOutlinedInput-notchedOutline": {
+  //             border: `1px solid lightgray`,
+  //           },
+  //         },
+  //         '&:hover': {
+  //           "& .MuiOutlinedInput-notchedOutline": {
+  //             border: `1px solid lightgray`,
+  //           },
+  //           border: `1px solid lightgray`,
+
+  //         },
+  //       },
+
+  //     }
+  //   },
+  // },
+
+
+  typography: {
+    fontFamily: ["GroteskRegular", "sans-serif"].join(","),
+    h1: {
+      fontSize: "3rem",
+    },
+    h2: {
+      fontSize: "2rem",
+    },
+    h3: {
+      fontSize: "1.7rem",
+    },
+    h4: {
+      fontSize: "1.4rem",
+    },
+    h5: {
+      fontSize: "1.1rem",
+    },
+    h6: {
+      fontSize: "1rem",
+    },
+  },
+
+  // typography: {
+  //   fontFamily: ["Arsenal", "sans-serif"].join(","),
+  //   body1: {
+  //     color: "#4f2c1d",
+  //   },
+  //   body2: {
+  //     color: "#4f2c1d",
+  //   },
+  //   h1: {
+  //     fontFamily: ["Playfair Display", "sans-serif"].join(","),
+  //   },
+  //   h2: {
+  //     fontFamily: ["Playfair Display", "sans-serif"].join(","),
+  //   },
+  //   h3: {
+  //     fontFamily: ["Playfair Display", "sans-serif"].join(","),
+  //   },
+  //   h4: {
+  //     fontFamily: ["Playfair Display", "sans-serif"].join(","),
+  //   },
+  //   h5: {
+  //     fontFamily: ["Playfair Display", "sans-serif"].join(","),
+  //   },
+  //   h6: {
+  //     fontFamily: ["Playfair Display", "sans-serif"].join(","),
+  //   },
+  // },
+
+
 });
 
-// body {
-//   font-family: 'Lora', serif;
-//  }
-
-//  h1, h2, h3, h4, h5, h6 {
-//   font-family: 'Montserrat', sans-serif;
-//   font-weight: 300;
-//   text-transform: uppercase;
-//  }

@@ -35,7 +35,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           className={styles.titleLink}
           to={`/product/${String(product.id)}`}
         >
-          <Typography gutterBottom variant="h6" component="div">
+          <Typography gutterBottom variant="h6" component="h6">
             {title}
           </Typography>
         </Link>

@@ -24,6 +24,7 @@ import CheckoutPage from "./structure/checkout/CheckoutPage";
 
 function App() {
   return (
+
     <UserContextProvider>
       <CartContextProvider>
         <StyledEngineProvider injectFirst>
@@ -48,6 +49,7 @@ function App() {
         </StyledEngineProvider>
       </CartContextProvider>
     </UserContextProvider>
+          
   );
 }
 

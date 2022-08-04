@@ -43,7 +43,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           <Typography
             gutterBottom
             variant="h6"
-            component="div"
+            component="h6"
             sx={{ textAlign: "left", fontWeight: 600, lineHeight: "1.4rem" }}
           >
             {title}
