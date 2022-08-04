@@ -308,7 +308,7 @@ const EmailForm: React.FC<EmailFormProps> = ({
                     Delivery address:
                   </Typography>
 
-                  <FormControl sx={{ width: "100%" }} size="small">
+                  <FormControl sx={{ width: "100%" }} size="small" className="labeledInput">
                     <InputLabel>Country</InputLabel>
 
                     <Controller

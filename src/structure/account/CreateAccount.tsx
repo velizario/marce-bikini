@@ -86,7 +86,7 @@ const CreateAccount: React.FC = () => {
           <TextField
             id="firstName"
             variant="outlined"
-            className={styles.text}
+            className="nonLabeledInput"
             {...register("firstName")}
             placeholder="First Name"
           />
@@ -98,7 +98,7 @@ const CreateAccount: React.FC = () => {
           <TextField
             id="lastName"
             variant="outlined"
-            className={styles.text}
+            className="nonLabeledInput"
             {...register("lastName")}
             placeholder="Last Name"
           />
@@ -110,7 +110,7 @@ const CreateAccount: React.FC = () => {
           <TextField
             id="email"
             variant="outlined"
-            className={styles.text}
+            className="nonLabeledInput"
             {...register("email")}
             placeholder="e-mail address"
           />
@@ -122,7 +122,7 @@ const CreateAccount: React.FC = () => {
           <TextField
             id="password"
             variant="outlined"
-            className={styles.text}
+            className="nonLabeledInput"
             type="password"
             {...register("password")}
             placeholder="Password"
@@ -135,7 +135,7 @@ const CreateAccount: React.FC = () => {
           <TextField
             id="passwordConfirm"
             variant="outlined"
-            className={styles.text}
+            className="nonLabeledInput"
             type="password"
             {...register("passwordConfirm")}
             placeholder="Confirm password"

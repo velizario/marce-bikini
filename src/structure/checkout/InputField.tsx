@@ -37,6 +37,7 @@ const InputField: React.FC<InputFieldProps> = ({
             label={label}
             value={value}
             onChange={onChange}
+            className="labeledInput"
           ></TextField>
         )}
       />

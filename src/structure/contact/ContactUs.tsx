@@ -54,16 +54,17 @@ const submitFormHandler = async (data: ContactForm) => {
                 variant="outlined"
                 {...register("name")}
                 placeholder="Your name..."
+                className="nonLabeledInput"
                 />
             </Box>    
             <Box className={styles.nameEmail}>
               <InputLabel htmlFor="email" className={styles.inputLabel}>Your email:</InputLabel>
               <TextField 
                 id="email"
-                className={styles.email}
                 variant="outlined"
                 {...register("email")}
                 placeholder="Your email..."
+                className="nonLabeledInput"
               />
             </Box>
           </Box>
@@ -74,7 +75,6 @@ const submitFormHandler = async (data: ContactForm) => {
               className={styles.messageArea}
               {...register("message")}
               placeholder="Your message..."
-              
             />
           </Box>
       

@@ -80,9 +80,9 @@ const SignIn: React.FC = () => {
           <TextField
             id="email"
             variant="outlined"
-            className={styles.text}
             {...register("email")}
             placeholder="e-mail address"
+            className="nonLabeledInput"
           />
           <Typography variant="body1" className={styles.errorMessage}>
             {errors.email?.message  || " "}
@@ -91,10 +91,10 @@ const SignIn: React.FC = () => {
           <TextField
             id="password"
             variant="outlined"
-            className={styles.text}
             type="password"
             {...register("password")}
             placeholder="Password"
+            className="nonLabeledInput"
           />
           <Typography variant="body1" className={styles.errorMessage}>
             {errors.password?.message || " "}

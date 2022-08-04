@@ -257,8 +257,9 @@ input:-webkit-autofill {
  }
 
 
-  /* Input borders fix */
- .MuiOutlinedInput-input {
+  /* Input borders fix - nonlabeled input */
+
+ .nonLabeledInput .MuiOutlinedInput-input {
   border: 1px solid lightgray;
   outline: none;
   border-radius: 5px;
@@ -266,11 +267,33 @@ input:-webkit-autofill {
  }
 
 
-.MuiOutlinedInput-input:focus  {
+.nonLabeledInput .MuiOutlinedInput-input:focus  {
   border: 1px solid black;
  }
 
- .MuiOutlinedInput-notchedOutline {
+ .nonLabeledInput .MuiOutlinedInput-notchedOutline {
   border: none;
   outline: none;
  }
+
+ /* Input borders fix - labeled input */
+
+ .labeledInput .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline {
+  border: 1px solid lightgray;
+  outline: none;
+ }
+
+ .labeledInput .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+  border: 1px solid black;
+ }
+ 
+ .labeledInput .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
+  border: 1px solid lightgray;
+  outline: none;
+ }
+
+ .labeledInput .MuiOutlinedInput-root:focus-within .MuiOutlinedInput-notchedOutline {
+  border: 1px solid black;
+  outline: none;
+ } 
+
