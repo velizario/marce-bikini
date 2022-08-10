@@ -1,13 +1,13 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
-import { Box, InputLabel, TextareaAutosize, TextField, Typography } from "@mui/material";
+import { Box, Button, InputLabel, TextareaAutosize, TextField, Typography } from "@mui/material";
 import * as yup from "yup";
 import ContainerLarge from "../../utilityComponents/ContainerLarge";
 import HeaderFooter from "../headerfooter/HeaderFooter";
 import styles from "./ContactUs.module.css"
-import CustomLink from "../../utilityComponents/CustomLink";
 import CustomButton from "../../utilityComponents/CustomButton";
-import { minHeight } from "@mui/system";
+import { requestToAPI } from "../../model/helperFunctions";
+import { useState } from "react";
 
 type ContactForm = {
   name: string;
@@ -17,15 +17,18 @@ type ContactForm = {
 
 let schema = yup.object().shape({
   name: yup.string().required("Please enter your name"),
-  email: yup.string().email().required("Please enter valid email"),
-  message: yup.string().min(10, "Please enter message with at least 10 characters").required("Please enter a message")
+  email: yup.string().email("Please enter a valid email").required("Please enter valid email"),
+  message: yup.string().min(10, "Please enter a message with at least 10 characters").required("Please enter a message")
 })
 
-const AboutUs = () => {
+const ContactUs = () => {
+
+const [mailSentFlag, setMailSentFlag] = useState(false);
 
 const {
   register,
   handleSubmit,
+  reset,
   formState: {errors},
 } = useForm<ContactForm>({
   resolver: yupResolver(schema),
@@ -33,7 +36,29 @@ const {
 
 
 const submitFormHandler = async (data: ContactForm) => {
-  console.log(data);
+
+  setMailSentFlag(true);
+  (document.querySelector("#email")! as HTMLInputElement).readOnly =
+    true;
+  (document.querySelector("#message")! as HTMLInputElement).readOnly =
+    true;
+  (document.querySelector("#name")! as HTMLInputElement).readOnly =
+    true;
+  setTimeout(() => {
+    setMailSentFlag(false);
+    (
+      document.querySelector("#email")! as HTMLInputElement
+    ).readOnly = false;
+    (
+      document.querySelector("#message")! as HTMLInputElement
+    ).readOnly = false;
+    (
+      document.querySelector("#name")! as HTMLInputElement
+    ).readOnly = false;
+    reset();
+  }, 5000);
+
+  requestToAPI("mailSend", "POST", data);
 }
 
   return (
@@ -56,6 +81,9 @@ const submitFormHandler = async (data: ContactForm) => {
                 placeholder="Your name..."
                 className="nonLabeledInput"
                 />
+              <Typography variant="body1" className={styles.errorMessage}>
+                {errors.name?.message}
+              </Typography>
             </Box>    
             <Box className={styles.nameEmail}>
               <InputLabel htmlFor="email" className={styles.inputLabel}>Your email:</InputLabel>
@@ -66,6 +94,9 @@ const submitFormHandler = async (data: ContactForm) => {
                 placeholder="Your email..."
                 className="nonLabeledInput"
               />
+              <Typography variant="body1" className={styles.errorMessage}>
+                {errors.email?.message}
+              </Typography>
             </Box>
           </Box>
           <Box>
@@ -76,9 +107,29 @@ const submitFormHandler = async (data: ContactForm) => {
               {...register("message")}
               placeholder="Your message..."
             />
+            <Typography variant="body1" className={styles.errorMessage}>
+              {errors.message?.message}
+            </Typography>
+
+            <Box
+            sx={{
+              height: "1.5rem",
+              display: "flex",
+              alignItems: "center",
+            }}
+          >
+            {!mailSentFlag ? (null) : (
+              <Typography
+                component="p"
+                variant="body1"
+                className={styles.successMessage}>
+                Thank you for your email! Our team will contact you soon!
+              </Typography>
+            )}
           </Box>
-      
-          <CustomButton sx={{height: "3rem", width: "60%", minWidth: "2rem"}} to="/">Send messsage</CustomButton>
+          </Box>
+
+          <Button sx={{height: "3rem", width: "60%", minWidth: "2rem"}} type="submit" variant="contained" color="secondary" disabled={mailSentFlag ? true : false}>Send messsage</Button>
         
         </form>
       </ContainerLarge>
@@ -86,4 +137,4 @@ const submitFormHandler = async (data: ContactForm) => {
   );
 };
 
-export default AboutUs;
+export default ContactUs;

@@ -43,7 +43,39 @@
 }
 
 .inputLabel {
-    margin-bottom: 0.7rem;
+    margin-bottom: 0.2rem;
     font-size: 1.1rem;
+    color: black;
 }
 
+.errorMessage {
+    margin-top: 0.3rem;
+    font-size: 0.8rem;
+    color: rgb(177, 0, 0);
+    height: 0.8rem;
+  }
+
+  .successMessage {
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+    animation-name: success;
+    animation-duration: 5s;
+    color: green;
+    font-size: 1rem;
+    font-weight: 500;
+  }
+  
+  @keyframes success {
+    0% {
+      opacity: 0;
+    }
+    40% {
+      opacity: 1;
+    }
+    95% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
