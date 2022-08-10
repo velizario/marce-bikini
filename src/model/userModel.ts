@@ -13,7 +13,7 @@ export type DbUser = UserModel;
 
 export const createLoginUser = async <T>(data: T, loginType: string) => {
   const resData = await requestToAPI(
-    `http://localhost:9000/api/v1/users/${loginType}`,
+    `users/${loginType}`,
     "POST",
     data
   );
@@ -35,7 +35,7 @@ export const validateUser = async () => {
   // If there is a token, fetch the query
   try {
     const resData = await requestToAPI(
-      "http://localhost:9000/api/v1/users/validate",
+      "users/validate",
       "GET"
     );
 

@@ -22,7 +22,7 @@ const CartPage = () => {
 
   const commencePayment = async () => {
     const res = await requestToAPI(
-      `${process.env.REACT_APP_SERVER_URL}/payment`,
+      `payment`,
       "POST",
       {}
     );

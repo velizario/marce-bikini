@@ -9,7 +9,7 @@ export const getToken = () => {
   return bearerString;
 };
 
-export const requestToAPI = async (addr: string, method: string, body = {}) => {
+export const requestToAPI = async (addrPath: string, method: string, body = {}) => {
   const bearerString = getToken();
   const reqObject: RequestInit = {
     method: method,
@@ -29,7 +29,8 @@ export const requestToAPI = async (addr: string, method: string, body = {}) => {
   if (bearerString)
     reqObject.headers = { ...reqObject.headers, Authorization: bearerString };
 
-  const response = await fetch(addr, reqObject);
+  const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/${addrPath}`, reqObject);
+  console.log(`${process.env.REACT_APP_SERVER_URL}/${addrPath}`)
   const data = await response.json();
   console.log("Returned data from API:", data);
   return data;

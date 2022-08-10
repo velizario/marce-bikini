@@ -6,6 +6,7 @@ import { Box } from "@mui/system";
 import { useState } from "react";
 import ContainerLarge from "../../utilityComponents/ContainerLarge";
 import styles from "./Subscribe.module.css";
+import { requestToAPI } from "../../model/helperFunctions";
 
 type SubscribeForm = {
   email: string;
@@ -41,15 +42,8 @@ const Subscribe = () => {
 
     // Integration with Mailerlite
 
-    const res = await fetch(`${process.env.REACT_APP_SERVER_URL}/subscribe`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    });
-    console.log(res.json());
-    return res.json();
+    const res = await requestToAPI(`subscribe`, "POST", data);
+    return res;
   };
 
   return (
