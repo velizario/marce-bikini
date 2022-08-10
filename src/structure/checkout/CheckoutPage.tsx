@@ -3,7 +3,7 @@ import { Box } from "@mui/system";
 import { useContext, useEffect } from "react";
 import { useNavigate } from "react-router";
 import { CartContext } from "../../globalstate/CartContextProvider";
-import { postToAPI } from "../../model/helperFunctions";
+import { requestToAPI } from "../../model/helperFunctions";
 
 import ContainerLarge from "../../utilityComponents/ContainerLarge";
 import CustomLink from "../../utilityComponents/CustomLink";
@@ -21,7 +21,7 @@ const CartPage = () => {
   }, [cartContext]);
 
   const commencePayment = async () => {
-    const res = await postToAPI(
+    const res = await requestToAPI(
       `${process.env.REACT_APP_SERVER_URL}/payment`,
       "POST",
       {}

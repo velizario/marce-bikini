@@ -1,6 +1,5 @@
-import { useContext } from "react";
-import { UserContext, UserModel } from "../globalstate/UserContextProvider";
-import { getFromAPI, getToken } from "./helperFunctions";
+import { UserModel } from "../globalstate/UserContextProvider";
+import { requestToAPI, getToken } from "./helperFunctions";
 
 // export type DbUser = {
 //   email: string;
@@ -13,20 +12,11 @@ import { getFromAPI, getToken } from "./helperFunctions";
 export type DbUser = UserModel;
 
 export const createLoginUser = async <T>(data: T, loginType: string) => {
-  const response = await fetch(
+  const resData = await requestToAPI(
     `http://localhost:9000/api/v1/users/${loginType}`,
-    {
-      method: "POST",
-      mode: "cors",
-      cache: "no-cache",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      credentials: "include",
-      body: JSON.stringify(data),
-    }
+    "POST",
+    data
   );
-  const resData = await response.json();
 
   if (resData.status !== "success") {
     return { message: "fail", data: null };
@@ -44,7 +34,7 @@ export const validateUser = async () => {
 
   // If there is a token, fetch the query
   try {
-    const resData = await getFromAPI(
+    const resData = await requestToAPI(
       "http://localhost:9000/api/v1/users/validate",
       "GET"
     );

@@ -1,4 +1,4 @@
-import { ApiResponse, getFromAPI, postToAPI } from "./helperFunctions";
+import { ApiResponse, requestToAPI} from "./helperFunctions";
 
 export interface CartUserModel {
   productId: number;
@@ -14,7 +14,7 @@ export interface CartUserModel {
 
 // NOTE: This now works as Update cart, should it be moved to the server? Maybe yes, to improve client performance
 export const addToCart = async (userId: string, cartData: CartUserModel[]) => {
-  const data: Promise<ApiResponse<CartUserModel[]>> = await postToAPI(
+  const data: Promise<ApiResponse<CartUserModel[]>> = await requestToAPI(
     `http://localhost:9000/api/v1/carts/${userId}`,
     "PATCH",
     cartData,
@@ -23,7 +23,7 @@ export const addToCart = async (userId: string, cartData: CartUserModel[]) => {
 };
 
 export const getCart = async (userId: string) => {
-  const data: Promise<ApiResponse<CartUserModel[]>> = await getFromAPI(
+  const data: Promise<ApiResponse<CartUserModel[]>> = await requestToAPI(
     `http://localhost:9000/api/v1/carts/${userId}`,
     "GET"
   );
@@ -36,7 +36,7 @@ export const removeFromCart = async (
   userId: string,
   productInfo: CartUserModel
 ) => {
-  const data: Promise<ApiResponse<CartUserModel[]>> = await postToAPI(
+  const data: Promise<ApiResponse<CartUserModel[]>> = await requestToAPI(
     `http://localhost:9000/api/v1/carts/${userId}`,
     "DELETE",
     productInfo

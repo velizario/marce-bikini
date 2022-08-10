@@ -9,7 +9,7 @@ const CartEmpty = () => {
   const userContext = React.useContext(UserContext);
   return (
     <ContainerLarge>
-      <Typography gutterBottom variant="h4" component="div">
+      <Typography gutterBottom variant="h4" component="h4">
         Your cart is empty
       </Typography>
       <CustomLink

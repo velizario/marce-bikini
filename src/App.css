@@ -34,21 +34,11 @@
   padding: 0;
 }
 
-*, body {
-  color: rgb(34, 34, 34);
-}
-
-
-
 
 button, textarea, select, input {
   /* font-family: "GroteskRegular", "sans-serif"; */
   font-family: inherit;
 
-}
-
-body {
-   /* font-family: "GroteskRegular", "sans-serif"; */
 }
 
 .MuiButton-endIcon path {
@@ -61,7 +51,7 @@ a {
   text-decoration: none;
 }
 
-*::placeholder {
+::placeholder {
   letter-spacing: 0;
 }
 
@@ -70,11 +60,8 @@ button {
   cursor: pointer;
   letter-spacing: 0.04rem;
   /* font-family: "Arsenal", sans-serif; */
-
   /* font-family: "Gudea", sans-serif; */
-
   /* font-family: "Alegreya Sans SC", sans-serif; */
-
   /* font-family: "Belleza", sans-serif; */
   /* font-family: "Dosis", sans-serif; */
   /* font-family: "Federo", sans-serif; */
@@ -125,19 +112,13 @@ button.buttonNoHover:hover {
 
 
 body {
-  /* font-family: Arsenal, serif; */
-
+  color: #4f2c1d;
   letter-spacing: 0.06rem;
 }
 
 h1,h2,h3,h4,h5,h6 {
   font-family: "Playfair Display", "sans-serif" !important;
 }
-
-body {
-  color: #4f2c1d;
-}
-
 
 h4 {
   font-size: 1.4rem;

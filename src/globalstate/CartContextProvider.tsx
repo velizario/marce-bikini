@@ -28,12 +28,12 @@ export const CartContextProvider: React.FC = ({ children }) => {
 
   const setCartItems = async (cartItems: CartUserModel[]) => {
     // This fetches all products one by one. Change it by introducing the product list into the cart.?
-
     const productItems = await Promise.all(
       cartItems.map((cartItem) =>
         productModelImpl.getProductById(cartItem.productId.toString())
       )
     );
+
     setCartState((state) => {
       return {
         ...state,
@@ -42,6 +42,7 @@ export const CartContextProvider: React.FC = ({ children }) => {
         isSet: true,
       };
     });
+
   };
 
   // NOTE: Get cart initial state from server
