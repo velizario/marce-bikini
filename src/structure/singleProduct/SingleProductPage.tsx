@@ -94,7 +94,7 @@ const SingleProductPage = () => {
                   alt="bikini main"
                   className={styles.sideImage}
                   key={image.attributes.name}
-                  src={`${process.env.REACT_APP_BASE_URL}/images/${image.attributes.name}`}
+                  src={`${process.env.REACT_APP_DATA_URL}${image.attributes.formats.small.url}`}
                 />
               ))}
             </div>
@@ -103,7 +103,7 @@ const SingleProductPage = () => {
                 <img
                   alt="bikini main"
                   className={styles.image}
-                  src={`${process.env.REACT_APP_BASE_URL}/images/${product.attributes.images.data[0].attributes.name}`}
+                  src={`${process.env.REACT_APP_DATA_URL}${product.attributes.images.data[0].attributes.formats.large.url}`}
                 />
               </Zoom>
             </div>

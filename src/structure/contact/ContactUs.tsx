@@ -7,7 +7,7 @@ import HeaderFooter from "../headerfooter/HeaderFooter";
 import styles from "./ContactUs.module.css"
 import CustomButton from "../../utilityComponents/CustomButton";
 import { requestToAPI } from "../../model/helperFunctions";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 type ContactForm = {
   name: string;
@@ -23,6 +23,7 @@ let schema = yup.object().shape({
 
 const ContactUs = () => {
 
+let timeout : NodeJS.Timeout;
 const [mailSentFlag, setMailSentFlag] = useState(false);
 
 const {
@@ -34,9 +35,14 @@ const {
   resolver: yupResolver(schema),
 })
 
+// Clear timeout if user changes page before subscribeUser clears the timeout
+useEffect(() => {
+  return() => {
+    clearTimeout(timeout)
+  }
+},[]);
 
 const submitFormHandler = async (data: ContactForm) => {
-
   setMailSentFlag(true);
   (document.querySelector("#email")! as HTMLInputElement).readOnly =
     true;
@@ -44,7 +50,7 @@ const submitFormHandler = async (data: ContactForm) => {
     true;
   (document.querySelector("#name")! as HTMLInputElement).readOnly =
     true;
-  setTimeout(() => {
+    timeout = setTimeout(() => {
     setMailSentFlag(false);
     (
       document.querySelector("#email")! as HTMLInputElement

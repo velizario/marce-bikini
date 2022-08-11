@@ -31,7 +31,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           component="img"
           alt="bikini"
           className={styles.image}
-          image={`${process.env.REACT_APP_DATA_URL}${images.data[0].attributes.url}`}
+          image={`${process.env.REACT_APP_DATA_URL}${images.data[0].attributes.formats.medium.url}`}
         />
         {/* </CardActionArea> */}
       </Link>

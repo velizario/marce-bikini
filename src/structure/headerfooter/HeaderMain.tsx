@@ -139,7 +139,7 @@ const HeaderMain = () => {
               <img
                 loading="lazy"
                 className={styles.searchImage}
-                src={`${process.env.REACT_APP_DATA_URL}${option.attributes.images.data[0].attributes.url}`}
+                src={`${process.env.REACT_APP_BASE_URL}${option.attributes.images.data[0].attributes.url}`}
                 alt=""
               />
               {option.attributes.title}

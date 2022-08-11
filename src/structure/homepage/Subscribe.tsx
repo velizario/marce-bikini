@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { Box } from "@mui/system";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ContainerLarge from "../../utilityComponents/ContainerLarge";
 import styles from "./Subscribe.module.css";
 import { requestToAPI } from "../../model/helperFunctions";
@@ -18,6 +18,14 @@ let schema = yup.object().shape({
 
 const Subscribe = () => {
   const [subscribed, setSubscribed] = useState(false);
+  let timeout : NodeJS.Timeout;
+
+  // Clear timeout if user changes page before subscribeUser clears the timeout
+  useEffect(() => {
+    return() => {
+      clearTimeout(timeout)
+    }
+  },[]);
 
   const {
     register,
@@ -32,7 +40,7 @@ const Subscribe = () => {
     setSubscribed(true);
     (document.querySelector("#subscriberEmail")! as HTMLInputElement).readOnly =
       true;
-    setTimeout(() => {
+      timeout = setTimeout(() => {
       setSubscribed(false);
       (
         document.querySelector("#subscriberEmail")! as HTMLInputElement
