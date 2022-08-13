@@ -35,6 +35,7 @@ const SingleProductPage = () => {
   const [product, setProduct] = useState({} as Product);
   const [quantity, setQuantity] = useState(1);
   const [size, setSize] = useState<string>("");
+  const [selectedImage, setSelectedImage] = useState(0);
 
   const cartContext = useContext(CartContext);
   const userContext = useContext(UserContext);
@@ -84,17 +85,18 @@ const SingleProductPage = () => {
           <Box
             sx={{
               display: "flex",
-              width: "50%",
+              width: "70%",
               justifyContent: "center",
             }}
           >
             <div className={styles.sideImages}>
-              {product.attributes.images.data.slice(1).map((image) => (
+              {product.attributes.images.data.map((image, index) => (
                 <img
                   alt="bikini main"
                   className={styles.sideImage}
                   key={image.attributes.name}
                   src={`${process.env.REACT_APP_DATA_URL}${image.attributes.formats.small.url}`}
+                  onClick={() => {setSelectedImage(index)}}
                 />
               ))}
             </div>
@@ -102,8 +104,8 @@ const SingleProductPage = () => {
               <Zoom overlayBgColorEnd={"rgba(100, 100, 100, 0.95)"}>
                 <img
                   alt="bikini main"
-                  className={styles.image}
-                  src={`${process.env.REACT_APP_DATA_URL}${product.attributes.images.data[0].attributes.formats.large.url}`}
+                  className={styles.mainImage}
+                  src={`${process.env.REACT_APP_DATA_URL}${product.attributes.images.data[selectedImage].attributes.formats.large.url}`}
                 />
               </Zoom>
             </div>
