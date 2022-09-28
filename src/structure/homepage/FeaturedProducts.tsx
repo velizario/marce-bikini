@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import { Product, productModelImpl } from "../../model/productModel";
+import {  productModelApiImpl } from "../../model/productModelApi";
 import ContainerLarge from "../../utilityComponents/ContainerLarge";
+import { Product } from "../../Types";
 
 
 // Import Swiper React components
@@ -30,7 +31,7 @@ const FeaturedProducts = () => {
   const [mySwiper, setMySwiper] = useState<SwiperType>();
 
   const getFeaturedProducts = async () => {
-    const data = await productModelImpl.getFeaturedProducts();
+    const data = await productModelApiImpl.getFeaturedProducts();
     setFeaturedProducts(data);
   };
 

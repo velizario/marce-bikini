@@ -67,8 +67,9 @@ const Subscribe = () => {
           borderRadius: "0.5rem",
           display: "flex",
           flexDirection: "row",
-          background: "#fff6f4",
-          boxShadow: "0px 8px 34px 0px rgb(0 0 0 / 6%)",
+          // background: "#fff6f4",
+          // boxShadow: "0px 8px 34px 0px rgb(0 0 0 / 6%)",
+          boxShadow: "4px 4px 24px -5px rgb(0 0 0 / 10%)",
         }}
       >
         <Box

@@ -1,7 +1,7 @@
 import { Box } from "@mui/material";
 import { useEffect, useState } from "react";
-import { productModelImpl } from "../../model/productModel";
-import { Product } from "../../model/productModel";
+import { productModelApiImpl } from "../../model/productModelApi";
+import { Product } from "../../Types";
 import ContainerLarge from "../../utilityComponents/ContainerLarge";
 import HeaderFooter from "../headerfooter/HeaderFooter";
 import Productlist from "./ProductList";
@@ -70,7 +70,7 @@ const ShopPage = () => {
 
   // Fetch Products function
   const fetchProducts = async (selections: SelectionElements) => {
-    const { data, newVariations } = await productModelImpl.getProducts(
+    const { data, newVariations } = await productModelApiImpl.getProducts(
       selections
     );
     setProducts(data);

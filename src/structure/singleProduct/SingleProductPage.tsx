@@ -1,17 +1,17 @@
 import { Box, Button, Typography } from "@mui/material";
 import ContainerLarge from "../../utilityComponents/ContainerLarge";
 import { useParams } from "react-router-dom";
-import { productModelImpl } from "../../model/productModel";
+import { productModelApiImpl } from "../../model/productModelApi";
 import styles from "./SingleProductPage.module.css";
 import TabSingleProduct from "./TabSingleProduct";
 import React, { useContext, useEffect, useState } from "react";
-import { Product } from "../../model/productModel";
 import HeaderFooter from "../headerfooter/HeaderFooter";
 import Zoom from "react-medium-image-zoom";
 import "react-medium-image-zoom/dist/styles.css";
 import { addToCart, removeFromCart } from "../../model/cartModel";
 import { CartContext } from "../../globalstate/CartContextProvider";
 import { UserContext } from "../../globalstate/UserContextProvider";
+import { Product } from "../../Types";
 
 const price = (product: Product) => {
   // This is only test for first price. I need to account for variations
@@ -45,7 +45,7 @@ const SingleProductPage = () => {
 
   useEffect(() => {
     const getProduct = async () => {
-      const productData = await productModelImpl.getProductById(productId);
+      const productData = await productModelApiImpl.getProductById(productId);
       setProduct(productData);
     };
 
@@ -101,7 +101,7 @@ const SingleProductPage = () => {
               ))}
             </div>
             <div className={styles.imageBox}>
-              <Zoom overlayBgColorEnd={"rgba(100, 100, 100, 0.95)"}>
+              <Zoom>
                 <img
                   alt="bikini main"
                   className={styles.mainImage}

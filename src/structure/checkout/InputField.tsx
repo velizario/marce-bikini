@@ -10,6 +10,7 @@ type InputFieldProps = {
   error: string | undefined;
   label: string;
   sx?: SxProps<Theme>;
+  children? : React.ReactNode;
 };
 
 const InputField: React.FC<InputFieldProps> = ({

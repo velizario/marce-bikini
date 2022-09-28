@@ -11,7 +11,7 @@ import { requestToAPI, getToken } from "./helperFunctions";
 
 export type DbUser = UserModel;
 
-export const createLoginUser = async <T>(data: T, loginType: string) => {
+export const createLoginUser = async (data: {}, loginType: string) => {
   const resData = await requestToAPI(
     `users/${loginType}`,
     "POST",

@@ -4,6 +4,7 @@ import styles from "./EmailForm.module.css";
 import stylesGeneric from "./CheckoutMain.module.css";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import InputField from "./InputField";
 
 
 import Box from "@mui/material/Box";
@@ -18,7 +19,6 @@ import {
   SelectChangeEvent,
   Typography,
 } from "@mui/material";
-import InputField from "./InputField";
 
 // import { createLoginUser } from "../../model/userModel";
 import { UserContext } from "../../globalstate/UserContextProvider";

@@ -10,27 +10,24 @@ export const getToken = () => {
 };
 
 export const requestToAPI = async (addrPath: string, method: string, body = {}) => {
-  const bearerString = getToken();
   const reqObject: RequestInit = {
     method: method,
     mode: "cors",
     cache: "no-cache",
     headers: {
       "Content-Type": "application/json",
+      "Authorization": getToken() || "",
     },
     credentials: "include",
   };
 
-
   // Add check for POST requests where body is not empty
-  console.log("Here is the object length ~~~~~~~~~~~~~", Object.keys(body).length);
   if (Object.keys(body).length > 0) reqObject.body = JSON.stringify(body);
 
-  if (bearerString)
-    reqObject.headers = { ...reqObject.headers, Authorization: bearerString };
+  // if (bearerString)
+  //   reqObject.headers = { ...reqObject.headers, Authorization: bearerString };
 
   const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/${addrPath}`, reqObject);
-  console.log(`${process.env.REACT_APP_SERVER_URL}/${addrPath}`)
   const data = await response.json();
   console.log("Returned data from API:", data);
   return data;

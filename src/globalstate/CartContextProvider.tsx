@@ -1,8 +1,9 @@
 import React, { useContext, useEffect, useState } from "react";
 import { CartUserModel, getCart } from "../model/cartModel";
 import { ApiResponse } from "../model/helperFunctions";
-import { Product, productModelImpl } from "../model/productModel";
+import { productModelApiImpl } from "../model/productModelApi";
 import { UserContext } from "./UserContextProvider";
+import { Product, Props } from "../Types"
 
 // define Cart type and context
 type CartContextItems = {
@@ -21,7 +22,7 @@ const cartDefaultContext: CartContextItems = {
 
 export const CartContext = React.createContext(cartDefaultContext);
 
-export const CartContextProvider: React.FC = ({ children }) => {
+export const CartContextProvider: React.FC<Props> = ({ children }) => {
   // Handle Cart context
 
   const userContext = useContext(UserContext);
@@ -30,7 +31,7 @@ export const CartContextProvider: React.FC = ({ children }) => {
     // This fetches all products one by one. Change it by introducing the product list into the cart.?
     const productItems = await Promise.all(
       cartItems.map((cartItem) =>
-        productModelImpl.getProductById(cartItem.productId.toString())
+        productModelApiImpl.getProductById(cartItem.productId.toString())
       )
     );
 

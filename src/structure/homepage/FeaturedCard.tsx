@@ -8,8 +8,8 @@ import {
   CardMedia,
   Typography,
 } from "@mui/material";
-import { Product } from "../../model/productModel";
 import styles from "./FeaturedCard.module.css";
+import { Product } from "../../Types";
 
 type ProductCardProps = {
   product: Product;

@@ -1,4 +1,4 @@
-// export type Colors = "Red" | "Green" | "Blue" | "Black";
+// export[] type Colors = "Red" | "Green" | "Blue" | "Black";
 // export type Sizes = "XS" | "S" | "M" | "L" | "XL";
 // export type Categories = "Category1" | "Category2" | "Category3" | "Category4";
 // there is big issue here - this is product selections and not variations!!!!!
@@ -7,22 +7,31 @@
 //   string
 // >;
 
-import { StrapiProduct, StrapiProductAttributes } from "./strapiProductModel";
+import { StrapiProduct} from "./strapiProductModel";
 import { SelectionElements, FilterElements } from "../structure/shop/ShopPage";
-import { StrapiRootObject } from "../model/strapiProductModel";
+import { StrapiRootObject } from "./strapiProductModel";
 import qs from "qs";
+import { Product } from "../Types";
+import { UserContext } from "../globalstate/UserContextProvider";
+import { useContext } from "react";
 
-export interface ProductModel extends StrapiProduct {}
 
-export class Product implements StrapiProduct {
-  constructor(public id: number, public attributes: StrapiProductAttributes) {}
-}
+// Do I need this?
+// export interface ProductModelApi extends StrapiProduct {}
+
+// Implement 'Product' via class
+// export class Product implements StrapiProduct {
+//   constructor(public id: number, public attributes: StrapiProductAttributes) {}
+// }
+
+// Implement 'Product' via type (in Types.ts)
+
 
 //TODO:
 //BUG:
 //NOTE:
 
-export interface ProductModelTemplate {
+export interface ProductModelApiTemplate {
   getProducts(
     selections: SelectionElements
   ): Promise<{ data: Product[]; newVariations: FilterElements }>;
@@ -97,10 +106,14 @@ const matchingVariations = function (
   return false;
 };
 
-export class ProductModel implements ProductModelTemplate {
+export class ProductModelApi implements ProductModelApiTemplate {
+
+  // userContext = useContext(UserContext);
+  
   // FETCH (from Strapi)
 
   private async fetchProducts(): Promise<Product[]> {
+    
     const res = await fetch(
       `${process.env.REACT_APP_DATA_URL}/api/products?populate=*`
     );
@@ -183,4 +196,4 @@ export class ProductModel implements ProductModelTemplate {
   }
 }
 
-export const productModelImpl = new ProductModel();
+export const productModelApiImpl = new ProductModelApi();

@@ -6,8 +6,9 @@ import { UserContext } from "../../globalstate/UserContextProvider";
 import ContainerLarge from "../../utilityComponents/ContainerLarge";
 import styles from "./HeaderMain.module.css";
 import Autocomplete from "@mui/material/Autocomplete";
-import { Product, productModelImpl } from "../../model/productModel";
+import { productModelApiImpl } from "../../model/productModelApi";
 import CustomLink from "../../utilityComponents/CustomLink";
+import { Product } from "../../Types";
 
 const HeaderMain = () => {
   const navigate = useNavigate();
@@ -39,7 +40,7 @@ const HeaderMain = () => {
       return;
     }
 
-    const returnData = await productModelImpl.getProductByName(value);
+    const returnData = await productModelApiImpl.getProductByName(value);
     setSearchResult(returnData);
   };
 
@@ -111,8 +112,8 @@ const HeaderMain = () => {
           freeSolo
           id="searchInput"
           options={searchResult}
-          getOptionLabel={(option: Product) =>
-            option ? option.attributes.title : ""
+          getOptionLabel={(option: Product | string) =>
+            (typeof option === "object") ? option.attributes.title : ""
           }
           sx={{ width: "30%" }}
           // value={searchValue}

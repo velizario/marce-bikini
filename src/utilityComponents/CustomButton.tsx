@@ -14,6 +14,7 @@ type CustomButtonProps = {
   color?: "primary" | "secondary";
   endIcon? : JSX.Element;
   type? : "button" | "submit" | "reset";
+  children? : React.ReactNode;
 };
 
 const CustomButton: React.FC<CustomButtonProps> = ({

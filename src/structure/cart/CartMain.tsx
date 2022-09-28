@@ -27,7 +27,7 @@ export type CartMainProps = {
 };
 
 //Component
-const CartMain: React.FC<CartMainProps> = ({ sx }) => {
+const CartMain: React.FC<CartMainProps> = ({ sx }: CartMainProps) => {
   const cartContext = useContext(CartContext);
   const userContext = useContext(UserContext);
   const navigate = useNavigate();

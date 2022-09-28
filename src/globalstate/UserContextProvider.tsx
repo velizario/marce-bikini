@@ -1,5 +1,6 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { validateUser } from "../model/userModel";
+import { Props } from "../Types";
 
 export interface UserModel {
   firstName: string;
@@ -30,7 +31,7 @@ const userDefaultContext: UserContext = {
 
 export const UserContext = React.createContext(userDefaultContext);
 
-export const UserContextProvider: React.FC = ({ children }) => {
+export const UserContextProvider: React.FC<Props> = ({ children }) => {
   // Handle User context
   const setIsLoggedIn = useMemo(
     () => (user: UserModel | null | false) => {

@@ -1,6 +1,6 @@
 import { Grid } from "@mui/material";
 import ProductCard from "./ProductCard";
-import { Product } from "../../model/productModel";
+import { Product } from "../../Types";
 
 type ProductListProps = {
   products: Product[];
@@ -9,7 +9,7 @@ type ProductListProps = {
 const Productlist: React.FC<ProductListProps> = ({ products }) => {
   // Create Product
   // useEffect(() => {
-  //   productModelImpl.createProduct(
+  //   productModelApiImpl.createProduct(
   //     new Product(
   //       "bikini1",
   //       23.5,

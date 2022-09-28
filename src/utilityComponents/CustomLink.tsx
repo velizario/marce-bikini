@@ -12,6 +12,7 @@ type CustomLink = {
   style? : string;
   onClick? : () => void;
   type? : string;
+  children? : React.ReactNode;
 
 };
 

@@ -133,3 +133,8 @@
   box-shadow: none;
   cursor: pointer;
 }
+
+div[data-rmiz-modal-overlay="visible"] {
+background-color: rgba(100, 100, 100, 0.95);
+}
+
