@@ -16,15 +16,14 @@ import CartPage from "./structure/cart/CartPage";
 import CreateAccount from "./structure/account/CreateAccount";
 // import { ThemeProvider } from "@emotion/react";
 import { ThemeProvider } from "@mui/material/styles";
-import SignIn from "./structure/account/SignIn";
 import AccountPage from "./structure/account/AccountPage";
 import { UserContextProvider } from "./globalstate/UserContextProvider";
 import { CartContextProvider } from "./globalstate/CartContextProvider";
 import CheckoutPage from "./structure/checkout/CheckoutPage";
 
+
 function App() {
   return (
-
     <UserContextProvider>
       <CartContextProvider>
         <StyledEngineProvider injectFirst>

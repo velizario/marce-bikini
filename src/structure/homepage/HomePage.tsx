@@ -5,7 +5,9 @@ import Benefits from "./Benefits";
 import FeaturedProducts from "./FeaturedProducts";
 import HeroCarousel from "./HeroCarousel";
 import Subscribe from "./Subscribe";
+
 const HomePage = () => {
+  
   return (
     <HeaderFooter>
       <HeroCarousel />

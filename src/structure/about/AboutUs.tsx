@@ -9,6 +9,7 @@ const aboutUsImg = "/images/AboutUs.jpg"
 
 const AboutUs = () => {
 
+
   return (
     <HeaderFooter>
       <article className={styles.article}>
