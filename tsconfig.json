@@ -19,5 +19,5 @@
     "sourceMap": true,
     "noImplicitReturns": true,
   },
-  "include": ["src"]
+  "include": ["src", "src/globalstate/CartContextProvider new/.tsx"]
 }
