@@ -2,18 +2,18 @@ import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import styles from "./CreateAccount.module.css";
 import HeaderFooter from "../headerfooter/HeaderFooter";
-import { yupResolver } from "@hookform/resolvers/yup";
+import { zodResolver } from "@hookform/resolvers/zod"
 import * as yup from "yup";
 import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
 import SendIcon from "@mui/icons-material/Send";
 import Box from "@mui/material/Box";
-import { Link as ButtonLink, useNavigate } from "react-router-dom";
 import { createLoginUser } from "../../model/userModel";
 import { UserContext } from "../../globalstate/UserContextProvider";
 import { InputLabel, Typography } from "@mui/material";
 import CustomButton from "../../utilityComponents/CustomButton";
 import CustomLink from "../../utilityComponents/CustomLink";
+import { z } from "zod";
+import { useNavigate } from "react-router-dom";
 
 export type RegistrationForm = {
   firstName: string;
@@ -23,31 +23,22 @@ export type RegistrationForm = {
   passwordConfirm: string;
 };
 
-let schema = yup.object().shape({
-  firstName: yup
-    .string()
-    .required("'First Name' is a required field")
-
-    .min(2, "Minimum allowed characters: 2")
-    .max(40, "Maximum allowed characters is 40"),
-
-  lastName: yup
-    .string()
-    .max(40, `Maximum allowed characters is 40`)
-    .required("'Last Name' is a required field"),
-
-  email: yup
-    .string()
-    .email("Please enter valid email")
-    .required("'E-mail' is a required field"),
-
-  password: yup
-    .string()
-    .min(8, "Password should be at least 8 characters long")
-    .required("Password is a required field"),
-
-  passwordConfirm: yup.string().oneOf([yup.ref("password"), null]),
-});
+let validationSchema = z.object({
+  firstName: z
+    .string({ required_error: "Required field" })
+    .min(2, { message: "Minimum allowed characters are 2" })
+    .max(40, "Maximum allowed characters are 40"),
+  lastName: z
+    .string({ required_error: "Required field" })
+    .max(40, "Maximum allowed characters are 40"),
+  email: z
+    .string({ required_error: "Required field" })
+    .email({ message: "Invalid email address" }),
+  password: z
+    .string({ required_error: "Required field" })
+    .min(8, "Password should be at least 8 characters long"),
+  passwordConfirm: z.string({ required_error: "Required field" }),
+}).refine((data) => data.password === data.passwordConfirm, {message: "Passwords don't match"});
 
 const CreateAccount: React.FC = () => {
   const {
@@ -55,7 +46,7 @@ const CreateAccount: React.FC = () => {
     handleSubmit,
     formState: { errors },
   } = useForm<RegistrationForm>({
-    resolver: yupResolver(schema),
+    resolver: zodResolver(validationSchema),
   });
 
   const context = useContext(UserContext);
@@ -81,8 +72,9 @@ const CreateAccount: React.FC = () => {
           action=""
           onSubmit={handleSubmit(submitFormHandler)}
         >
-
-          <InputLabel htmlFor="firstName" className={styles.inputLabel}>First Name:</InputLabel>
+          <InputLabel htmlFor="firstName" className={styles.inputLabel}>
+            First Name:
+          </InputLabel>
           <TextField
             id="firstName"
             variant="outlined"
@@ -94,7 +86,9 @@ const CreateAccount: React.FC = () => {
             {errors.firstName?.message}
           </Typography>
 
-          <InputLabel htmlFor="lastName" className={styles.inputLabel}>Last Name:</InputLabel>
+          <InputLabel htmlFor="lastName" className={styles.inputLabel}>
+            Last Name:
+          </InputLabel>
           <TextField
             id="lastName"
             variant="outlined"
@@ -106,7 +100,9 @@ const CreateAccount: React.FC = () => {
             {errors.lastName?.message}
           </Typography>
 
-          <InputLabel htmlFor="email" className={styles.inputLabel}>E-mail address:</InputLabel>
+          <InputLabel htmlFor="email" className={styles.inputLabel}>
+            E-mail address:
+          </InputLabel>
           <TextField
             id="email"
             variant="outlined"
@@ -118,7 +114,9 @@ const CreateAccount: React.FC = () => {
             {errors.email?.message}
           </Typography>
 
-          <InputLabel htmlFor="password" className={styles.inputLabel}>Password:</InputLabel>
+          <InputLabel htmlFor="password" className={styles.inputLabel}>
+            Password:
+          </InputLabel>
           <TextField
             id="password"
             variant="outlined"
@@ -131,7 +129,9 @@ const CreateAccount: React.FC = () => {
             {errors.password?.message}
           </Typography>
 
-          <InputLabel htmlFor="passwordConfirm" className={styles.inputLabel}>Confirm password:</InputLabel>
+          <InputLabel htmlFor="passwordConfirm" className={styles.inputLabel}>
+            Confirm password:
+          </InputLabel>
           <TextField
             id="passwordConfirm"
             variant="outlined"
@@ -145,17 +145,11 @@ const CreateAccount: React.FC = () => {
           </Typography>
 
           <Box className={styles.actionButtons}>
-            <CustomButton
-              type="submit"
-              endIcon={<SendIcon />}
-            >
+            <CustomButton type="submit" endIcon={<SendIcon />}>
               Create My Account
             </CustomButton>
 
-            <CustomLink
-              to="/account"
-              type="submit"
-            >
+            <CustomLink to="/account" type="submit">
               Already registered?
             </CustomLink>
           </Box>
